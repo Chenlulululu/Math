@@ -1,0 +1,792 @@
+%pdf latex
+\documentclass[UTF8,a4paper,11pt]{article}
+\usepackage{CTEX}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{bm}
+\usepackage{extarrows}
+\usepackage{enumerate}
+\usepackage{fancyhdr}
+\usepackage{fancybox}
+\usepackage{geometry}
+\geometry{textwidth=16.5cm,textheight=25cm} 
+\begin{document}
+\renewcommand{\headrulewidth}{0pt}
+\pagestyle{fancy}
+\fancyfoot[C]{第~\thepage~页, 共~2~页}
+\newcommand{\sh}{\mathrm{sh}}
+\renewcommand{\Im}{\mathrm{Im}}
+\newcommand{\rank}{\mathrm{rank}}
+\renewcommand{\i}{\mathrm{i}}
+\newcommand{\e}{\mathrm{e}}
+\newcommand{\ud}[1]{\mathrm{d}#1}
+\newcommand{\sgn}{\mathrm{sgn}}
+\renewcommand{\emptyset}{\varnothing}
+%\setlength{\fboxrule}{3pt}
+\setlength{\fboxsep}{8pt}
+\fancypage{\fbox}{}
+\begin{center}
+	\mbox{}\\
+	\vspace{\stretch{1}}
+	{\Huge\bf 浙江大学攻读硕士学位\\
+		研究生入学考试业务课试题\\}
+	\vspace{\stretch{1}}
+	{\huge [819] 数学分析}\\
+	\vspace{\stretch{1}}
+	浙江大学二〇〇八年攻读硕士学位研究生入学考试试题 [819] 数学分析\\
+	浙江大学二〇〇九年攻读硕士学位研究生入学考试试题 [819] 数学分析\\
+	浙江大学二〇一〇年攻读硕士学位研究生入学考试试题 [819] 数学分析\\
+	浙江大学二〇一一年攻读硕士学位研究生入学考试试题 [819] 数学分析\\
+	浙江大学二〇一二年攻读硕士学位研究生入学考试试题 [819] 数学分析\\
+	浙江大学二〇一三年攻读硕士学位研究生入学考试试题 [819] 数学分析\\
+	浙江大学二〇一四年攻读硕士学位研究生入学考试试题 [819] 数学分析\\
+	浙江大学二〇一五年攻读硕士学位研究生入学考试试题 [819] 数学分析\\
+	浙江大学二〇一六年攻读硕士学位研究生入学考试试题 [819] 数学分析\\
+	浙江大学二〇一七年攻读硕士学位研究生入学考试试题 [819] 数学分析\\
+	\vspace{\stretch{1}}
+	\mbox{}
+\end{center}
+\newpage
+\begin{center}
+	\mbox{}\\
+	\vspace{\stretch{1}}
+	{\Huge\bf 浙江大学攻读硕士学位\\
+		研究生入学考试业务课试题\\}
+	\vspace{\stretch{1}}
+	{\huge [601] 高等代数}\\
+	\vspace{\stretch{1}}
+	浙江大学二〇一一年攻读硕士学位研究生入学考试试题 [601] 高等代数\\
+	浙江大学二〇一二年攻读硕士学位研究生入学考试试题 [601] 高等代数\\
+	浙江大学二〇一四年攻读硕士学位研究生入学考试试题 [601] 高等代数\\
+	浙江大学二〇一五年攻读硕士学位研究生入学考试试题 [601] 高等代数\\
+	浙江大学二〇一六年攻读硕士学位研究生入学考试试题 [601] 高等代数\\
+	浙江大学二〇一七年攻读硕士学位研究生入学考试试题 [601] 高等代数\\
+	\vspace{4em}
+	\vspace{\stretch{1}}
+	\mbox{}
+\end{center}
+\newpage
+\setcounter{page}{1}
+
+\begin{center}
+	{\Huge 浙~~江~~大~~学}\\
+	\setlength{\parskip}{5pt}
+	{\Large 二〇〇八年攻读硕士学位研究生入学考试试题}\\
+	\setlength{\parskip}{10 pt}
+	{\Large 考试科目\underline{\makebox[34mm][c]{数学分析}} 编号\underline{\makebox[34mm][c]{819}}}
+\end{center}
+
+\center{\bf 注意：答案必须写在答题纸上，写在试卷或草稿纸上均无效。}
+\begin{enumerate}
+	\item (20分)
+	      \begin{enumerate}
+		      \item 证明: 当~$t\neq 0$~时,
+		            \[ \lim_{n\to\infty} \cos\dfrac{t}{2}\cos\dfrac{t}{2^2}\cdots\cos\dfrac{t}{2^n}=\dfrac{\sin{t}}{t}.\]
+		      \item 利用上式证明等式:
+		            \[ \dfrac{2}{\pi}=\sqrt{\dfrac{1}{2}}\sqrt{\dfrac{1}{2}+\dfrac{1}{2}\sqrt{\dfrac{1}{2}}}\sqrt{\dfrac{1}{2}+\dfrac{1}{2}\sqrt{\dfrac{1}{2}+\dfrac{1}{2}\sqrt{\dfrac{1}{2}}}}\cdots.\]
+	      \end{enumerate}
+	      \vspace{2em}
+	\item (15分) 设~$f(x)$~为实轴上的连续函数, 在原点处可导, 且~$f(0)=0$, $f\rq{}(0)=5$. 求~$\displaystyle\lim\limits_{x\to 0}\dfrac{1}{x}\int_0^1f(xt)\ud{t}$.
+	      \vspace{2em}
+	\item (15分) 讨论下面级数的收敛性:
+	      \[\sum_{n=1}^{\infty}\left(1+\dfrac{1}{2}+\dfrac{1}{3}+\cdots+\dfrac{1}{n}\right)\dfrac{\sin{nx}}{n}.\]
+	      \vspace{2em}
+	\item (15分) 证明函数~$f(x)$~在区间~$I$~上一致连续的充分必要条件是: 对~$\forall\varepsilon>0$, 存在正数~$M$, 使得当~$x,y\in I,x\neq y$~且~$\left|\dfrac{f(x)-f(y)}{x-y}\right|>M$~时, 成立~$|f(x)-f(y)|<\varepsilon$.
+	      \vspace{2em}
+	\item (20分) 证明: $f(x)=\limits_{n=1}^{\infty}\dfrac{1}{n^x}$~在区间~$(1,+\infty)$~内连续, 但不一致连续.
+	      \vspace{2em}
+	\item (15分) 计算第二类曲面积分~$\displaystyle\iint\limits_S x^3\ud{y}\ud{z}$. 其中~$S$~是椭球面~$\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}+\dfrac{z^2}{c^2}=1 (a,b,c>0)$.
+	      \vspace{2em}
+	\item (15分) 设~$f(x,y)=\begin{cases}(x^2+y^2)^{\frac{1+\alpha}{2}}, & x,y\in\mathbb{Q},\\0,& \text{elsewhere,}\end{cases}$, 其中~$\mathbb{Q}$~是有理数域, $\alpha>0$. 试问:
+	      \begin{enumerate}
+		      \item $f(x,y)$~在原点处是否连续? 是否可微? 并请证明你的结论.
+		      \item 讨论~$f(x,y)$~在其他点处的连续可微情况, 并说明理由.
+	      \end{enumerate}
+	      \vspace{2em}
+	\item (15分) 设~$f$~是连续啊啊函数, 证明:
+	      \[\iiint\limits_{x^2+y^2+z^2\leqslant 1} f(ax+by+cz)\ud{z}\ud{y}\ud{z}=\pi\int_{-1}^{1}(1-u^2)f(ku)\ud{u},\]
+	      其中~$k=\sqrt{a^2+b^2+c^2}$.
+	      \vspace{2em}
+	\item (15分) 设~$f(x),g(x)$~均为数轴上的连续函数,　且满足~$g(x+1)=g(x)$. 证明:
+	      \[\lim_{n\to\infty}\int_0^1 f(x)g(nx)\ud{x}=(\int_0^1 f(x)\ud{x})(\int_0^1 g(x)\ud{x}).\]
+	      \vspace{2em}
+\end{enumerate}
+
+\newpage
+\setcounter{page}{1}
+\begin{center}
+	{\Huge 浙~~江~~大~~学}\\
+	\setlength{\parskip}{5pt}
+	{\Large 二〇〇九年攻读硕士学位研究生入学考试试题}\\
+	\setlength{\parskip}{10 pt}
+	{\Large 考试科目\underline{\makebox[34mm][c]{数学分析}} 编号\underline{\makebox[34mm][c]{819}}}
+\end{center}
+
+\center{\bf 注意：答案必须写在答题纸上，写在试卷或草稿纸上均无效。}
+\begin{enumerate}
+	\item 计算题(每小题10分，共40分)
+	      \begin{enumerate}
+		      \item $\displaystyle\int\dfrac{1}{a^2\cos^2x+b^2\sin^2x}\ud{x}(ab\neq 0)$,\\
+		            \vspace{2em}
+		      \item $\displaystyle\lim\limits_{x\to 0}\dfrac{\displaystyle\int_0^x \e^{\frac{t^2}{2}}\cos{t}\ud{t}-x}{(e^x-1)^2(1-cos^2x)\arctan x}$,\\
+		            \vspace{2em}
+		      \item $\displaystyle\int_0^{+\infty}\dfrac{\ln{x}}{1+x^2}\ud{x}$,\\
+		            \vspace{2em}
+		      \item $\displaystyle\iint\limits_D(x+y)\sgn(x-y)\ud{x}\ud{y}$, 其中~$D=[0,1]\times[0,1]$.
+		            \vspace{2em}
+	      \end{enumerate}
+	\item (15分) 如果~$f(x)$~在~$x_0$~的某领域内可导, 且~$\lim\limits_{x\to x_0}\dfrac{f\rq{}(x)}{x-x_0}=\dfrac{1}{2}$. 证明: $f(x)$~在点~$x_0$~处取极小值.
+	      \vspace{2em}
+	\item (15分) 设~$f(x,y,z)$~表示从原点~$O(0,0,0)$~到椭球面~$\Sigma: \dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}+\dfrac{z^2}{c^2}=1(a>0,b>0,c>0)$~上点~$p(x,y,z)$~处的切平面的距离. 求第一类曲面积分~$\displaystyle\iint\limits_{\Sigma}\dfrac{\ud{s}}{f(x,y,z)}$.
+	      \vspace{2em}
+	\item (20分) 设~$f(x)$~在~$[a,b]$~上连续, 且$\min\limits_{x\in[a,b]}f(x)=1$. 证明: $\displaystyle\lim\limits_{n\to\infty}\left(\int_a^b\dfrac{\ud{x}}{(f(x))^n}\right)\frac{1}{n}=1$.
+	      \vspace{2em}
+	\item (20分) 设对任意~$a>0$, $f(x)$~在~$[0,a]$~上黎曼可积, 且~$\lim\limits_{x\to\infty}f(x)=C$. 证明:
+	      \[\lim_{t\to0^{+}}t\int_0^{+\infty}e^{-tx}f(x)\ud{x}=C.\]
+	      \vspace{2em}
+	\item (20分) 证明~$f(x)=\dfrac{|\sin{x}|}{x}$~在~$(0,1)$~上与~$(-1,0)$~上均一致连续, 但在~$(-1,0)\cup(0,1)$~中不一致连续. (注: 称~$y=f(x)$~在集合~$D(D\subset\mathbb{R})$~上一致连续是指: 对~$\forall\varepsilon>0$, 存在~$\delta>0$, 使得对~$\forall x\rq{},x\rq{}\rq{}\in D$, 当~$|x\rq{}-x\rq{}\rq{}|<\delta$~时, 有~$|f(x\rq{})-f(x\rq{}\rq{})|<\varepsilon$.)
+	      \vspace{2em}
+	\item (20分) 设~$f(x)$~在~$[a,b]$~上可导, 导函数~$f\rq{}(x)$~在~$[a,b]$~上单调下降, 且~$f\rq{}(b)>0$. 证明: $\displaystyle|\int_a^b \cos{f(x)}\ud{x}|\leqslant\dfrac{2}{f\rq{}(b)}$.
+	      \vspace{2em}
+\end{enumerate}
+
+\newpage
+\setcounter{page}{1}
+\begin{center}
+	{\Huge 浙~~江~~大~~学}\\
+	\setlength{\parskip}{5pt}
+	{\Large 二〇一〇年攻读硕士学位研究生入学考试试题}\\
+	\setlength{\parskip}{10 pt}
+	{\Large 考试科目\underline{\makebox[34mm][c]{数学分析}} 编号\underline{\makebox[34mm][c]{819}}}
+\end{center}
+
+\center{\bf 注意：答案必须写在答题纸上，写在试卷或草稿纸上均无效。}
+\begin{enumerate}
+	\item 计算下列极限和积分(60分，每小题10分)
+	      \begin{enumerate}
+		      \item $\lim\limits_{n\to\infty}\sum\limits_{k=n^2}^{(n+1)^2}\dfrac{1}{\sqrt{k}}$;\\
+		            \vspace{2em}
+		      \item $\displaystyle\iint_{[0,\pi]\times[0,1]} y\sin(xy)\ud{x}\ud{y}$;\\
+		            \vspace{2em}
+		      \item $\lim\limits_{x\to0}\dfrac{e^x\sin{x}-x(1-x)}{\sin^3{x}}$;\\
+		            \vspace{2em}
+		      \item 计算~$\displaystyle \iint_{\Sigma} z\ud{x}\ud{y}$, 其中~$\Sigma$~是~三角形$\{(x,y,z): x,y,z\geqslant 0, x+y+z=1\}$, 其法方向与~$(1,1,1)$~相同.
+		            \vspace{2em}
+		      \item $\displaystyle\int_0^{2\pi} \sqrt{1+\sin{x}}\,\ud{x}$.
+		            \vspace{2em}
+		      \item $\displaystyle\int_0^1 \dfrac{\ln(1+x)}{1+x^2}\ud{x}$.
+		            \vspace{2em}
+	      \end{enumerate}
+	\item (15分) 设$a_n=\sin{a_{n-1}}, n\geqslant2$, 且~$a_1>0$, 计算~$\lim\limits_{n\to\infty}\sqrt{\dfrac{n}{3}}a_n$.
+	      \vspace{2em}
+	\item (15分) 设函数~$f(x)$~在~$(-\infty,+\infty)$~上连续, $n$~为奇数. 证明: 若~$\lim\limits_{x\to+\infty}\dfrac{f(x)}{x^n}=\lim\limits_{x\to-\infty}\dfrac{f(x)}{x^n}=1$, 则方程~$f(x)+x^n=0$~有实根.
+	      \vspace{2em}
+	\item (20分) 证明: $\displaystyle\int_0^{+\infty}\dfrac{\sin{xy}}{y}\ud{y}$~在~$[\delta,+\infty)$~上一致收敛(其中~$\delta>0$).
+	      \vspace{2em}
+	\item (20分) 设~$f(x)$~连续, 证明~Poisson~公式:
+	      \[\int\limits_{x^2+y^2+z^2=1} f(ax+by+cz)\ud{S}=2\pi\int_{-1}^1f(\sqrt{a^2+b^2+c^2}t)\ud{t}.\]
+	      \vspace{2em}
+	\item (20分) 设~$\{a_n\}_{n\geqslant 1},\{b_n\}_{n\geqslant 1}$~为实数数列, 满足~$(1) \lim\limits_{n\to\infty}|b_n|=\infty$; $(2)\left\{ \dfrac{1}{|b_n|}\sum\limits_{i=1}^{n-1}|b_{i+1}-b_i|\right\}_{n\geqslant 1}$~有界. 证明: 若~$\lim\limits_{n\to\infty}\dfrac{a_{n+1}-a_n}{b_{n+1}-b_n}$存在, 则~$\lim\limits_{n\to\infty}\dfrac{a_n}{b_n}$~也存在.
+	      \vspace{2em}
+\end{enumerate}
+
+\newpage
+\setcounter{page}{1}
+\begin{center}
+	{\Huge 浙~~江~~大~~学}\\
+	\setlength{\parskip}{5pt}
+	{\Large 二〇一一年攻读硕士学位研究生入学考试试题}\\
+	\setlength{\parskip}{10 pt}
+	{\Large 考试科目\underline{\makebox[34mm][c]{数学分析}} 编号\underline{\makebox[34mm][c]{819}}}
+\end{center}
+
+\center{\bf 注意：答案必须写在答题纸上，写在试卷或草稿纸上均无效。}
+\begin{enumerate}
+	\item 计算题(60分，每小题10分)
+	      \begin{enumerate}
+		      \item $\lim\limits_{x\to 0}\dfrac{\tan{x}-\sin{x}}{\sin{x^3}}$.\\
+		            \vspace{2em}
+		      \item $\displaystyle\iint_{[0,2]\times[0,2]}[x+y]\ud{x}\ud{y}$, 其中~$[\alpha]$~表示~$\alpha$~的整数部分.\\
+		            \vspace{2em}
+		      \item $\displaystyle F(x)=\int_{x}^{x^2}\dfrac{sin{xy}}{y}\ud{y}, x>0$, 求~$F\rq{}(x)$.\\
+		            \vspace{2em}
+		      \item 计算~$\displaystyle \iint_{\Omega} y(x-z)\ud{y}\ud{z}+x^2\ud{z}\ud{x}+(y^2+xz)\ud{x}\ud{y}$, 其中~$\Sigma$~是~$x=0,y=0,z=0,x=a,y=a,z=a$~这六个平面所围立方体表面, 正法方向为立方体表面外侧.
+		            \vspace{2em}
+		      \item $\displaystyle\int_0^1 \dfrac{\ln{x}}{1-x}\ud{x}$.
+		            \vspace{2em}
+		      \item $\displaystyle\int_0^1 \dfrac{\arctan{x}}{x\sqrt{1-x^2}}\ud{x}$.
+		            \vspace{2em}
+	      \end{enumerate}
+	\item (15分) 设函数~$f(x,y)=\begin{cases}\dfrac{xy}{\sqrt{x^2+y^2}},&(x,y)\neq(0,0),\\0,& (x,y)=(0,0)\end{cases}$, 试证: $f(x,y)$~在平面~$\mathbb{R}^2$~上连续, 偏导数~$f\rq{}_{x}(x,y),f\rq{}_{y}(x,y)$~有界, $f(x,y)$~在原点~$(0,0)$~处不可微.
+	      \vspace{2em}
+	\item (15分) 设~$f(x)$~是~$[a,a+1]$~($a$~为常数)~上的连续正值函数, 记~$M=\max\limits_{x\in[a,a+1]}f(x)$. 证明: $\displaystyle A_n=\sqrt[n]{\int_a^{a+1}[f(x)]^n\ud{x}}$~关于~$n$~单调递增, 且~$\displaystyle\lim\limits_{n\to\infty}\sqrt[n]{\int_{a}^{a+1}[f(x)]^n\ud{x}}=M$.
+	      \vspace{2em}
+	\item (15分) 设~$\sh{x}\cdot\sh{y}=1$, 其中~$\sh{x}=\dfrac{\e^{x}-\e^{-x}}{2}$. 计算~$\displaystyle\int_0^{+\infty} y(x)\ud{x}$.
+	      \vspace{2em}
+	\item (15分) 讨论级数~$\sum_{n=1}^{\infty}\dfrac{(-1)^n}{(1+x^2)^n}$~在~$(-\infty,+\infty)$~上的收敛性和一致收敛性.
+	      \vspace{2em}
+	\item (15分) 设~$a_1,b_1$~为任意选定的实数, $a_n$~和~$b_n$~定义为:
+	      \begin{equation*}
+		      \begin{cases} a_n=\int_0^1\max\{b_{n-1},x\}\ud{x}, &n=2,3,\cdots\\ b_n=\int_0^1\min\{a_{n-1},x\}\ud{x}, &n=2,3,\cdots\end{cases}
+	      \end{equation*}
+	      试证: $\lim\limits_{n\to\infty} a_n=2-\sqrt{2}$, $\lim\limits_{n\to\infty} b_n=\sqrt{2}-1$.
+	      \vspace{2em}
+	\item (15分) 证明: 设~$a_1\in(0,1)$, 且~$a_{n+1}=a_n(1-a_n), n\geqslant 1$, 证明: $\lim\limits_{n\to\infty} n\cdot a_n=1$.
+	      \vspace{2em}
+\end{enumerate}
+
+
+\newpage
+\setcounter{page}{1}
+
+\begin{center}
+	{\Huge 浙~~江~~大~~学}\\
+	\setlength{\parskip}{5pt}
+	{\Large 二〇一二年攻读硕士学位研究生入学考试试题}\\
+	\setlength{\parskip}{10 pt}
+	{\Large 考试科目\underline{\makebox[34mm][c]{数学分析}} 编号\underline{\makebox[34mm][c]{819}}}
+\end{center}
+
+\center{\bf 注意：答案必须写在答题纸上，写在试卷或草稿纸上均无效。}
+\begin{enumerate}
+	\item (15分) 设~$n$~为正整数, $\displaystyle f_n(x)=\int_{-1}^{1}(1-t^2)^n\cos{xt}\ud{t}, x\in\mathbb{R}$. 证明: $x^2f_n(x)=2n(2n-1)f_{n-1}(x)-4n(n-1)f_{n-2}(x), n\geqslant 2$.
+	      \vspace{2em}
+	\item (15分) 设~$f$~在~$[0,1]$~上连续, 且对任意
+	      \[x,y\in[0,1],f\left(\dfrac{x+y}{2}\right)\leqslant\dfrac{f(x)+f(y)}{2}.\]
+	      求证: $\displaystyle\int_0^1f(x)\ud{x}\geqslant f(1/2)$.
+	      \vspace{2em}
+	\item (20分) 设实数~$\lambda$, $|\lambda|<1$, 求~$f(\lambda)=\int_0^{\pi}\ln(1+\lambda\cos{x})\ud{x}$.
+	      \vspace{2em}
+	\item (20分) 设函数~$f:\mathbb{R}^{+}\to\mathbb{R}$, $a_i(i\geqslant0)$~为实数, 且对充分大的~$x$~有~$f(x)=a_0+\dfrac{a_1}{x}+\cdots+\dfrac{a_n}{x^n}+\cdots.$ 证明: $\sum\limits_{n=1}^{\infty}f(n)$~收敛的充要条件是~$a_0=a_1=0$.
+	      \vspace{2em}
+	\item (20分) 如果对任意~$\varepsilon>0$, 存在~$N$, 当~$n,m>N$~时, 有~$|x_m-x_n|<\varepsilon$, 则称数列~$\{x_n\}$~为~Cauchy~数列. 证明: 函数~$f$~在有界区间~$A$~上一致收敛的充要条件是对~$A$~中任意~Cauchy~数列~$\{x_n\}$, 数列~$\{f(x_n)\}$~为~Cauchy~数列.
+	      \vspace{2em}
+	\item (30分) 设~$f(x)$~在~$x=0$~的领域内有连续的一阶导数, 且
+	      \[f\rq{}(0)=0,f\rq{}\rq{}(0)=1.\]
+	      求~$\lim\limits_{x\to 0}\dfrac{f(x)-f(\ln(1+x))}{x^3}$.
+	      \vspace{2em}
+	\item (30分) 设实数~$\lambda>-4$, 数列~$\{x_n\}$~满足~$x_1=\dfrac{\lambda}{2}, x_{n+1}=x_1+\dfrac{x_n^2}{2}, n\geqslant 1$. 试讨论数列~$\{x_n\}$~的收敛性.
+	      \vspace{2em}
+\end{enumerate}
+
+\newpage
+\mbox{}
+\newpage
+\setcounter{page}{1}
+
+\begin{center}
+	{\Huge 浙~~江~~大~~学}\\
+	\setlength{\parskip}{5pt}
+	{\Large 二〇一三年攻读硕士学位研究生入学考试试题}\\
+	\setlength{\parskip}{10 pt}
+	{\Large 考试科目\underline{\makebox[34mm][c]{数学分析}} 编号\underline{\makebox[34mm][c]{819}}}
+\end{center}
+
+\center{\bf 注意：答案必须写在答题纸上，写在试卷或草稿纸上均无效。}
+\begin{enumerate}
+	\item (40分，每小题10分)
+	      \begin{enumerate}
+		      \item $\lim\limits_{x\to 0}\dfrac{\sin{x}-\arctan{x}}{\tan{x}-\arcsin{x}}$.
+		            \vspace{2em}
+		      \item $\displaystyle\int_0^{\pi}\dfrac{\cos{4\theta}}{1+\cos^2\theta}\ud{\theta}$.
+		            \vspace{2em}
+		      \item 设~$D=\{(x,y)|x^2+y^2\leqslant\sqrt{3},x\geqslant 0,y\geqslant 0\}$, $[1+x^2+y^2]$~表示不超过~$1+x^2+y^2$~的最大整数, 计算二重积分~$\displaystyle\iint\limits_D xy[1+x^2+y^2]\ud{x}\ud{y}$.
+		            \vspace{2em}
+		      \item 设~$S_n=\dfrac{1}{\sqrt{n}}\left(1+\dfrac{1}{\sqrt{2}}+\cdots+\dfrac{1}{\sqrt{n}}\right)$. 求~$\lim\limits_{n\to\infty} S_n$.
+		            \vspace{2em}
+	      \end{enumerate}
+	\item (10分) 论证是否存在定义在~$\mathbb{R}$~上的连续函数使得~$f(f(x))=e^{-x}$.
+	      \vspace{2em}
+	\item (15分) 讨论函数项级数~$\sum\limits_{n=1}^{\infty} \dfrac{\sqrt{n+1}-\sqrt{n}}{n^x}$~的收敛性与一致收敛性.
+	      \vspace{2em}
+	\item 证明:
+	      \begin{enumerate}
+		      \item (5分) $\displaystyle\lim\limits_{n\to\infty}\int_0^{\frac{\pi}{2}}\sin^n{x}\ud{x}=0$.
+		      \item (10分) $\displaystyle\lim\limits_{n\to\infty}\int_0^{\frac{\pi}{2}}\sin{x^n}\ud{x}=0$.
+	      \end{enumerate}
+	      \vspace{2em}
+	\item
+	      \begin{enumerate}
+		      \item (5分) 构造一个在闭区间~$[-1,1]$~上处处可微的函数, 使得他的导函数在~$[-1,1]$~上无界.
+		      \item (15分) 设函数~$f(x)$~在~$(a,b)$~内可导, 证明存在~$(\alpha,\beta)\subset(a,b)$~使得~$f\rq{}(x)$~在~$(a,b)$~内有界.
+	      \end{enumerate}
+	      \vspace{2em}
+	\item (15分) 设二元函数~$f(x,y)$~的两个混合偏导数~$f_{xy}(x,y)$,$f_{yx}(x,y)$~在~$(0,0)$~附近存在, 且~$f_{xy}(x,y)$~在~$(0,0)$~处连续. 证明: $f_{xy}(0,0)=f_{yx}(0,0)$.
+	      \vspace{2em}
+	\item (20分) 已知对于实数~$n\geqslant 2$, 有公式~$\sum\limits_{p\leqslant n}\dfrac{\ln{p}}{p}=\ln{n}+O(1)$, 其中求和是对于所有不超过~$n$~的素数~$p$~求和. 求证:
+	      \[ \sum_{p\leqslant n}\dfrac{1}{p}=C+\ln\ln{n}+O(\dfrac{1}{\ln{n}}),\]
+	      其中求和也是对于所有不超过~$n$~的素数~$p$~求和, $C$~是某个与~$n$~无关的常数.
+	      \vspace{2em}
+\end{enumerate}
+
+\newpage
+\setcounter{page}{1}
+
+\begin{center}
+	{\Huge 浙~~江~~大~~学}\\
+	\setlength{\parskip}{5pt}
+	{\Large 二〇一四年攻读硕士学位研究生入学考试试题}\\
+	\setlength{\parskip}{10 pt}
+	{\Large 考试科目\underline{\makebox[34mm][c]{数学分析}} 编号\underline{\makebox[34mm][c]{819}}}
+\end{center}
+
+\center{\bf 注意：答案必须写在答题纸上，写在试卷或草稿纸上均无效。}
+\begin{enumerate}
+	\item (40分，每小题10分)
+	      \begin{enumerate}
+		      \item $\lim\limits_{x\to 1}\dfrac{\e^{\frac{x-1}{2}}-\sqrt{x}}{\ln^2(2x-1)}$.
+		            \vspace{2em}
+		      \item $\displaystyle\int\dfrac{t^2}{(1-t)^{2013}}\,\ud{t}$.
+		            \vspace{2em}
+		      \item $\displaystyle\iint\limits_{\mathbb{R}^2} e^{-(x^2+xy+y^2)}\,\ud{x}\ud{y}$.
+		            \vspace{2em}
+		      \item $\displaystyle\iint\limits_{S} x^3\,\ud{y}\ud{z}+y^3\,\ud{z}\ud{x}+z^3\,\ud{x}\ud{y}$, 其中~$S$~为~$x^2+y^2+z^2=1$~上半球面下侧.
+		            \vspace{2em}
+	      \end{enumerate}
+	\item (██分)
+	      \begin{enumerate}
+		      \item 用闭区间套定理证明有限覆盖定理;
+		      \item 用有限覆盖定理证明: 对~$[a,b]$~上连续函数~$f(x)$, $f(x)>0$, 则存在常数~$c$, 使得~$f(x)\geqslant c$.
+	      \end{enumerate}
+	      \vspace{2em}
+	\item (██分) $f(x,y)=\begin{cases}\dfrac{xy}{(x^2+y^2)^{\alpha}}, & (x,y)\neq(0,0)\\ 0, & (x,y)=(0,0)\end{cases}$, 求满足条件的~$\alpha$, 使得~$f$~在原点满足:
+	      \begin{enumerate}
+		      \item 连续;
+		      \item 可微;
+		      \item 方向导数存在.
+	      \end{enumerate}
+	      \vspace{2em}
+	\item (██分) 和函数~$\sum\limits_{n=1}^{\infty}\dfrac{\ln(1+n^2x^2)}{n^3}, x\in[0,1]$. 证明其对~$x$~一致收敛, 并分析其连续性, 可积性和可微性.
+	      \vspace{2em}
+	\item (██分) $f(x)$~可微, 则~$f\rq{}(x)$~可积的充要条件是: 存在可积函数~$g(x)$, 使得
+	      \[ f(x)=f(a)+\int_a^xg(t)\,d(t).\]
+	      \vspace{2em}
+	\item (██分) 空间体积为~$V$~的~$\Omega$, $X_0\in\Omega$, $0<a<3$, 证明:
+	      \[ \int\limits_{\Omega}|X-X_0|^{a-3}\,\ud{X}\leqslant CV^{\frac{a}{3}},\]
+	      其中, $C$~与~$a$~有关.
+	      \vspace{2em}
+	\item (██分) $f(x)$~在~$[0,1]$~上单增, 证明:
+	      \[\lim_{y\to+\infty}\int_0^1f(x)\dfrac{\sin{xy}}{x}\ud{x}=\dfrac{\pi}{2}f(0^{+}).\]
+	      \vspace{2em}
+	\item (██分) $f(x)$~在~$[a,+\infty)$~上一致连续, 且对任意~$\xi>0$, 序列~$\{f(n\xi)\}$~极限存在, 求证~$\lim\limits_{x\to+\infty}f(x)$~存在.
+	      \vspace{2em}
+\end{enumerate}
+
+\newpage
+\setcounter{page}{1}
+
+\begin{center}
+	{\Huge 浙~~江~~大~~学}\\
+	\setlength{\parskip}{5pt}
+	{\Large 二〇一五年攻读硕士学位研究生入学考试试题}\\
+	\setlength{\parskip}{10 pt}
+	{\Large 考试科目\underline{\makebox[34mm][c]{数学分析}} 编号\underline{\makebox[34mm][c]{819}}}
+\end{center}
+
+\center{\bf 注意：答案必须写在答题纸上，写在试卷或草稿纸上均无效。}
+\begin{enumerate}
+	\item (40分，每小题10分)
+	      \begin{enumerate}
+		      \item $\lim\limits_{n\to\infty}\dfrac{(n^2+1)(n^2+2)\cdots(n^2+n)}{(n^-1)(n^2-2)\cdots(n^2-n)}$.
+		            \vspace{2em}
+		      \item $\displaystyle\lim\limits_{x\to 0^{+}}\int_0^x e^{-t^2}\,\ud{t}+\dfrac{1}{3}\dfrac{1}{x^2}-\dfrac{1}{x^4}$.
+		            \vspace{2em}
+		      \item $\displaystyle I(r)=\oint_{L} \dfrac{y\ud{x}}{x^2+y^2}-\dfrac{x\ud{y}}{x^2+y^2}$, 其中曲线方程为~$x^2+y^2+xy=r^2$, 取正向, 求~$\lim\limits_{r\to\infty} I(r)$.
+		            \vspace{2em}
+		      \item $\displaystyle\int_{e^{-2n\pi}}^0 \sin{\ln{\dfrac{1}{x}}}\,\ud{x}$.
+		            \vspace{2em}
+	      \end{enumerate}
+	\item (██分)考察黎曼函数的连续性, 可微性, 黎曼可积性.
+	      \vspace{2em}
+	\item (██分) 在~$\mathbb{R}^n$~中, $f$~定义为在某个区域上的一个函数, 有一阶连续偏导, 且偏导数有界. 证明:
+	      \begin{enumerate}
+		      \item 若~$D$~为凸区域, 证明~$f$~一致连续;
+		      \item 考查~$D$~不是凸区域的情况.
+	      \end{enumerate}
+	      \vspace{2em}
+	\item (██分) $\{f_n\}$~为一个连续函数列, 且对任意给定的~$x$, $\{f_n(x)\}$~有界, 证明存在一个小区间, 在此区间内, $\{f_n\}$~一致有界.
+	      \vspace{2em}
+	\item (██分)
+	      \begin{enumerate}
+		      \item 证明~$\Gamma(s)$~在~$(0,+\infty)$~内无穷次可微;
+		      \item 证明~$\Gamma(s), \ln(\Gamma)$~都是严格凸函数.
+	      \end{enumerate}
+	      \vspace{2em}
+	\item (██分) $f$~二阶可微, 且~$f,f\rq{},f\rq{}\rq{}$~都大于等于零, 且存在一个正数~$c$, $f\rq{}\rq{}(x)\leqslant cf(x)$. 证明:
+	      \begin{enumerate}
+		      \item $\lim\limits_{x\to+\infty} f(x)=0$;
+		      \item 存在一个正数~$a$, 有~$f<af\rq{}$, 并求出~$a$.
+	      \end{enumerate}
+	      \vspace{2em}
+	\item (██分) 证明~Fejer~定理.
+	      \vspace{2em}
+	\item (██分) 设~$f$~在~$[A,B]$~上~Riemann~可积, $0<f<1$, 对任意~$\varepsilon>0$~构造一个函数~$g$~使得
+	      \begin{enumerate}
+		      \item $g$~是一个阶梯函数, 且取值只能为~$0$~或~$1$;
+		      \item $\displaystyle |\int_a^b f\,\ud{x}-\int_a^b g\ud{x}|<\varepsilon$, $[a,b]\subset[A,B]$, 不等号关于~$[a,b]$~是一致的.
+	      \end{enumerate}
+	      \vspace{2em}
+\end{enumerate}
+
+\newpage
+\setcounter{page}{1}
+
+\begin{center}
+	{\Huge 浙~~江~~大~~学}\\
+	\setlength{\parskip}{5pt}
+	{\Large 二〇一六年攻读硕士学位研究生入学考试试题}\\
+	\setlength{\parskip}{10 pt}
+	{\Large 考试科目\underline{\makebox[34mm][c]{数学分析}} 编号\underline{\makebox[34mm][c]{819}}}
+\end{center}
+
+\center{\bf 注意：答案必须写在答题纸上，写在试卷或草稿纸上均无效。}
+\begin{enumerate}
+	\item 计算下列各题(40分，每小题10分)
+	      \begin{enumerate}
+		      \item $\lim\limits_{n\to\infty}\dfrac{\sqrt[n]{(n+1)(n+2)\cdots(n+n)}}{n}$.
+		            \vspace{2em}
+		      \item $\lim\limits_{x\to 0} \dfrac{\e^x\sin{x}-x(1+x)}{(\cos{x}-1)\ln(1-2x)}$.
+		            \vspace{2em}
+		      \item $\displaystyle\int_0^{\frac{\pi}{2}}\dfrac{\sin(2n+1)x}{\sin{x}}\,\ud{x}$.
+		            \vspace{2em}
+		      \item $\displaystyle\iint\limits_D x(1+y\e^{x^2+y^2})\,\ud{x}\ud{y}$, 其中~$D$~为由曲线~$y=x^3,x=-1,y=1$~围成的区域.
+		            \vspace{2em}
+	      \end{enumerate}
+	\item (20分，每小题10分)
+	      \begin{enumerate}
+		      \item 设~$A,B$~为非空数集, 记~$E=A\cup B$. 证明: $\sup{E}=\max\{\sup{A},\sup{B}\}$.
+		      \item 若~$x_n>0$, 且~$\varlimsup\limits_{n\to\infty}x_n\cdot\varlimsup\limits_{n\to\infty}\dfrac{1}{x_n}=1$, 证明: 数列~$\{x_n\}$~收敛.
+	      \end{enumerate}
+	      \vspace{2em}
+	\item (15分) 利用有限覆盖定理证明: 有界数列必有收敛子列.
+	      \vspace{2em}
+	\item (15分) 设$f(x)$~定义在~$(a,b)$~上, 证明: 若对~$(a,b)$~内任一收敛点列~$\{x_n\}$, 极限~$\lim\limits_{n\to\infty}f(x_n)$~都存在, 则~$f(x)$~在~$(a,b)$~上一致连续.
+	      \vspace{2em}
+	\item (15分)设~$f(x,y)$~为~$[a,b]\times[c,+\infty)$~上连续非负函数, $I(x):=\displaystyle\int_c^{+\infty}f(x,y)\ud{y}$~在~$[a,b]$~上连续. 证明: $I(x)$~在~$[a,b]$~上一致收敛.
+	      \vspace{2em}
+	\item (15分) 求周期为~$2\pi$~的周期函数~$f(x)$~的~Fourier~级数, 其中当~$x\in(-\pi,\pi)$~时, $f(x)=x^3$, 并求级数~$\sum\limits_{n=1}^{\infty} \dfrac{1}{n^6}$~的和.
+	      \vspace{2em}
+	\item (15分) 设~$f(x)$~在~$[a,b]$~上有一阶连续导数, 记~$A=\dfrac{1}{b-a}\int_a^b f(x)\ud{x}$, 试证明:
+	      \[\int_a^b[f(x)-A]^2\ud{x}\leqslant(b-a)^2\int_a^b|f\rq{}(x)|^2\ud{x}.\]
+	      \vspace{2em}
+	\item (15分) 设~$\varphi(x)$~在~$[A,B]$~上连续, $K(x,t)$~在~$[a,b]\times[a,b]$~上连续. 构造函数列如下: $f_0(x)=\varphi(x), f_n(x)=\varphi(x)+\displaystyle\lambda\int_a^b K(x,t)f_{n-1}(t)\,\ud{t}, n=1,2,\cdots.$ 试证明: 当~$|\lambda|$~足够小时, 函数列~$\{f_n(x)\}$~收敛于一连续函数.
+	      \vspace{2em}
+\end{enumerate}
+
+\newpage
+\setcounter{page}{1}
+
+\begin{center}
+	{\Huge 浙~~江~~大~~学}\\
+	\setlength{\parskip}{5pt}
+	{\Large 二〇一七年攻读硕士学位研究生入学考试试题}\\
+	\setlength{\parskip}{10 pt}
+	{\Large 考试科目\underline{\makebox[34mm][c]{数学分析}} 编号\underline{\makebox[34mm][c]{819}}}
+\end{center}
+
+\center{\bf 注意：答案必须写在答题纸上，写在试卷或草稿纸上均无效。}
+\begin{enumerate}
+	\item 计算下列各题(40分，每小题10分)
+	      \begin{enumerate}
+		      \item $\lim\limits_{n\to\infty}\dfrac{1-(\cos{x})^{\sin{x}}}{x^3}$.
+		            \vspace{2em}
+		      \item $\displaystyle\int\sqrt{1+\sin{x}}\,\ud{x}$.
+		            \vspace{2em}
+		      \item $\displaystyle\int\limits_{x^2+4y^2\leqslant 1} (x^2+y^2)\,\ud{x}\ud{y}$.
+		            \vspace{2em}
+		      \item $f(x)=\dfrac{\pi}{4}-x, x\in[0,\pi]$, 将~$f(x)$~展开成余弦级数.
+		            \vspace{2em}
+	      \end{enumerate}
+	\item (10分) 利用~$\varepsilon$-$N$~语言证明~$\lim\limits_{n\to\infty}\left((-1)^n+\dfrac{1}{n}\right)$~不存在.
+	      \vspace{2em}
+	\item (10分) 求~$f(x,y)=x^2+y^2-xy$~在区域~$|x|+|y|\leqslant 1$~上的最大值与最小值.
+	      \vspace{2em}
+	\item (15分)
+	      \begin{enumerate}
+		      \item 叙述有限覆盖定理;
+		      \item 利用有限覆盖定理证明上确界存在定理.
+	      \end{enumerate}
+	      \vspace{2em}
+	\item (15分) $f(x)$~在~$[1,+\infty)$~单调, $\displaystyle\int_1^{+\infty} f(x)\,\ud{x}$~收敛. 证明~$f(x)\to 0(x\to+\infty)$~且~$f(x)=o(\dfrac{1}{x})(x\to+\infty)$.
+	      \vspace{2em}
+	\item (15分) 对一切~$n$~与一切实数~$x$, 有~$\left|f(x)-\sum\limits_{k=0}^n\dfrac{(-1)^k}{(2k)!}|x|^k\right|\leqslant\dfrac{1}{(2n+2)!}|x|^{n+1}$, 求~$f(x)$~的解析表达式, 证明在~$\mathbb{R}$~上~$f(x)$~一致连续.
+	      \vspace{2em}
+	\item (15分) 讨论含参变量积分~$\displaystyle\int_0^1 \dfrac{1}{x^{\alpha}}\sin{\dfrac{1}{x}}\,\ud{x}$~的一致收敛区间.
+	      \vspace{2em}
+	\item (15分) $f(x)$~在~$x\in\mathbb{R}$~上连续, $f(0)=0$, $\forall x\in\mathbb{R}$, $|f\rq{}(x)|\leqslant|f(x)|$. 证明~$x(x)\equiv 0(x\in\mathbb{R})$.
+	      \vspace{2em}
+	\item (15分) 对数列~$\{x_n\}$, $\varliminf\limits_{n\to\infty}x_n=A<B\varlimsup\limits_{n\to\infty} x_n$, $\lim\limits_{n\to\infty} (x_{n+1}-x_n)=0$, 证明~$\{x_n\}$~的聚点全体恰好构成了~$[A,B]$.
+	      \vspace{2em}
+\end{enumerate}
+
+\newpage
+\setcounter{page}{1}
+
+\begin{center}
+	{\Huge 浙~~江~~大~~学}\\
+	\setlength{\parskip}{5pt}
+	{\Large 二〇一一年攻读硕士学位研究生入学考试试题}\\
+	\setlength{\parskip}{10 pt}
+	{\Large 考试科目\underline{\makebox[34mm][c]{高等代数}} 编号\underline{\makebox[34mm][c]{601}}}
+\end{center}
+
+\center{\bf 注意：答案必须写在答题纸上，写在试卷或草稿纸上均无效。}
+\center{\bf 本试卷共十道试题, 每题满分15分; 用~$E$~表示单位矩阵, 矩阵~$A$~的转置矩阵表示为~$A^{T}$.}
+\begin{enumerate}
+	\item 如果~$(x^2+x+1)|(f_1(x^3)+xf_2(x^3))$, 且~$n$~阶方阵~$A$~有一个特征值等于~$1$, 证明~$f_1(A),f_2(A)$~都不是可逆矩阵.
+	      \vspace{2em}
+	\item 解下列方程组: $\begin{cases} x_1+x_2+x_3+x_4=6,\\x_1^2+x_2^2+x_3^2+x_4^2=10,\\ x_1^3+x_2^3+x_3^3+x_4^3=18,\\ x_1^4+x_2^4+x_4^4+x_4^4=34.\end{cases}$
+	      \vspace{2em}
+	\item 设~$n$~阶方阵~$A$~的伴随矩阵为~$A^{*}$, 当~$n>2$~时, 证明~$(A^{*})^{*}=|A|^{n-2}A$.
+	      \vspace{2em}
+	\item 设~$n$~阶方阵~$A$~满足~$A^{T}A=E$, $|A|=-1$, 证明~$A+E$~不是可逆矩阵.
+	      \vspace{2em}
+	\item 设~$e_i=(0,\cdots,0,\mathop{1}\limits^{i},0,\cdots,0)^{T}, i=1,2,\cdots,n$是欧式空间~$\mathbf{R}^n$~的常用基, 一个矩阵~$P$~被称为置换矩阵如果存在~$1,2,\cdots,n$~的一个全排列阶~$i_1,i_2,\cdots,i_n$~使得矩阵~$P=(e_{i_1},e_{i_2}, \cdots, e_{i_n})$, 例如~$\begin{pmatrix}0 & 0 & 1 & 0\\ 1 & 0 & 0 & 0\\ 0 & 0 & 0 & 1\\ 0 & 1 & 0 & 0 \end{pmatrix}$~就是一个四阶置换矩阵. 假如~$n$~方阵~$A$~的秩等于~$r$, 证明存在置换矩阵~$P$~使得~$PAP=\begin{pmatrix}A_1\\A_2\end{pmatrix}$, 其中~$A_1$~的秩等于~$r$.
+	      \vspace{2em}
+	\item 设~$V=\{a+bx+cx^2|a,b,c\in\mathbb{R}\}$~是实数域上三维线性空间, 定义~$\mathbf{T}(f(x))=2f(x)+xf\rq{}(x)$, 证明~$\mathbf{T}$~是~$V$~上的线性变换, 并求其特征值和特征向量.
+	      \vspace{2em}
+	\item 设~$B$~是实数域上~$n\times n$~矩阵, $A=B^{T}B$, 对任意一个大于零的常数~$a$, 证明~$(\alpha,\beta)=\alpha^{T}(A+aE)\beta$~定义了~$mathbb{R}^{n}$~一个内积使得~$\mathbb{R}^n$~成为欧式空间. 其中~$\alpha^{T}$~表示列向量~$\alpha$~的转置, $E$~表示~$n\times n$~单位矩阵.
+	      \vspace{2em}
+	\item 试证明满足~$A^m=E_n$~的~$n$~阶方阵~$A$~都相似于一个对角矩阵.
+	      \vspace{2em}
+	\item 假设~$A=(a_{ij})_{n\times n}$~是半正定矩阵, 证明满足~$X^{T}AX=0$~的所有~$X$~组成~$\mathbb{R}^n$~的~$n-r(A)$~维子空间.
+	      \vspace{2em}
+	\item 已知矩阵~$A=\begin{pmatrix}2 & -4 & 2 & 2\\ -2 & 0 & 1 & 3\\ -2 & -2 & 3 & 3\\ -2 & -6 & 3 & 7\end{pmatrix}$, 求矩阵~$P$, 使~$P^{-1}AP$~为若当(Jordan)标准型.
+	      \vspace{2em}
+\end{enumerate}
+
+\newpage
+\setcounter{page}{1}
+
+\begin{center}
+	{\Huge 浙~~江~~大~~学}\\
+	\setlength{\parskip}{5pt}
+	{\Large 二〇一二年攻读硕士学位研究生入学考试试题}\\
+	\setlength{\parskip}{10 pt}
+	{\Large 考试科目\underline{\makebox[34mm][c]{高等代数}} 编号\underline{\makebox[34mm][c]{601}}}
+\end{center}
+
+\center{\bf 注意：答案必须写在答题纸上，写在试卷或草稿纸上均无效。}
+\center{\bf 本试卷共十道试题, 每题满分15分.}
+\begin{enumerate}
+	\item 设~$E$~是~$n$~阶单位矩阵, $M=\begin{pmatrix}0 & E\\ -E & 0\end{pmatrix}$, 矩阵~$A$~满足~$A^{T}MA=M$, 证明~$A$~的行列式等于~$1$.
+	      \vspace{2em}
+	\item 设~$A$~是~$n$~阶幂等矩阵满足~$(1) A=A_1+A_2+\cdots+A_s$, $(2) r(A)=r(A_1)+r(A_2)+\cdots+r(A_s)$, 证明所有的~$A_i$~都相似于一个对角矩阵, $A_i$~特征值之和等于矩阵~$A_i$~的秩.
+	      \vspace{2em}
+	\item 设~$\phi$~是~$n$~维欧式空间的正交变换, 证明~$\phi$~最多可以表示为~$n+1$~个镜面反射的复合.
+	      \vspace{2em}
+	\item 设~$A$~是~n~阶复矩阵, 证明存在常数项等于零的多项式~$g(\lambda)$,$h(\lambda)$~使得~$g(A)$~是可以对角化的矩阵, $h(A)$是幂零矩阵, 且~$A=g(A)+h(A)$.
+	      \vspace{2em}
+	\item 设~$A=\begin{pmatrix}3 & 2 & -2\\ k & -1 & -k\\ 4 & 2 & -3\end{pmatrix}$.
+	      \begin{enumerate}[(i)]
+		      \item 当~$k$~为何值时, 存在矩阵~$P$~使得~$P^{-1}AP$~为对角矩阵? 并求出这样的矩阵~$P$~和对角矩阵.
+		      \item 求~$k=2$~时矩阵~$A$~的~Jordan~标准型.
+	      \end{enumerate}
+	      \vspace{2em}
+	\item 令二次型~$f(x_1,\cdots,x_n)=\sum\limits_{i=1}^{n}(a_{i1}x_1+\cdots+a_{in}x_n)^2$.
+	      \begin{enumerate}[(i)]
+		      \item 求此二次型的方阵.
+		      \item 当~$a_{ij}$~均为实数, 给出此二次型为正定的条件.
+	      \end{enumerate}
+	      \vspace{2em}
+	\item 令~$V$~和~$W$~是域~$K$~上的线性空间, ~$Hom_{K}(V,W)$~表示~$V$~到~$W$~所有线性映射组成的线性空间. 证明: 对~$f,g\in Hom_{K}(U,V)$, 若~$\Im f\cap \Im g=0$, 则~$f$~和~$g$~在~$Hom_K(V,W)$~中是线性无关的.
+	      \vspace{2em}
+	\item 令线性空间~$V=\Im f\oplus W$, 其中~$W$~是~$V$~的线性变换~$f$~的不变子空间.
+	      \begin{enumerate}[(i)]
+		      \item 证明~$W\in \ker f$;
+		      \item 证明若~$V$~是有限维线性空间, 则~$W=\ker f$;
+		      \item 举例说明, 当~$V$~是无限维的, 可能有~$W\subseteq \ker f$, 且~$W\neq\ker f$.
+	      \end{enumerate}
+	      \vspace{2em}
+	\item 令~$A=\begin{pmatrix} 1 & 0 & -1 & 2 & 1\\ -1 & 1 & 3 & -1 & 0\\ -2 & 1 & 4 & -1 & 3\\ 3 & -1 & -5 & 1 & -6\end{pmatrix}.$
+	      \begin{enumerate}[(i)]
+		      \item 求~$5\times 5$~阶秩为~$2$~的矩阵~$M$~使得~$AM=O\text{(零矩阵)}$;
+		      \item 假如~$B$~是满足~$AB=O$~的~$5\times 5$~矩阵, 证明: 秩~$\rank(B)\leqslant 2$.
+	      \end{enumerate}
+	      \vspace{2em}
+	\item 令~$\mathbf{T}$~是有限维线性空间~$V$~上的线性变换, 设~$W$~是~$V$~的~$\mathbf{T}$-不变子空间. 那么, ~$\left.\mathbf{T}\right|_W$~的最小多项式整除~$\mathbf{T}$~的最小多项式.
+	      \vspace{2em}
+\end{enumerate}
+
+\newpage
+\setcounter{page}{1}
+
+\begin{center}
+	{\Huge 浙~~江~~大~~学}\\
+	\setlength{\parskip}{5pt}
+	{\Large 二〇一四年攻读硕士学位研究生入学考试试题}\\
+	\setlength{\parskip}{10 pt}
+	{\Large 考试科目\underline{\makebox[34mm][c]{高等代数}} 编号\underline{\makebox[34mm][c]{601}}}
+\end{center}
+
+\center{\bf 注意：答案必须写在答题纸上，写在试卷或草稿纸上均无效。}
+\center{\bf 本试卷共十道试题, 每题满分15分.}
+\begin{enumerate}
+	\item $A=\begin{pmatrix}0 & E_n\\ E_n & 0\end{pmatrix}$, $L=\{B\in M_{2n}(R)|AB=BA\}$. 证明~$L$~为~$M_{2n}(R)$~的子空间并计算其维数.
+	      \vspace{2em}
+	\item $A=\begin{pmatrix}0 & E_n\\ E_n & 0\end{pmatrix}$, 请问~$A$~是否可对角化并给出理由. 若~$A$~可对角化为~$C$, 给出可逆矩阵~$P$~使得~$P^{-1}AP=C$.
+	      \vspace{2em}
+	\item 方阵~$A$~的特征多项式为~$f(\lambda)=(\lambda-2)^3(\lambda+3)^3$, 请给出~$A$~所有可能的~Jordan~标准型.
+	      \vspace{2em}
+	\item $\eta_1,\eta_2,\eta_3$~为~$AX=0$~的基础解系, $A$~为~$3\times 5$~实矩阵. 求证: 存在~$\mathbb{R}^5$~的一组基, 其包含~$\eta_1+\eta_2+\eta_3, \eta_1-\eta_2+\eta_3, \eta_1+2\eta_2+4\eta_3$.
+	      \vspace{2em}
+	\item $X,Y$~分别为~$m\times n$~和~$n\times m$~矩阵, $YX=E_n$, $A=E_m+XY$, 证明: $A$~相似于对角矩阵.
+	      \vspace{2em}
+	\item $\mathbf{A}$~为~$n$~阶线性空间~$V$~的线性变换, $\lambda_1,\lambda_2,\cdots,\lambda_m$~为~$\mathbf{A}$~的不同的特征值, $V_{\lambda_i}$~为其特征子空间. 证明: 对任意~$V$~的子空间~$W$, 有~$W=(W\cap V_{\lambda_1})\oplus\cdots\oplus(W\cap V_{\lambda_{m}})$.
+	      \vspace{2em}
+	\item 矩阵~$A,B$~均为~$m\times n$~矩阵, $AX=0$~与~$BX=0$~同解, 求证~$A,B$~等价. 若~$A,B$~等价, 是否有~$AX=0$~与~$BX=0$~同解? 证明或举反例否定.
+	      \vspace{2em}
+	\item 证明: $A$~正定的充分必要条件是存在方阵~$B_i(i=1,2,\cdots,n)$, $B_i$~中至少有一个非退化, 使得~$A=\sum_{i=1}^n B_iB_i^{T}$.
+	      \vspace{2em}
+	\item 定义~$\psi$~为~$[0,1]$~到~$n$~阶方阵全体组成的欧式空间的连续映射, 使得~$\psi(0)$~为第一类正交矩阵, $\psi(1)$~为第二类正交矩阵. 证明: 存在~$T_0\in(0,1)$, 使得~$\psi(T_0)$~退化.
+	      \vspace{2em}
+	\item 设~$g,h$~为复数域~$\mathbb{C}$~上~$n$~维线性空间的线性变换, $gh=hg$. 求证~$g,h$~有公共的特征向量. 若不是在复数域~$\mathbb{C}$~上而是在实数域~$\mathbb{R}$~上, 则结论是否成立? 若成立, 给出理由; 不成立举出反例.
+	      \vspace{2em}
+\end{enumerate}
+
+\newpage
+\setcounter{page}{1}
+
+\begin{center}
+	{\Huge 浙~~江~~大~~学}\\
+	\setlength{\parskip}{5pt}
+	{\Large 二〇一五年攻读硕士学位研究生入学考试试题}\\
+	\setlength{\parskip}{10 pt}
+	{\Large 考试科目\underline{\makebox[34mm][c]{高等代数}} 编号\underline{\makebox[34mm][c]{601}}}
+\end{center}
+
+\center{\bf 注意：答案必须写在答题纸上，写在试卷或草稿纸上均无效。}
+\center{\bf 本试卷共十道试题, 每题满分15分.}
+\begin{enumerate}
+	\item $A(t)$~矩阵各元素连续可微, 行列式恒为~$1$, $A(0)=E$, 求证: $A\rq{}(0)$~的迹恒为~$0$(求导是对于各元素独立求的).
+	      \vspace{2em}
+	\item 线性空间上~$(a_1,a_2,\cdots,a_s)$~与~$(b_1,b_2,\cdots,b_s)$~是两个线性无关的向量组, $(a_1,a_2,\cdots,a_s)=(b_1,b_2,\cdots,b_s)A$, 证明: $n-t-r(A)\leqslant s\leqslant \min(r(A),t)$.
+	      \vspace{2em}
+	\item $V,W$~为数域~$\mathbb{P}$~上的线性空间, $f:V\to W$~为线性满映射. 证明:
+	      \begin{enumerate}
+		      \item $\forall\alpha\in W, f^{-1}(\alpha)=\beta+\ker(f) (\text{$\beta$~为~$V$~s上任一向量, 满足~$f(\beta)=\alpha$})$;
+		      \item █████████████████████████████████████;
+		      \item 定义使当同构映射, 证明~$V\backslash\ker{f}$~与~$\Im f$~同构.
+	      \end{enumerate}
+	      \vspace{2em}
+	\item 证明: 对线性空间~$V$~上的线性变换~$f$, 可以找到子空间~$U,W$, 使得~$f$~在~$U$~上为可逆线性变换, 在~$W$~上为幂零线性变换, 且~$V=U\oplus W$.
+	      \vspace{2em}
+	\item $\exists b\neq 0, Ab=0$. 证明: $A^{*}x=b$~有解的充要条件为~$r(A)=n-1$.
+	      \vspace{2em}
+	\item 所有正交变换构成~$G$.
+	      \begin{enumerate}
+		      \item $G$~关于线性变换的合成和逆变换封闭;
+		      \item $G$~是有限集还是无限集?
+		      \item $G$~是什么代数结构?
+	      \end{enumerate}
+	      \vspace{2em}
+	\item $A$~为对称阵, 且满足
+	      \[ A^3-6A^2+11^A-6E=0.\qquad \mathrm{(I)}\]
+	      求~$\max\limits_{A}\max\limits_{||x||=1}\lambda_1x_1^2+\lambda_2x_2^2+\lambda_3x_3^2$(第一个极大值是对所有满足条件~I~的矩阵~$A$~取极大).
+	      \vspace{2em}
+	\item $f(x)$~为一多项式, $g(x)$~是~$A$~的最小多项式, 证明: $f(A)$~可逆的充要条件是~$(f(x),g(x))=1$.
+	      \vspace{2em}
+	\item $\lim\limits_{n\to\infty}A^n=0$~~$\Leftrightarrow$~~$A$~的所有特征值~$|\lambda|<1$.
+	      \vspace{2em}
+	\item 双线性函数█████████████████████████████████████████████.
+	      \begin{enumerate}
+		      \item 全迷向子空间关于以上定义的运算构成空间;
+		      \item 全迷向子空间含于其正交补.
+	      \end{enumerate}
+	      \vspace{2em}
+\end{enumerate}
+
+\newpage
+\setcounter{page}{1}
+
+\begin{center}
+	{\Huge 浙~~江~~大~~学}\\
+	\setlength{\parskip}{5pt}
+	{\Large 二〇一六年攻读硕士学位研究生入学考试试题}\\
+	\setlength{\parskip}{10 pt}
+	{\Large 考试科目\underline{\makebox[34mm][c]{高等代数}} 编号\underline{\makebox[34mm][c]{601}}}
+\end{center}
+
+\center{\bf 注意：答案必须写在答题纸上，写在试卷或草稿纸上均无效。}
+\center{\bf 本试卷共十道试题, 每题满分15分.}
+\begin{enumerate}
+	\item 已知矩阵~$A$~是~$n$~阶不可逆方阵, $E$~是单位矩阵, $A^{*}$~是~$A$~的伴随矩阵, 证明之多存在两个非零复数~$k$~使得~$kE+A^{*}$~为不可逆矩阵.
+	      \vspace{2em}
+	\item 设~$\mathbb{P}[x]$~是数域~$\mathbb{P}$~上一元多项式的全体, ~$f_1(x), f_2(x),\cdots, f_n(x)$~和~$g_1(x), g_2(x),\cdots,g_m(x)$~是~$\mathbb{P}[x]$~中的两组多项式, 且它们生成的子空间相同. 证明:
+	      \begin{enumerate}
+		      \item $\mathbb{P}[x]$~不是该数域~$\mathbb{P}$~上的有限维线性空间;
+		      \item $f_1(x), f_2(x),\cdots, f_n(x)$~的最大公因子等于~$g_1(x), g_2(x),\cdots,g_m(x)$~的最大公因子.
+	      \end{enumerate}
+	      \vspace{2em}
+	\item 设~$\mathbb{R}[x]_{n+1}$~是次数小于等于~$n$~的实系数多项式全体, $f(x)$~是~$n$~次多项式, 证明: 对~$\mathbb{R}[x]_{n+1}$~中的任意多项式~$g(x)$, 总存在常数~$c_0, \cdots, c_n$~使得~$g(x)=c_0f(x)+c_1f\rq{}(x)+\cdots+c_kf^{(k)}(x)+\cdots+c_nf^{(n)}(x)$, 其中~$f^{(k)}(x)$~是~$f(x)$~的~$k$~次导数.
+	      \vspace{2em}
+	\item 设~$k$~是整数, $\alpha$~是方程~$x^4+4kx+1=0$~的一个根, 问~$\mathbb{Q}[\alpha]:=\{a_0+a_1\alpha+a_2\alpha^2+a_3\alpha^3|a_i\in\mathbb{Q}\}$~是否是数域? 如果是, 请给予证明, 假如不是, 请说明理由, 其中~$\mathbb{Q}$~是有理数域.
+	      \vspace{2em}
+	\item 设~$V_1,V_2$~是~$n$~维线性空间~$V$~的两个子空间, 且它们的维数之和等于~$n$, 证明: 存在~$V$~上的线性变换~$\mathbf{T}$, 使得~$\mathbf{T}$~的核和像分别等于~$V_1$~和~$V_2$.
+	      \vspace{2em}
+	\item 已知矩阵~$A=\begin{pmatrix} a & b & c\\ d & e & f\\ h & x & y\end{pmatrix}$~的逆矩阵是~$A^{-1}=\begin{pmatrix} -1 & -2 & -1\\ -2 & 1 & 0\\ 0 & -3 & -1\end{pmatrix}$, $B=\begin{pmatrix}a-2b & b-3 & -c\\ d-2e & e-3f & -f\\ h-2x & x-3y & -y\end{pmatrix}$. 求矩阵~$X$~满足
+	      \[X+(B(A^{T}B^2)^{-1}A^{T})^{-1}=X(A^2(B^{T}A)^{-1}B^{T})^{-1}(A+B).\]
+	      \vspace{2em}
+	\item 令~$\mathbf{T}$~是欧式空间~$V$~上的线性变换, 而~$\mathbf{T}^{*}$~是~$\mathbf{T}$~的伴随线性变换, 即对任意~$v,w\in V$~有,
+	      \[<\mathbf{T}(v),w>=<v,\mathbf{T}^{*}(w)>.\]
+	      \begin{enumerate}
+		      \item 当~$V$~为有限维欧式空间, ~$\mathbf{T}$~在一组单位正交基 (或称为标准正交基) 下的矩阵为~$A$~时, 求~$\mathbf{T}^{*}$~在该组基下的矩阵.
+		      \item 证明: $(\Im(\mathbf{T}^{*}))^{\perp}=\ker(\mathbf{T})$.
+	      \end{enumerate}
+	      \vspace{2em}
+	\item 试证明: 正定矩阵~$A$~中绝对值最大的元素可以在主对角线上取到.
+	      \vspace{2em}
+	\item 设~$\mathbf{T}$~是复数域上~$n$~维线性空间~$V$~的线性变换, 满足~$\mathbf{T}^k=id_{V} (\text{$V$~上的恒等线性变换})$, 其中~$1\leqslant k\leqslant n$, 证明~$\mathbf{T}$~必然可以对角化.
+	      \vspace{2em}
+	\item 设有限维线性空间~$V$~有两个非平凡的子空间~$V_1,V_2$~使得~$V=V_1\oplus V_2$, $W$~为~$V$~的任意子空间. 证明:
+	      \begin{enumerate}
+		      \item $(W\cap V_1)+(W\cap V_2)$~是~$W$~的子空间, $W$~是~$(W+V_1)\cap(W+V_2)$~的子空间;
+		      \item 商空间~$W/(W\cap V_1+W\cap V_2)$~的维数等于商空间~$((W+V_1)\cap(W+V_2))/W$~的维数;
+		      \item 利用上述结论证明~$W=(W\cap V_1)\oplus(W\cap V_2)$~的充分必要条件是~$W=(W+V_1)\cap(W+V_2)$.
+	      \end{enumerate}
+	      \vspace{2em}
+\end{enumerate}
+
+\newpage
+\setcounter{page}{1}
+
+\begin{center}
+	{\Huge 浙~~江~~大~~学}\\
+	\setlength{\parskip}{5pt}
+	{\Large 二〇一七年攻读硕士学位研究生入学考试试题}\\
+	\setlength{\parskip}{10 pt}
+	{\Large 考试科目\underline{\makebox[34mm][c]{高等代数}} 编号\underline{\makebox[34mm][c]{601}}}
+\end{center}
+
+\center{\bf 注意：答案必须写在答题纸上，写在试卷或草稿纸上均无效。}
+\center{\bf 本试卷共十道试题, 每题满分15分.}
+\begin{enumerate}
+	\item $f(x)$~是整系数多项式, 且~$f(0)$~和~$f(1)$~均为奇数, 证明~$f(x)$~没有整数根.
+	      \vspace{2em}
+	\item 求~$A=\begin{pmatrix} 1 & 0 & 2\\ 0 & 1 &2\\ 2 & 2 & -1\end{pmatrix}$~的特征值及特征向量, 求正交矩阵~$U$, 使~$U^{-1}AU$~为对角型, 该矩阵对应的二次型是否正定?
+	      \vspace{2em}
+	\item $V$~是复线性空间, $\mathbf{T}\begin{pmatrix}a+b\i & c+d\i\\ u+v\i & x+y\i\end{pmatrix}=\begin{pmatrix}a-b\i & c-d\i\\ u-v\i & x-y\i\end{pmatrix}$. 证明: $\mathbf{T}$~是实复线性空间上的线性变换, $\mathbf{T}$~不是复线性空间上的线性变换, 求~$V$~的一组基, 在该基下~$\mathbf{T}$~的矩阵为对角矩阵.
+	      \vspace{2em}
+	\item $A,B$~为~$m\times n$~阶矩阵, $R(A), R(B)$~分别为~$A,B$~的行空间, $A,B$~行向量组的秩分别为~$r,s$, 齐次线性方程组~$AX=0$~和~$BX=0$~的公共解空间为~$W$.
+	      \begin{enumerate}
+		      \item 若~$r+s<n$, 证~$W$~有非零元;
+		      \item 若~$\dim W=n-r-s$, 证明~$R(A)\cap R(B)=\{0\}$.
+	      \end{enumerate}
+	      \vspace{2em}
+	\item $f_1(x)=x-1, f_2(x)=x^2-1, f_3(x)=x^3-1, g_1(x)=x^2-x, g_2(x)=x^3-x^2$. $f_1,f_2,f_3$~张成的空间为~$V_1$, $g_1,g_2$~张成的空间为~$V_2$, 求~$V_1+V_2$~以及~$V_1\cap V_2$~的基与维数.
+	      \vspace{2em}
+	\item $A$~为~$2n+1$~阶反对称矩阵, $A^{*}$~为~$A$~的伴随矩阵, 且~$A$~的迹为~$2016$, 求~$|I+A^{*}|$~及~$A$~的秩.
+	      \vspace{2em}
+	\item $A$~正定, 证明~$A+A^{-1}-2I$~半正定, 给出~$A+A^{-1}-2I$~正定的充要条件.
+	      \vspace{2em}
+	\item $A=(a_{ij})$~的秩为~$r$, 证明在~$\mathbb{F}^{2n-r}$~中存在~$n$~个线性无关的向量~$\alpha_1,\alpha_2,\cdots,\alpha_n$, 在~$\mathbb{F}^{2n-r}$~的对偶空间中存在~$n$~个线性无关的向量~$f_1,f_2,\cdots,f_n$~使得~$f_j(\alpha_i)=a_{ij}$.
+	      \vspace{2em}
+	\item 负矩阵~$M$~是可逆矩阵, 证明存在矩阵~$A$~使得~$A^2=M$.
+	      \vspace{2em}
+	\item █████████████████████████████████████████████.
+	      \vspace{2em}
+\end{enumerate}
+
+\end{document}
