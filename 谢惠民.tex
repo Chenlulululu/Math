@@ -12,6 +12,7 @@
 \usepackage{enumerate}
 \usepackage{titlesec}
 \usepackage{graphicx}
+\newcommand{\ud}[1]{\mathrm{d}#1}
 \pagestyle{empty}
 \begin{document}
 \setlength\abovedisplayskip{2pt}
@@ -114,8 +115,118 @@
 			            \[\dfrac{a^n}{n!}\leqslant\dfrac{1}{n}<\varepsilon.\]
 			            若~$a>1$, 则存在~$k\in\mathbf{N}_{+}$~使得~$k<a<k+1$, 于是
 			            \[\dfrac{a^n}{n!}=\dfrac{a\cdot a\cdots a\cdot a\cdot a\cdots a\cdot a}{n\cdot(n-1)\cdots(k+1)k(k-1)\cdots2\cdot1}\leqslant\dfrac{a}{n}\dfrac{a\cdots a}{a\cdots a}\cdot\dfrac{a}{k}\dfrac{a}{k-1}\cdots\dfrac{a}{2}\dfrac{a}{1}.\]
-			            注意上式中最后一项是一常数, 可记为~$K$, 取~$N=[aK/\varepsilon]+1$, 当~$n>N$~时有~$\dfrac{a^n}{n!}<\varepsilon.$
+			            注意上式中最后一项是一常数, 可记为~$K$, 取~$N=[aK/\varepsilon]+1$, 当~$n>N$~时有~$\dfrac{a^n}{n!}<\varepsilon.$\qedhere
 		      \end{enumerate}
 	      \end{proof}
+	\item 设~$a_n\geqslant 0, n\in\mathbf{N}_{+}$, 数列~$\{a_n\}$~收敛于~$a$, 则~$\lim\limits_{n\to\infty}\sqrt{a_n}=\sqrt{a}$.
+	      \begin{proof}
+		      $|\sqrt{a_n}-\sqrt{a}|=\dfrac{|a_n-a|}{\sqrt{a_n}+\sqrt{a}}\leqslant\dfrac{|a_n-a|}{\sqrt{a}}$. $\forall\varepsilon>0$, 由~$\lim\limits_{n\to\infty} a_n=a$, $\exists N\in\mathbf{N}_{+}$, 当~$n>N$~时有~$|a_n-a|\leqslant\sqrt{a}\varepsilon$. 故当~$n>N$~时, ~$|\sqrt{a_n}-\sqrt{a}|\leqslant\dfrac{|a_n-a|}{\sqrt{a}}<\varepsilon$, 即~$\lim\limits_{n\to\infty}\sqrt{a_n}=\sqrt{a}$.\qedhere
+	      \end{proof}
+	\item 若~$\lim\limits_{n\to\infty} a_n=a$, 则~$\lim\limits_{n\to\infty}|a_n|=|a|$. 反之如何?
+	      \begin{proof}
+		      $\forall\varepsilon>0$, 由~$\lim\limits_{n\to\infty} a_n=a$, $\exists N\in\mathbf{N}_{+}$, 当~$n>N$~时有~$|a_n-a|<\varepsilon$. 故当~$n>N$~时, $||a_n|-|a||\leqslant|a_n-a|<\varepsilon$, 即~$\lim\limits_{n\to\infty}|a_n|=|a|$.\qedhere
+	      \end{proof}
+	\item \footnote{关于原先的~$5$~题, 完全可以使用相应函数极限的定义加上~Heine~定理证明, 并且本质没有任何不同.} 设~$a>1$, 证明~$\lim\limits_{n\to\infty}\dfrac{\log_a{n}}{n}=0$. (可以利用已知的极限~$\lim\limits_{n\to\infty}\sqrt[n]{n}=1$.)
+	      \begin{proof}
+		      \[ \lim\limits_{n\to\infty}\dfrac{\log_a{n}}{n}=\lim\limits_{n\to\infty}\log_a{n^{1/n}}=\lim\limits_{n\to\infty}\log_a{1}=0.\]
+		      其中第二个等号用到了~$\log_a{x}$~的连续性.\qedhere
+	      \end{proof}
+\end{enumerate}
+
+\section{收敛数列的基本性质}
+\subsection{思考题}
+\begin{enumerate}
+	\item	设~$\{a_n\}$~收敛而~$\{b_n\}$~发散, 问: $\{a_n+b_n\}$~和~$\{a_nb_n\}$~的敛散性如何?
+	      \begin{proof}
+		      $\{a_n+b_n\}$~发散. 反证法. 假设~$\lim\limits_{n\to\infty} a_n=a, \lim\limits_{n\to\infty} (a_n+b_n)=A$, 则对于~$\forall\varepsilon>0$, $\exists N_1, N_2\in\mathbf{N}_{+}$, 当~$n>N_1$~时, $|(a_n+b_n)-A|<\varepsilon/2$; 当~$n>N_2$~时, $|a_n-a|<\varepsilon/2$. 令~$N=\max\{N_1,N_2\}$, 则当~$n>N$~时有
+		      \[|b_n-(A-a)|=|[(a_n+b_n)-A]-(a_n-a)|\leqslant|(a_n+b_n)-A|+|a_n-a|<\varepsilon/2+\varepsilon/2=\varepsilon.\]
+		      即~$\lim\limits_{n\to\infty} b_n=A-a$, 与~$\{b_n\}$~发散矛盾.
+
+		      $\{a_nb_n\}$~可能发散也可能收敛. 如取~$a_n=1/n, b_n=n\sin{n}$, 则~$a_nb_n=\sin{n}$, $\{a_nb_n\}$~发散; 取~$a_n=1/n, b_n=(-1)^n$, 则~$a_nb_n=(-1)^n1/n$, $\{a_nb_n\}$~收敛.\qedhere
+	      \end{proof}
+	\item 设~$\{a_n\}$~和~$\{b_n\}$~都发散, 问: $\{a_n+b_n\}$~和~$\{a_nb_n\}$~的敛散性如何?
+	      \begin{proof}
+		      $\{a_n+b_n\}$~可能发散也可能收敛. 如取~$a_n=(-1)^n, b_n=(-1)^{n+1}$, 则~$a_n+b_n=0$, $\{a_n+b_n\}$~收敛; 取~$a_n=b_n=(-1)^n$, 则~$a_n+b_n=(-1)^n\cdot 2$, $\{a_n+b_n\}$~发散.
+
+		      $\{a_nb_n\}$~可能发散也可能收敛. 如取~$a_n=b_n=(-1)^n$, 则~$a_nb_n=1$, $\{a_nb_n\}$~收敛; 取~$a_n=(-1)^n, b_n=n$, 则~$a_nb_n=(-1)^n\cdot n$, $\{a_nb_n\}$~发散.\qedhere
+	      \end{proof}
+	\item 设~$a_n\leqslant b_n\leqslant c_n, n\in\mathbf{N}_{+}$, 已知~$\lim\limits_{n\to\infty} (c_n-a_n)=0$, 问: 数列~$\{b_n\}$~是否收敛?
+	      \begin{proof}
+		      $\{b_n\}$~不一定收敛. 取一反例, $a_n=n, b_n=n+1/2n, c_n=n+1/n, n\in\mathbf{H}_{+}$, 则~$\lim\limits_{n\to\infty} (c_n-a_n)=\lim\limits_{n\to\infty} 1/n=0$, 但显然~$\{b_n\}$~发散.\qedhere
+	      \end{proof}
+	\item 找出下列运算中的错误:
+	      \[\lim\limits_{n\to\infty} \left(\dfrac{1}{n+1}+\cdots+\dfrac{1}{2n}\right)=\lim\limits_{n\to\infty}\dfrac{1}{n+1}+\cdots+\lim\limits_{n\to\infty}\dfrac{1}{2n}=0.\]
+	      \begin{proof}
+		      问题在于第二个等号, 极限的四则运算法则之对于有限次的加减乘除(除法要求分母的数列不为零)成立, 对于可列次的四则运算没有意义.\qedhere
+	      \end{proof}
+	\item 设已知~$\{a_n\}$~收敛于~$a$, 又对每个~$n$~有~$b<a_n<c$, 问: 是否成立~$b<a<c$?
+	      \begin{proof}
+		      不一定成立. 如取~$b=0, c=1, a_n=1/n, n\in\mathbf{N}_{+}$, 则有~$b<a_n<c, \forall n\in\mathbf{H}_{+}$, 但~$a=\lim\limits_{n\to\infty} a_n=0$, 故~$a=c$.\qedhere
+	      \end{proof}
+	\item 设已知~$\{a_n\}$~收敛于~$a$, 又有~$b\leqslant a\leqslant c$, 问: 是否存在~$N$, 使得当~$n>N$~时成立~$b\leqslant a\leqslant c$?
+	      \begin{proof}
+		      两次应用数列极限的保序性, 所得的正整数分别记为~$N_1$~和~$N_2$, 则取~$N=\max\{N_1,N_2\}$, 当~$n>N$~时就有~$b_n\leqslant a_n\leqslant c_n$.\qedhere
+	      \end{proof}
+	\item 设已知~$\lim\limits_{n\to\infty} a_n=0$, 问是否有~$\lim\limits_{n\to\infty} (a_1a_2\cdots a_n)=0$? 又问: 反之如何?
+	      \begin{proof}\footnote{结合无穷级数的相关知识可以给出另一证明. 记~$u_n=a_1\cdots a_n$, 由无穷级数的~d'Alembert~比值判别法, $\lim\limits_{n\to\infty} \dfrac{u_{n+1}}{u_n}=\lim\limits_{n\to\infty} a_{n+1}=0$, 有无穷级数~$\sum\limits_{n=1}^{\infty}u_n$~收敛, 故~$\lim\limits_{n\to\infty} u_n=0$.}
+		      对于~$\varepsilon_0=1$, 由~$\lim\limits_{n\to\infty} a_n=0$~知存在~$N\in\mathbf{N}_{+}$~使得当~$n>N$~时有~$|a_n|<1$, 记~$K=|a_1a_2\cdots a_N|$. 对于~$\forall 0<\varepsilon<1$, $\exists N'\in\mathbf{N}_{+}$, 当~$n>N'$~时有~$|a_n|<\varepsilon/K$. 因此对于~$n>\max\{N,N'\}$, $|a_1a_2\cdots a_n|=K|a_{N+1}\cdots a_n|\leqslant K|a_n|<K\cdot\varepsilon/K=\varepsilon$, 即~$\lim\limits_{n\to\infty} (a_1a_2\cdots a_n)=0$.\qedhere
+	      \end{proof}
+\end{enumerate}
+
+\subsection{练习题}
+\begin{enumerate}
+	\item	证明: $\{a_n\}$~收敛的充分必要条件是~$\{a_{2k}\}$~和~$\{a_{2k-1}\}$~收敛于同一极限.
+	      \begin{proof}
+		      必要性. 设~$\lim\limits_{n\to\infty} a_n=a$, 则对于~$\forall\varepsilon>0$, $\exists N\in\mathbf{N}_{+}$, 当~$n>N$~时, $|a_n-a|<\varepsilon$. 当~$k>N$~时, $2k>2k-1>N$, 故当~$k>N$~时, $|a_{2k}-a|<\varepsilon, |a_{2k-1}-a|<\varepsilon$. 即~$\lim\limits_{n\to\infty} a_{2k}=\lim\limits_{n\to\infty} a_{2k-1}=a$.
+
+		      充分性. 设~$\lim\limits_{n\to\infty} a_{2k}=\lim\limits_{n\to\infty} a_{2k-1}=a$, 则对于~$\forall\varepsilon>0$, $\exists K_1\in\mathbf{N}_{+}$, 当~$k>K_1$~时, $|a_{2k}-a|<\varepsilon$; $\exists K_2\in\mathbf{N}_{+}$, 当~$k>K_2$~时, $|a_{2k-1}-a|<\varepsilon$. 取~$N=\max\{K_1,K_2\}$, 则当~$n>N$~时, $|a_n-a|<\varepsilon$.\qedhere
+	      \end{proof}
+	\item 以下是可以应用夹逼定理的几个题.
+	      \begin{enumerate}[(1)]
+		      \item 给定~$p$~个正数~$a_1,a_2,\cdots,a_p$, 求~$\lim\limits_{n\to\infty} \sqrt[n]{a_1^n+a_2^n+\cdots+a_p^n}$;
+		      \item 设~$x_n=\dfrac{1}{\sqrt{n^2+1}}+\dfrac{1}{\sqrt{n^2+2}}+\cdots+\dfrac{1}{\sqrt{(n+1)^2}}, n\in\mathbf{N}_{+}$, 求~$\lim\limits_{n\to\infty} x_n$;
+		      \item 设~$a_n=\left(1+\dfrac{1}{2}+\cdots+\dfrac{1}{n}\right)^\frac{1}{n}, n\in\mathbf{N}_{+}$, 求~$\lim\limits_{n\to\infty} a_n$;
+		      \item 设~$\{a_n\}$~为正数列, 并且已知它收敛于~$a>0$, 证明~$\lim\limits_{n\to\infty} \sqrt[n]{a_n}=1$.
+	      \end{enumerate}
+	      \begin{proof}
+		      \begin{enumerate}[(1)]
+			      \item $\max\limits_{1\leqslant k\leqslant p} a_k\leqslant\sqrt[n]{a_1^n+a_2^n+\cdots+a_p^n}\leqslant\sqrt[n]{n\max\limits_{1\leqslant k\leqslant p} a_k^n}=\sqrt[n]{n}\max\limits_{1\leqslant k\leqslant p} a_k\to\max\limits_{1\leqslant k\leqslant p} a_k (n\to\infty)$, 故~$\lim\limits_{n\to\infty} \sqrt[n]{a_1^n+a_2^n+\cdots+a_p^n}=\max\limits_{1\leqslant k\leqslant p} a_k$;
+			      \item $\dfrac{2n+1}{\sqrt{(n+1)^2}}\leqslant x_n\leqslant \dfrac{2n+1}{\sqrt{n^2+1}}$, $\lim\limits_{n\to\infty}\dfrac{2n+1}{\sqrt{(n+1)^2}}=\lim\limits_{n\to\infty}\dfrac{2n+1}{\sqrt{n^2+1}}=2$, 故~$\lim\limits_{n\to\infty} x_n=2$;
+			      \item $\sqrt[n]{n\cdot 1/n}\leqslant a_n\leqslant \dfrac[n]{n}\to 1(n\to\infty)$, 故~$\lim\limits_{n\to\infty} a_n=1$;
+			      \item 取~$\varepsilon=a/2>0$, 由~$\lim\limits_{n\to\infty} a_n=a$, $\exists N\in\mathbf{N}_{+}$, 当~$n>N$~时, $|a_n-a|<a/2$, 即当~$n>N$~时~$a/2<a_n<3a/2$. 同时开~$n$~次根号, 有~$\sqrt[n]{a/2}<\sqrt[n]{a}<\sqrt[n]{3a/2}, \forall n>N$. 由于~$\lim\limits_{n\to\infty}\sqrt[n]{a/2}=\lim\limits_{n\to\infty}\sqrt[n]{3a/2}=1$, 故~$\lim\limits_{n\to\infty} \sqrt[n]{a_n}=1$.\qedhere
+		      \end{enumerate}
+	      \end{proof}
+	\item 求以下极限:
+	      \begin{enumerate}[(1)]
+		      \item $\lim\limits_{n\to\infty} (1+x)(1+x^2)\cdots(1+x^{2^n})$, 其中~$|x|<1$;
+		      \item $\lim\limits_{n\to\infty} \left(1-\dfrac{1}{2^2}\right)\left(1-\dfrac{1}{3^2}\right)\cdots\left(1-\dfrac{1}{n^2}\right)$;
+		      \item $\lim\limits_{n\to\infty} \left(1-\dfrac{1}{1+2}\right)\left(1-\dfrac{1}{1+2+3}\right)\cdots\left(1-\dfrac{1}{1+2+\cdots+n}\right)$;
+		      \item $\lim\limits_{n\to\infty} \left(\dfrac{1}{1\cdot2\cdot3}+\dfrac{1}{2\cdot3\cdot4}+\cdots+\dfrac{1}{n(n+1)(n+2)}\right)$;
+		      \item $\lim\limits_{n\to\infty} \sum\limits_{k=1}^{\infty}\dfrac{1}{k(k+1)\cdots(k+\nu)}$, 其中~$\nu\in\mathbf{N}_{+}, \nu>1$.\\
+		            (最后两个题是$\lim\limits_{n\to\infty} \left(\dfrac{1}{1\cdot2}+\dfrac{1}{2\cdot3}+\cdots+\dfrac{1}{n(n+1)}\right)$~的推广.)
+	      \end{enumerate}
+	      \begin{proof}
+		      \begin{enumerate}[(1)]
+			      \item $\begin{aligned}[t]
+					            (1+x)(1+x^2)\cdots(1+x^{2^n})= & \dfrac{(1+x)(1-x)(1+x^2)\cdots(1+x^{2^n})}{1-x}                 \\
+					            =                              & \dfrac{(1-x^2)(1+x^2)\cdots(1+x^{2^n})}{1-x}                    \\
+					            =                              & \cdots=\dfrac{1-x^{2^{n+1}}}{1-x}\to\dfrac{1}{1-x} (n\to\infty)
+				            \end{aligned}$
+			      \item $\begin{aligned}[t]
+					            \left(1-\dfrac{1}{2^2}\right)\left(1-\dfrac{1}{3^2}\right)\cdots\left(1-\dfrac{1}{n^2}\right)= & \left(1-\dfrac{1}{2}\right)\left(1+\dfrac{1}{2}\right)\left(1-\dfrac{1}{3}\right)\left(1+\dfrac{1}{3}\right)\cdots\left(1-\dfrac{1}{n}\right)\left(1+\dfrac{1}{n}\right) \\
+					            =                                                                                              & \dfrac{1}{2}\cdot\dfrac{3}{2}\cdot\dfrac{2}{3}\cdot\dfrac{4}{3}\cdots\dfrac{n-1}{n}\cdot\dfrac{n+1}{n}                                                                                       \\
+					            =                                                                                              & \dfrac{1}{2}\dfrac{n+1}{n}\to\dfrac{1}{2} (n\to\infty)
+				            \end{aligned}$
+		      \end{enumerate}
+	      \end{proof}
+	\item 设~$s_n=a+3a^2+\cdots+(2n-1)a^n$, $|a|<1$, 求~$\{a_m\}$~的极限.\\
+	      (试计算~$s_n-as_n$.)
+	\item 设正数列~$\{x_n\}$~收敛, 极限大于~$0$, 证明: 这个数列有正下界, 但在数列中不一定有最小数.
+	\item 证明: 若有~$\lim\limits_{n\to\infty} a_n=+\infty$, 则在数列~$\{a_n\}$~中一定有最小数.
+	\item 证明: 无界数列至少有一个子列是确定符号的无穷大量.
+	\item 证明: 数列~$\{\tan{n}\}$~发散.
+	\item 设数列~$\{S_n\}$~的定义为
+	      \[S_n=1+\dfrac{1}{2^p}+\dfrac{1}{3^p}+\cdots+\dfrac{1}{n^p}, n\in\mathbf{N}_{+}.\]
+	      证明: $\{S_n\}$~在以下两种情况均发散: (1)$p\leqslant 0$; (2)$0<p<1$.
 \end{enumerate}
 \end{document}
