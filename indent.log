@@ -1,6 +1,6 @@
 latexindent.exe version 3.0.2, a script to indent .tex files
 	latexindent.exe lives here: C:/texlive/2017/bin/win32/
-	Tue Dec 26 22:47:47 2017
+	Wed Dec 27 18:23:52 2017
 Processing switches
 Directory for backup files and indent.log: e:\Math\Math
 YAML settings read
@@ -9,14 +9,14 @@ YAML settings read
 	Home directory is C:\Users\¼־חש (didn't find either indentconfig.yaml or .indentconfig.yaml)
 	To specify user settings you would put indentconfig.yaml here: C:\Users\¼־חש/indentconfig.yaml
 	Alternatively, you can use the hidden file .indentconfig.yaml as: C:\Users\¼־חש/.indentconfig.yaml
-List of items: item|myitem (see itemNames)
+List of items: myitem|item (see itemNames)
 looking for VERBATIM commands (see verbatimCommands)
 looking for FILE CONTENTS environments (see fileContentsEnvironments)
-	looking for filecontents*:1 environments
 	looking for filecontents:1 environments
+	looking for filecontents*:1 environments
 	\begin{document} found in body (after searching for filecontents)-- assuming that a preamble exists
 	Custom replacement text routine for preamble preamble
-	preamble found: LatexIndent::Preamble=HASH(0x3188cec)
+	preamble found: LatexIndent::Preamble=HASH(0x318934c)
 	replaced with ID: LTXIN-TK-preamble1-END
 	\begin{document}
 	NOT storing LTXIN-TK-preamble1-END for indentation -- will store as VERBATIM object (see indentPreamble)
@@ -29,7 +29,7 @@ Phase 1: searching for objects
 Objects have been found.
 Operating on: masterdocument
 Number of children:
-	86
+	4
 Phase 2: finding surrounding indentation
 Phase 3: indenting objects
 Phase 4: final indentation check
