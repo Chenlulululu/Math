@@ -104,13 +104,17 @@
 	      \begin{proof}
 		      对于任何~$\varepsilon>0$,
 		      \begin{enumerate}[(1)]
-			      \item 取~$N=[\sqrt{12/\varepsilon+4}]$, 当~$n>N$~时, $|\dfrac{3n^2}{n^2-4}-3|=\dfrac{12}{n^2-4}<\varepsilon;$
+			      \item 取~$N=[\sqrt{12/\varepsilon+4}]+1$, 当~$n>N$~时, $|\dfrac{3n^2}{n^2-4}-3|=\dfrac{12}{n^2-4}<\varepsilon;$
 			      \item 取~$N=[1/\varepsilon]$, 当~$n>N$~时, $|\dfrac{\sin{n}}{n}\leqslant\dfrac{1}{n}<\varepsilon;$
 			      \item 由于~$(1+n)^{\frac{1}{n}}>1, \forall n\in\mathbf{N}_{+}$, 故令~$y_n=(1+n)^{\frac{1}{n}}-1>0$, 有$n+1=(1+y_n)^n\geqslant \dfrac{n(n-1)}{2}y_n^2$, 即
 			            \[\sqrt[n]{n+1}-1=y_n\leqslant\sqrt{\dfrac{2(n+1)}{n(n-1)}}.\]
 			            又由~$\lim\limits_{n\to\infty}\dfrac{2(n+1)}{n(n-1)}$, 故存在~$N\in\mathbf{N}_{+}$, 使当~$n>N$~时有~$\dfrac{2(n+1)}{n(n-1)}<\varepsilon<1$, 故当~$n>N$~时有
 			            \[\sqrt[n]{n+1}-1=y_n\leqslant\sqrt{\dfrac{2(n+1)}{n(n-1)}}<\sqrt{\varepsilon}<\varepsilon;\]
-			      \item 若
+			      \item 若~$0<a\leqslant 1$, 显然取~$N=[\varepsilon]+1$, 当~$n>N$~时
+			            \[\dfrac{a^n}{n!}\leqslant\dfrac{1}{n}<\varepsilon.\]
+			            若~$a>1$, 则存在~$k\in\mathbf{N}_{+}$~使得~$k<a<k+1$, 于是
+			            \[\dfrac{a^n}{n!}=\dfrac{a\cdot a\cdots a\cdot a\cdot a\cdots a\cdot a}{n\cdot(n-1)\cdots(k+1)k(k-1)\cdots2\cdot1}\leqslant\dfrac{a}{n}\dfrac{a\cdots a}{a\cdots a}\cdot\dfrac{a}{k}\dfrac{a}{k-1}\cdots\dfrac{a}{2}\dfrac{a}{1}.\]
+			            注意上式中最后一项是一常数, 可记为~$K$, 取~$N=[aK/\varepsilon]+1$, 当~$n>N$~时有~$\dfrac{a^n}{n!}<\varepsilon.$
 		      \end{enumerate}
 	      \end{proof}
 \end{enumerate}
