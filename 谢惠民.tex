@@ -1,4 +1,5 @@
-%Latex utf-8
+
+% Latex utf-8
 \documentclass[UTF8,a4paper,10pt,twoside]{book}
 \usepackage{CTEX}
 \usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
@@ -19,11 +20,10 @@
 \setlength\abovedisplayskip{3pt}
 \setlength\belowdisplayskip{3pt}
 \begin{titlepage}
-
 	\begin{center}
 		\vfill
 		% Upper part of the page
-		{\Huge \bfseries 数学分析习题课讲义}\\[1.5cm]
+		{\Huge \bfseries 数学分析题习课讲义}\\[1.5cm]
 		% Title
 		{\LARGE \bfseries 参考答案}\\[0.4cm]
 		\vfill
@@ -582,7 +582,7 @@
 		      \item $\lim\limits_{n\to\infty} \left(1-\dfrac{1}{n}\right)^n$;
 		      \item $\lim\limits_{n\to\infty} \left(1+\dfrac{1}{2n}\right)^n$;\\
 		      \item $\lim\limits_{n\to\infty} \left(1+\dfrac{2}{n}\right)^n$;
-		      \item $\lim\limits_{n\to\infty} \left(1+\dfrac{1}{n}\right)^{n^2}$;\\
+		      \item \footnote{原题为~$\lim\limits_{n\to\infty} \left(1+\dfrac{1}{n}\right)^{n^2}$, 显然也可以用本题的方法计算, 但结果为一个无穷大量.}$\lim\limits_{n\to\infty} \left(1-\dfrac{1}{n}\right)^{n^2}$;\\
 		      \item $\lim\limits_{n\to\infty} \left(1+\dfrac{1}{n^2}\right)^n$;
 		      \item $\lim\limits_{n\to\infty} \left(1+\dfrac{1}{n}+\dfrac{1}{n^2}\right)^n$.
 	      \end{tabenum}
@@ -595,14 +595,148 @@
 		      \begin{enumerate}[(1)]
 			      \item $\lim\limits_{n\to\infty} \left(\dfrac{n}{n-1}\right)^n=\lim\limits_{n\to\infty} \dfrac{n}{n-1}\left(1+\dfrac{1}{n-1}\right)^{n-1}=\e$, 故~$\lim\limits_{n\to\infty} \left(1-\dfrac{1}{n}\right)^n=\dfrac{1}{\e}$;
 			      \item $\lim\limits_{n\to\infty} \left(1+\dfrac{1}{2n}\right)^n=\lim\limits_{n\to\infty} \sqrt{\left(1+\dfrac{1}{2n}\right)^{2n}}=\sqrt{\e}$;
-			      \item $\begin{aligned}[t]
+			      \item $
+				            \begin{aligned}[t]
 					            \lim\limits_{n\to\infty} \left(1+\dfrac{2}{n}\right)^n= & \lim\limits_{n\to\infty} \left(1+\dfrac{1}{n+1}\right)^n\left(1+\dfrac{1}{n}\right)^n                           \\
 					            =                                                       & \lim\limits_{n\to\infty} \dfrac{n+1}{n+2}\left(1+\dfrac{1}{n+1}\right)^{n+1}\left(1+\dfrac{1}{n}\right)^n=\e^2;
-				            \end{aligned}$
-			      \item $.$
-
+				            \end{aligned}
+			            $
+			      \item $\lim\limits_{n\to\infty} \left(1-\dfrac{1}{n}\right)^{n^2}=\lim\limits_{n\to\infty} \left(\dfrac{n}{n-1}\right)^{-n^2}=\lim\limits_{n\to\infty} \left(1+\dfrac{1}{n-1}\right)^{-(n-1)\frac{n^2}{n-1}}=0$;
+			      \item $\lim\limits_{n\to\infty} \left(1+\dfrac{1}{n^2}\right)^n=\lim\limits_{n\to\infty} \left(1+\dfrac{1}{n^2}\right)^{n^2\cdot \frac{1}{n}}=\e^0=1$;
+			      \item $\lim\limits_{n\to\infty} \left(1+\dfrac{1}{n}+\dfrac{1}{n^2}\right)^n=\lim\limits_{n\to\infty} \left(1+\dfrac{1}{n}+\dfrac{1}{n^2}\right)^{\frac{n^2}{n+1}\cdot\frac{n+1}{n}}=\e$.\qedhere
 		      \end{enumerate}
 	      \end{proof}
 
+	\item 设~$x\in\mathbf{N}_{+}$, 证明: $\dfrac{k}{n+k}<\ln\left(1+\dfrac{k}{n}\right)<\dfrac{k}{n}$.
+	      \begin{proof}
+		      由~pp.38 {\bf 命题 2.5.1}~中的不等式~$\left(1+\dfrac{1}{n}\right)^n<\e<\left(1+\dfrac{1}{n}\right)^{n+1}$~两边取对数, 可以得到不等式
+		      \[
+			      \dfrac{1}{n+1}<\ln\left(1+\dfrac{1}{n}\right)<\dfrac{1}{n}.
+		      \]
+		      注意到
+		      \[
+			      \begin{split}
+				      \ln\left(1+\dfrac{k}{n}\right)=&\ln\left(\dfrac{n+k}{n}\right)\\
+				      =&\ln\left(\dfrac{n+k}{n+k-1}\cdot\dfrac{n+k-1}{n+k-1}\cdots\dfrac{n+1}{n}\right)\\
+				      =&\ln\left(1+\dfrac{1}{n+k-1}\right)+\ln\left(1+\dfrac{1}{n+k-2}\right)+\cdots+\ln\left(1+\dfrac{1}{n}\right),
+			      \end{split}
+		      \]
+		      就有
+		      \[
+			      \dfrac{k}{n+k}<\dfrac{1}{n+k}+\dfrac{1}{n+k-1}+\cdots+\dfrac{1}{n+1}<\ln\left(1+\dfrac{k}{n}\right)<\dfrac{1}{n+k-1}+\dfrac{1}{n+k-2}+\cdots+\dfrac{1}{n}<\dfrac{k}{n}.\qedhere
+		      \]
+	      \end{proof}
+	\item 求~$\lim\limits_{n\to\infty} \left(1+\dfrac{1}{n^2}\right)\left(1+\dfrac{2}{n^2}\right)\cdots\left(1+\dfrac{n}{n^2}\right)$.
+	      \begin{proof}
+		      记~$x_n=\left(1+\dfrac{1}{n^2}\right)\left(1+\dfrac{2}{n^2}\right)\cdots\left(1+\dfrac{n}{n^2}\right), y_n=\ln{x_n}, n\in\mathbf{N}_{+}$. 则由上题有
+		      \[
+			      \begin{split}
+				      y_n<&\dfrac{1}{n^2}+\dfrac{2}{n^2}+\cdots+\dfrac{n}{n^2}=\dfrac{n(n+1)}{2n^2}\to\dfrac{1}{2} \ (n\to\infty),\\
+				      y_n>&\dfrac{1}{n^2+1}+\dfrac{2}{n^2+2}+\cdots+\dfrac{n}{n^2+n}>\dfrac{1}{n^2+n}+\dfrac{2}{n^2+n}+\cdots+\dfrac{n}{n^2+n}=\dfrac{1}{2}.
+			      \end{split}
+		      \]
+		      故~$\lim\limits_{n\to\infty} y_n=\dfrac{1}{2}$, 即~$\lim\limits_{n\to\infty} x_n=\sqrt{\e}$.\qedhere
+	      \end{proof}
+	\item \footnote{本题的结果与~Heine~定理结合就给出了一个~$\lim\limits_{x\to+\infty} \left(1+\dfrac{1}{x}\right)^{x}=\e$~的证明.} 设~$\{p_n\}$~是正数列, 且~$p_n\to+\infty$. 计算~$\lim\limits_{n\to\infty} \left(1+\dfrac{1}{p_n}\right)^{p_n}$.
+	      \begin{proof}
+		      对于任意~$n\in\mathbf{N}_{+}$, 有~$[p_n]\leqslant p_n<[p_n]+1$, $\dfrac{1}{[p_n]+1}\leqslant\dfrac{1}{[p_n]}$, 因此
+		      \[
+			      \left(1+\dfrac{1}{[p_n]+1}\right)^{[p_n]}<\left(1+\dfrac{1}{p_n}\right)^{p_n}<\left(1+\dfrac{1}{[p_n]}\right)^{[p_n]+1}
+		      \]
+
+		      由于~$\lim\limits_{n\to\infty} \left(1+\dfrac{1}{n+1}\right)^n=\lim\limits_{n\to\infty} \left(1+\dfrac{1}{n}\right)^{n+1}=\e$, 即对于任意给定的~$\varepsilon>0$, 存在~$N\in\mathbf{N}_{+}$, 使得当~$n>N$~时有
+		      \[
+			      \left|\left(1+\dfrac{1}{n+1}\right)^n-\e\right|<\varepsilon \ \text{且}\ \left|\left(1+\dfrac{1}{n}\right)^{n+1}-\e\right|<\varepsilon.
+		      \]
+		      特别地, 当~$n>N$~时有
+		      \[
+			      \left(1+\dfrac{1}{n+1}\right)^n>\e-\varepsilon \ \text{且}\ \left(1+\dfrac{1}{n}\right)^{n+1}<\e+\varepsilon.
+		      \]
+		      由于~$\lim\limits_{n\to\infty} p_n=+\infty$, 对于~$N>0$, 存在~$M\in\mathbf{N}_{+}$~使得~$n>M$~时, $[p_n]>N$, 于是当~$n>M$~时, 就有
+		      \[
+			      \e-\varepsilon<\left(1+\dfrac{1}{[p_n]+1}\right)^{[p_n]}<\left(1+\dfrac{1}{p_n}\right)^{p_n}<\left(1+\dfrac{1}{[p_n]}\right)^{[p_n]+1}<\e+\varepsilon.
+		      \]
+		      即当~$n>M$~时~$\left|\left(1+\dfrac{1}{p_n}\right)^{p_n}-e\right|<\varepsilon$, 所以~$\lim\limits_{n\to\infty} \left(1+\dfrac{1}{p_n}\right)^{p_n}=\e$. \qedhere
+	      \end{proof}
+	\item 求~$\lim\limits_{n\to\infty} \dfrac{n!2^n}{n^n}$.\footnote{事实上, 对于通项带有~$a^n$~项的数列, 可以尽情利用~Cauchy~根值判别法或者~d'Alembert~比值判别法. 如果记~$a_n=\dfrac{n!2^n}{n^n}$, 则~$\lim\limits_{n\to\infty} \sqrt[n]{a_n}=\lim\limits_{n\to\infty} \dfrac{2\sqrt[n]{n!}}{n}=\dfrac{2}{\e}<1$, 故~$\sum\limits_{n=1}^{\infty}a_n<+\infty$, 从而~$\lim\limits_{n\to\infty} a_n=0$.}
+	      \begin{proof}
+
+	      \end{proof}
+	\item 求极限~$\lim\limits_{n\to\infty} \dfrac{\ln{n}}{1+\dfrac{1}{2}+\cdots+\dfrac{1}{n}}$.
+	      \begin{proof}
+		      由~Stolz~定理, 有
+		      \[
+			      \lim\limits_{n\to\infty} \dfrac{\ln{n}}{1+\dfrac{1}{2}+\cdots+\dfrac{1}{n}}=\lim\limits_{n\to\infty} \dfrac{\ln{n+1}-\ln{n}}{\dfrac{1}{n+1}}=\lim\limits_{n\to\infty} \ln\left(1+\dfrac{1}{n}\right)^{n+1}=\e.
+		      \]
+	      \end{proof}
+
+	\item 证明: $\left(\dfrac{n+1}{\e}\right)^n<n!<\e\left(\dfrac{n+1}{\e}\right)^{n+1}$.\\
+	      (\footnote{只需应用本题及夹逼准则即可.}由此又可以得到~$\lim\limits_{n\to\infty} \dfrac{n}{\sqrt[n]{n!}}=\e$.)
+	      \begin{proof}
+		      数学归纳法.
+		      \begin{enumerate}[(1)]
+			      \item $n=1$~时, 由于~$2<\e<4$, 故有~$\dfrac{2}{\e}<1<\dfrac{4}{\e}=\e\cdot\left(\dfrac{2}{\e}\right)^2$, 即~$n=1$~时成立.
+			      \item 假设对于~$n$~时成立, 即
+			            \[
+				            \left(\dfrac{n+1}{\e}\right)^n<n!<\e\left(\dfrac{n+1}{\e}\right)^{n+1}.
+			            \]
+			            则对于~$n+1$~时,
+			            \[
+				            \begin{split}
+					            (n+1)!&<(n+1)\cdot\e\left(\dfrac{n+1}{\e}\right)^{n+1}
+					            =\e^2\left(\dfrac{n+2}{\e}\right)^{n+2}\left(\dfrac{n+1}{n+2}\right)^{n+2}<\e\left(\dfrac{n+2}{\e}\right)^{n+2},\\
+					            &>(n+1)\cdot\left(\dfrac{n+1}{\e}\right)^{n}
+					            =\e\left(\dfrac{n+2}{\e}\right)^{n+1}\left(\dfrac{n+1}{n+2}\right)^{n+1}>\left(\dfrac{n+2}{\e}\right)^{n+1}.
+				            \end{split}
+			            \]
+			            这里用到了
+			            \[
+				            \left(\dfrac{n+2}{n+1}\right)^{n+1}<\e<\left(\dfrac{n+2}{n+1}\right)^{n+2}.
+			            \]
+		      \end{enumerate}
+		      由数学归纳法可知
+		      \[
+			      \left(\dfrac{n+1}{\e}\right)^n<n!<\e\left(\dfrac{n+1}{\e}\right)^{n+1}.
+		      \]
+		      对于~$n\in\mathbf{N}_{+}$~恒成立.\qedhere
+	      \end{proof}
+
+	\item 设~$S_n=1+2^2+3^3+\cdots+n^n, n\in\mathbf{N}_{+}$. 证明: 对~$n\geqslant 2$~成立不等式
+	      \[
+		      n^n\left(1+\dfrac{1}{4(n-1)}\right)\leqslant S_n\leqslant n^n\left(1+\dfrac{2}{\e(n-1)}\right).
+	      \]
+	      \begin{proof}
+		      数学归纳法.
+		      \begin{enumerate}[(1)]
+			      \item $n=2$~时, $2^2\left(1+\dfrac{1}{4(2-1)}\right)=5=S_2<2^2\left(1+\dfrac{2}{\e(2-1)}\right)$, 即~$n=2$~时成立.
+			      \item 假设对于~$n$~时成立, 即
+			            \[
+				            n^n\left(1+\dfrac{1}{4(n-1)}\right)\leqslant S_n\leqslant n^n\left(1+\dfrac{2}{\e(n-1)}\right).
+			            \]
+			            则对于~$n+1$~时,
+			            \[
+				            \begin{split}
+					            S_{n+1}=S_n+(n+1)^{n+1}<&n^n\left(1+\dfrac{2}{e(n-1)}\right)+(n+1)^{n+1}\\
+					            =&(n+1)^{n+1}\left(1+\dfrac{n^n}{(n+1)^{n+1}}\left(1+\dfrac{2}{\e(n-1)}\right)\right)\\
+					            <&(n+1)^{n+1}\left(1+\dfrac{2}{n}\left(\dfrac{n}{n+1}\right)^{n+1}\right)\\
+					            <&(n+1)^{n+1}\left(1+\dfrac{2}{\e n}\right),\\
+					            S_{n+1}=S_n+(n+1)^{n+1}>&n^n\left(1+\dfrac{1}{4(n-1)}\right)+(n+1)^{n+1}\\
+					            =&(n+1)^{n+1}\left(1+\dfrac{n^n}{(n+1)^{n+1}}\left(1+\dfrac{1}{4(n-1)}\right)\right)\\
+					            \geqslant&(n+1)^{n+1}\left(1+\dfrac{1}{n}\left(\dfrac{n}{n+1}\right)^{n+1}\right)\\
+					            \geqslant&(n+1)^{n+1}\left(1+\dfrac{1}{4n}\right).
+				            \end{split}
+			            \]
+			            这里用到了
+			            \[
+				            \e<\left(\dfrac{n}{n+1}\right)^{n+1}\leqslant 4.
+			            \]
+		      \end{enumerate}
+		      由数学归纳法可知
+		      \[
+			      n^n\left(1+\dfrac{1}{4(n-1)}\right)\leqslant S_n\leqslant n^n\left(1+\dfrac{2}{\e(n-1)}\right)
+		      \]
+		      对于~$n\geqslant 2$~恒成立.\qedhere
+	      \end{proof}
+	\item 设有~$a_1=1,a_n=n(a_{n-1}+1), n=2,3,\cdots$, 又设~$x_n=\prod\limits_{k=1}^n\left(1+\dfrac{1}{a_k}\right), n\in\mathbf{N}_{+}$, 求数列~$\{x_n\}$~的极限.
 \end{enumerate}
 \end{document}
