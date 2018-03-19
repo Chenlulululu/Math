@@ -1,4 +1,3 @@
-
 % Latex utf-8
 \documentclass[UTF8,a4paper,10pt,twoside]{book}
 \usepackage{CTEX}
@@ -784,6 +783,34 @@
 	      \end{proof}
 
 	\item 设~$\{a_n\}$~有界, 且满足条件~$a_n\leqslant a_{n+2}, a_n\leqslant a_{n+3}, n\in\mathbf{N}_{+}$, 证明: $\{a_n\}$~收敛.
+	\begin{proof}
+		由题意, 有
+		\[
+			a_1\leqslant a_3\leqslant\cdots\leqslant a_{2k-1}\leqslant\cdots;
+		\]
+		\[
+			a_2\leqslant a_4\leqslant\cdots\leqslant a_{2k}\leqslant\cdots;
+		\]
+		\[
+			a_3\leqslant a_6\leqslant\cdots\leqslant a_{3k}\leqslant\cdots.
+		\]
+		即数列~$\{a_{2k-1}\}, \{a_{2k}\}, \{a_{3k}\}$~均单调, 注意到~$\{a_n\}$~有界, 故均收敛. 由~1.~知~$\{a_n\}$~收敛.\qedhere
+	\end{proof}
+
+	\item 设~$\{a_n+a_{n+1}\}$~和~$\{a_n+a_{n+2}\}$~都收敛, 证明: $\{a_n\}$~收敛.
+	\begin{proof}
+		令~$\lim\limits_{n\to\infty} (a_n+a_{n+1})=A$, $\lim\limits_{n\to\infty} (a_n+a_{n+2})=B$. 则由极限的四则运算有, 
+		\[
+			\lim\limits_{n\to\infty} (a_{n+1}-a_{n})=\lim\limits_{n\to\infty} (a_{n+2}-a_{n+1})=B-A,
+		\]
+		\[
+			\lim\limits_{n\to\infty} a_n=\lim\limits_{n\to\infty} a_{n+1}=\dfrac{B-A+A}{2}=\dfrac{B}{2}.\qedhere
+		\]
+	\end{proof}
+
+	\item 设数列~$\{a_n\}$~收敛于~$0$, 有存在极限~$\lim\limits_{n\to\infty} \left|\dfrac{a_{n+1}}{a_n}\right|=a$. 证明: $a\leqslant 1$.
+
+	\item $a_n=\sum\limits_{k=1}^n\left(\sqrt{1+\dfrac{k}{n^2}}-1\right), n\in\mathbf{N}_{+}$. 计算~$\lim\limits_{n\to\infty} a_n$.
 \end{enumerate}
 \subsection{第二组参考题}
 \end{document}
