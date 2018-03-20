@@ -783,34 +783,128 @@
 	      \end{proof}
 
 	\item 设~$\{a_n\}$~有界, 且满足条件~$a_n\leqslant a_{n+2}, a_n\leqslant a_{n+3}, n\in\mathbf{N}_{+}$, 证明: $\{a_n\}$~收敛.
-	\begin{proof}
-		由题意, 有
-		\[
-			a_1\leqslant a_3\leqslant\cdots\leqslant a_{2k-1}\leqslant\cdots;
-		\]
-		\[
-			a_2\leqslant a_4\leqslant\cdots\leqslant a_{2k}\leqslant\cdots;
-		\]
-		\[
-			a_3\leqslant a_6\leqslant\cdots\leqslant a_{3k}\leqslant\cdots.
-		\]
-		即数列~$\{a_{2k-1}\}, \{a_{2k}\}, \{a_{3k}\}$~均单调, 注意到~$\{a_n\}$~有界, 故均收敛. 由~1.~知~$\{a_n\}$~收敛.\qedhere
-	\end{proof}
+	      \begin{proof}
+		      由题意, 有
+		      \[
+			      a_1\leqslant a_3\leqslant\cdots\leqslant a_{2k-1}\leqslant\cdots;
+		      \]
+		      \[
+			      a_2\leqslant a_4\leqslant\cdots\leqslant a_{2k}\leqslant\cdots;
+		      \]
+		      \[
+			      a_3\leqslant a_6\leqslant\cdots\leqslant a_{3k}\leqslant\cdots.
+		      \]
+		      即数列~$\{a_{2k-1}\}, \{a_{2k}\}, \{a_{3k}\}$~均单调, 注意到~$\{a_n\}$~有界, 故均收敛. 由~1.~知~$\{a_n\}$~收敛.\qedhere
+	      \end{proof}
 
 	\item 设~$\{a_n+a_{n+1}\}$~和~$\{a_n+a_{n+2}\}$~都收敛, 证明: $\{a_n\}$~收敛.
-	\begin{proof}
-		令~$\lim\limits_{n\to\infty} (a_n+a_{n+1})=A$, $\lim\limits_{n\to\infty} (a_n+a_{n+2})=B$. 则由极限的四则运算有, 
-		\[
-			\lim\limits_{n\to\infty} (a_{n+1}-a_{n})=\lim\limits_{n\to\infty} (a_{n+2}-a_{n+1})=B-A,
-		\]
-		\[
-			\lim\limits_{n\to\infty} a_n=\lim\limits_{n\to\infty} a_{n+1}=\dfrac{B-A+A}{2}=\dfrac{B}{2}.\qedhere
-		\]
-	\end{proof}
+	      \begin{proof}
+		      令~$\lim\limits_{n\to\infty} (a_n+a_{n+1})=A$, $\lim\limits_{n\to\infty} (a_n+a_{n+2})=B$. 则由极限的四则运算有,
+		      \[
+			      \lim\limits_{n\to\infty} (a_{n+1}-a_{n})=\lim\limits_{n\to\infty} (a_{n+2}-a_{n+1})=B-A,
+		      \]
+		      \[
+			      \lim\limits_{n\to\infty} a_n=\lim\limits_{n\to\infty} a_{n+1}=\dfrac{B-A+A}{2}=\dfrac{B}{2}.\qedhere
+		      \]
+	      \end{proof}
 
 	\item 设数列~$\{a_n\}$~收敛于~$0$, 有存在极限~$\lim\limits_{n\to\infty} \left|\dfrac{a_{n+1}}{a_n}\right|=a$. 证明: $a\leqslant 1$.
+	      \begin{proof}
+		      反证法. 若~$a>1$, 则对于~$\varepsilon=\dfrac{a-1}{2}>0$, 由于~$\lim\limits_{n\to\infty} \left|\dfrac{a_{n+1}}{a_n}\right|=a$, 则存在~$N_1\in\mathbf{N}_{+}$~使当~$n>N_1$~时有
+		      \[
+			      \left|\dfrac{a_{n+1}}{a_n}\right|>a-\varepsilon=\dfrac{1+a}{2}>1.
+		      \]
+		      要使极限~$\lim\limits_{n\to\infty} \left|\dfrac{a_{n+1}}{a_n}\right|$~存在, 则对于~$N_1>0$, 存在~$N>N_1, N\in\mathbf{N}_{+}$~使得~$a_{N}\neq 0$. 因此,
+		      \[
+			      |a_n|=\left|a_N\cdot\dfrac{a_{N+1}}{a_{N}}\cdots\dfrac{a_n}{a_{n-1}}\right|>|a_N|\cdot\left(\dfrac{1+a}{2}\right)^{n-N}\to+\infty.
+		      \]
+		      与~$\lim\limits_{n\to\infty} a_n=0$~矛盾. \qedhere
+	      \end{proof}
 
-	\item $a_n=\sum\limits_{k=1}^n\left(\sqrt{1+\dfrac{k}{n^2}}-1\right), n\in\mathbf{N}_{+}$. 计算~$\lim\limits_{n\to\infty} a_n$.
+	\item $a_n=\displaystyle\sum\limits_{k=1}^n\left(\sqrt{1+\dfrac{k}{n^2}}-1\right), n\in\mathbf{N}_{+}$. 计算~$\lim\limits_{n\to\infty} a_n$.
+	      \begin{proof}
+		      对~$k=1,\cdots, n$, 有~$\sqrt{1+\dfrac{k}{n^2}}-1=\dfrac{k}{n^2\left(\sqrt{1+\dfrac{k}{n^2}}+1\right)}$, 并且
+		      \[
+			      \sum_{k=1}^{n} \dfrac{k}{n^2\left(\sqrt{1+\dfrac{n}{n^2}}+1\right)}\leqslant \sum_{k=1}^{n} \dfrac{k}{n^2\left(\sqrt{1+\dfrac{k}{n^2}}+1\right)}\leqslant \sum_{k=1}^{n} \dfrac{k}{n^2\left(\sqrt{1+\dfrac{1}{n^2}}+1\right)}.
+		      \]
+		      注意当~$n\to\infty$~时,
+		      \[
+			      \sum_{k=1}^{n} \dfrac{k}{n^2\left(\sqrt{1+\dfrac{n}{n^2}}+1\right)}=\dfrac{n(n+1)}{2n^2\left(\sqrt{1+\dfrac{1}{n}}+1\right)}\to\dfrac{1}{4};
+		      \]
+		      \[
+			      \sum_{k=1}^{n} \dfrac{k}{n^2\left(\sqrt{1+\dfrac{1}{n^2}}+1\right)}=\dfrac{n(n+1)}{2n^2\left(\sqrt{1+\dfrac{1}{n^2}}+1\right)}\to\dfrac{1}{4}.
+		      \]
+		      故由夹逼准则知~$\lim\limits_{n\to\infty} a_n=\dfrac{1}{4}$. \qedhere
+	      \end{proof}
+
+	\item 用~$p(n)$~表示能整除~$n$~的素数的个数, 证明: $\lim\limits_{n\to\infty} \dfrac{p(n)}{n}=0$.
+	      \begin{proof}
+		      由于~$\forall p$~是素数, $p\geqslant 2$, 对于~$n$~的素因子分解~$n=p_1^{r(1)}p_2^{r(2)}\cdots p_{p(n)}^{r(p(n))}$, 显然有~$n\geqslant 2^{p(n)}$, 故
+		      \[
+			      0\leqslant\dfrac{p(n)}{n}\leqslant\dfrac{\ln{n}}{n\ln{2}}\to 0\ (n\to\infty).
+		      \]
+		      故由夹逼准则知~$\lim\limits_{n\to\infty} \dfrac{p(n)}{n}=0$.\qedhere
+	      \end{proof}
+
+	\item 设~$a_0, a_1, \cdots ,a_p$~是~$p+1$~个给定的数, 且满足条件~$a_0+a_1+\cdots+a_p=0$. 求~$\lim\limits_{n\to\infty} (a_0\sqrt{n}+a_1\sqrt{n+1}+\cdots+a_p\sqrt{n+p})$.
+	      \begin{proof}
+
+	      \end{proof}
+
+	\item 证明: 当~$0<k<1$~时, $\lim\limits_{n\to\infty} [(1+n)^k-n^k]=0$.
+
+	\item
+	      \begin{enumerate}[(1)]
+		      \item 设~$\{x_n\}$~收敛. 令~$y_n=n(x_n-x_{n-1}), n\in\mathbf{N}_{+}$, 问~$\{y_n\}$~是否收敛?
+		      \item 在上一小题中, 若~$\{y_n\}$~也收敛, 证明: $\{y_n\}$~收敛于零.
+	      \end{enumerate}
+
+	\item
+	      \begin{enumerate}[(1)]
+		      \item 设正数列~$\{a_n\}$~满足条件~$\lim\limits_{n\to\infty} \dfrac{a_n}{a_{n+1}}=0$, 证明: $\{a_n\}$~是无穷大量.
+		      \item 设正数列~$\{a_n\}$~满足条件~$\lim\limits_{n\to\infty} \dfrac{a_n}{a_{n+1}+a_{n+2}}=0$, 证明: $\{a_n\}$~无界.
+	      \end{enumerate}
+
+	\item 证明: $\left(\dfrac{n}{3}\right)^n<n!<\left(\dfrac{n}{2}\right)^n$, 其中右边的不等式当~$n\geqslant 6$~时成立.
+
+	\item 证明: $\left(\dfrac{n}{\e}\right)^n<n!<\e\left(\dfrac{n}{2}\right)^n$.
+
+	\item (对于命题~2.5.4~的改进) 证明:
+	      \begin{enumerate}[(1)]
+		      \item  当~$n\geqslant 2$~时成立
+		            \[
+			            1+1+\dfrac{1}{2!}+\cdots+\dfrac{1}{n!}+\dfrac{1}{n!n}=3-\dfrac{1}{2!1\cdot 2}-cdots-\dfrac{1}{n!(n-1)n};
+		            \]
+		      \item $\e=3-\lim\limits_{n\to\infty} \displaystyle\sum_{k=0}^n\dfrac{1}{(k+2)!(k+1)(k+2)}$;
+		      \item 用~$\displaystyle \sum\limits_{k=0}^n\dfrac{1}{k!}+\dfrac{1}{n!n}$~计算~$\e$~要比不加上最后一项好得多.
+	      \end{enumerate}
+
+	\item 设~$a_n=1+\dfrac{1}{\sqrt{2}}+\cdots+\dfrac{1}{\sqrt{n}}-2\sqrt{n}, n\in\mathbf{N}_{+}$, 证明: $\{a_n\}$~收敛.
+
+	\item 设已知存在极限~$\lim\limits_{n\to\infty} \dfrac{a_1+a_2+\cdots+a_n}{n}$, 证明: $\lim\limits_{n\to\infty} \dfrac{a_n}{n}=0$.
+
+	\item 证明: $\lim\limits_{n\to\infty} (n!)^{1/n^2}=1$.
+
+	\item 设对每个~$n$~有~$x_n<1$~和~$(1-x_n)x_{n+1}\geqslant \dfrac{1}{4}$, 证明~$\{x_n\}$~收敛, 并求其极限.
+
+	\item 设~$a_1=b, a_2=c$, 在~$n\geqslant 3$~时~$a_n$~由~$a_n=\dfrac{a_{n-1}+a_{n-2}}{2}$~定义. 求~$\lim\limits_{n\to\infty} a_n$.
+
+	\item 设~$a,b,c$~是三个给定的实数. 令~$a_1=a, b_1=b, c_1=c$, 并以递推公式定义
+	      \[
+		      a_{n+1}=\dfrac{b_n+c_n}{2}, b_{n+1}=\dfrac{c_n+a_n}{2}, c_n=\dfrac{a_n+b_n}{2}, n\in\mathbf{N}_{+}.
+	      \]
+	      求这三个数列的极限.
+
+	\item
+	      \begin{enumerate}[(1)]
+		      \item 设~$a_1>b_1>0, a_{n+1}=\dfrac{2a_nb_n}{a_n+b_n}, b_{n+1}=\sqrt{a_{n+1}b_n}, n\in\mathbf{N}_{+}$, 证明: $\{a_n\}$~和~$\{b_n\}$~收敛于同一极限.
+		      \item 在~$a_1=2\sqrt{3}, b_1=3$~时, 证明上述极限等于单位圆的半周长~$\pi$. (这里可以利用极限~$\lim\limits_{n\to\infty} n\sin{\dfrac{\pi}{n}}=\pi$.)
+	      \end{enumerate}
 \end{enumerate}
 \subsection{第二组参考题}
+\begin{enumerate}
+	\item 设~$a_n=\sqrt{1+\sqrt{2+\cdots+\sqrt{n}}}, n\in\mathbf{N}_{+}$, 证明: $\{a_n\}$~收敛.
+
+	\item 证明:
+\end{enumerate}
 \end{document}
