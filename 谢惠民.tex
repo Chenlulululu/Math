@@ -14,6 +14,13 @@
 \usepackage{graphicx}
 \newcommand{\ud}[1]{\mathrm{d}#1}
 \newcommand{\e}{\mathrm e}
+\DeclareMathOperator{\arccot}{arccot}
+\DeclareMathOperator{\arcsec}{arcsec}
+\DeclareMathOperator{\arccsc}{arccsc}
+\DeclareMathOperator{\sech}{sech}
+\DeclareMathOperator{\csch}{csch}
+\DeclareMathOperator{\arsinh}{arsinh}
+\DeclareMathOperator{\arcosh}{arcosh}
 \pagestyle{empty}
 \begin{document}
 \setlength\abovedisplayskip{3pt}
@@ -848,7 +855,14 @@
 
 	\item 设~$a_0, a_1, \cdots ,a_p$~是~$p+1$~个给定的数, 且满足条件~$a_0+a_1+\cdots+a_p=0$. 求~$\lim\limits_{n\to\infty} (a_0\sqrt{n}+a_1\sqrt{n+1}+\cdots+a_p\sqrt{n+p})$.
 	      \begin{proof}
-
+		      由~$a_0+a_1+\cdots+a_p=0$~知~$a_0=-(a_1+\cdots+a_p)$, 故
+		      \[
+			      \begin{split}
+				      a_0\sqrt{n}+a_1\sqrt{n+1}+\cdots+a_p\sqrt{n+p}=&a_1(\sqrt{n+1}-\sqrt{n})+\cdots+a_p(\sqrt{n+p}-{n})\\
+				      =&a_1\dfrac{1}{\sqrt{n+1}+\sqrt{n}}+\cdots+a_p+\dfrac{p}{\sqrt{n+p}+\sqrt{n}}\\
+				      \to&0 \ (n\to\infty).
+			      \end{split}
+		      \]
 	      \end{proof}
 
 	\item 证明: 当~$0<k<1$~时, $\lim\limits_{n\to\infty} [(1+n)^k-n^k]=0$.
@@ -905,6 +919,60 @@
 \begin{enumerate}
 	\item 设~$a_n=\sqrt{1+\sqrt{2+\cdots+\sqrt{n}}}, n\in\mathbf{N}_{+}$, 证明: $\{a_n\}$~收敛.
 
-	\item 证明:
+	\item 证明: 对于每个自然数~$n$~成立不等式~$\left(1+\dfrac{1}{n}\right)^n>\sum\limits_{k=0}^n\dfrac{1}{k!}-\dfrac{\e}{2n}$.
 \end{enumerate}
+
+\chapter{实数系的基本定理}
+\section{确界的概念和确界存在定理}
+\subsection{练习题 pp.69.}
+\begin{enumerate}
+	\item 试证明确界的唯一性.
+
+	\item 设对每个~$x\in A$~成立~$x<a$. 问: 在~$\sup{A}<a$~和~$\sup{A}\leqslant a$~中哪个是对的?
+
+	\item 设数集~$A$~以~$\beta$~为上界, 又有数列~$\{x_n\}\subset A$~和~$\lim\limits_{n\to\infty} x_n=\beta$. 证明: $\beta=\sup{A}$.
+
+	\item 求下列数集的上确界和下确界:
+	      \begin{tabenum}[(1)]
+		      \tabenumitem $\{x\in\mathbf{Q}|x>0\}$;
+		      \tabenumitem $\{y|y=x^2,x\in(-\dfrac{1}{2},1)\}$;\\
+		      \tabenumitem $\left\{\left(1+\dfrac{1}{n}\right)^n | n\in\mathbf{N}_{+}\right\}$;
+		      \tabenumitem $\{n\e^{-n}|n\in\mathbf{N}_{+}\}$;\\
+		      \tabenumitem $\{\arctan{x}|x\in(-\infty,\infty)\}$;
+		      \tabenumitem $\{(-1)^n+\dfrac{1}{n}(-1)^{n+1}|n\in\mathbf{N}_{+}\}$;\\
+		      \tabenumitem $\{1+n\sin{\dfrac{n\pi}{2}}|n\in\mathbf{N}_{+}\}$.
+	      \end{tabenum}
+
+	\item 证明:
+	      \begin{enumerate}[(1)]
+		      \item $\sup\{x_n+y_n\}\leqslant\sup\{x_n\}+\sup\{y_n\}$;
+		      \item $\int\{x_n+y_n\}\geqslant\inf\{x_n\}+\inf\{x_n\}$.
+	      \end{enumerate}
+
+	\item 设有两个数集~$A$~和~$B$, 且对数集~$A$~中的任何一个数~$x$~和数集中的任何一个数~$y$~成立不等式~$x\leqslant y$. 证明: $\sup{A}\leqslant\inf{B}$.
+
+	\item 设数集~$A$~有上界, 数集~$B=\{x+c|x\in A\}$, 其中~$c$~是一个常数. 证明:
+	      \[
+		      \sup{B}=\sup{A}+c, \inf{B}=\inf{A}+c.
+	      \]
+
+	\item 设~$A,B$~是两个有上界的数集, 又有数集~$C\subset\{x+y|x\in A, y\in B\}$, 则~$\sup{C}\leqslant\sup{A}+\sup{B}$. 举出严格成立不等号的例子.
+
+	\item 设~$A,B$~是两个有上界的数集, 又有数集~$C\supset\{x+y|x\in A, y\in B\}$, 则~$\sup{C}\geqslant\sup{A}+\sup{B}$. 举出严格成立不等号的例子.\\
+
+	      (合并以上两题可见, 当且仅当~$C=\{x+y|x\in A, y\in B\}$~时成立~$\sup{C}=\sup{A}+\sup{B}$.)
+\end{enumerate}
+
+\section{闭区间套定理}
+
+\section{凝聚定理}
+
+\section{Cauchy~收敛准则}
+
+\section{覆盖定理}
+
+\section{数列的上极限和下极限}
+
+\section{对于教学的建议}
+
 \end{document}
