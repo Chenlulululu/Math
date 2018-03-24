@@ -1,5 +1,5 @@
 % Latex utf-8
-\documentclass[UTF8,a4paper,10pt,twoside]{book}
+\documentclass[UTF8,a4paper,11pt,twoside]{book}
 \usepackage{CTEX}
 \usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
 \usepackage{tablists}
@@ -554,7 +554,7 @@
 	      \end{proof}
 	\item 若~$\lim\limits_{n\to\infty} a_n=\alpha$, $\lim\limits_{n\to\infty} b_n=\beta$, 证明: $\lim\limits_{n\to\infty} \dfrac{a_1b_n+a_2b_{n-1}+\cdots+a_nb_1}{n}=\alpha\beta$.
 	      \begin{proof}
-		      \footnote{本题的证明方法可以用于一切类似~Teoplitz~定理的极限证明, 事实上~Teoplitz~定理也能类似给出证明.}
+		      \footnote{本题的证明方法可以用于一切类似~Teoplitz~定理(pp. 58. 10.)的极限证明, 事实上~Teoplitz~定理也能类似给出证明.}
 		      当~$\beta=0$~时, 由于~$\lim\limits_{n\to\infty} a_n=\alpha$, 故存在~$M>0$~使得~$|a_n|\leqslant M, n=1,2,\cdots$; 对于~$\forall\varepsilon>0$, 由~$\lim\limits_{n\to\infty} b_n=0$, $\exists N_1\in\mathbf{N}_{+}$~使得当~$n>N_1$~时, $|b_n|\leqslant\varepsilon/2M$, 于是
 		      \[
 			      \left|\dfrac{a_1b_n+a_2b_{n-1}+\cdots+a_nb_1}{n}\right|\leqslant M\cdot\dfrac{|b_1|+|b_2|+\cdots+|b_{N_1}|}{n}+M\cdot\dfrac{n-N_1}{n}\dfrac{\varepsilon}{2M}.
@@ -860,28 +860,116 @@
 			      \begin{split}
 				      a_0\sqrt{n}+a_1\sqrt{n+1}+\cdots+a_p\sqrt{n+p}=&a_1(\sqrt{n+1}-\sqrt{n})+\cdots+a_p(\sqrt{n+p}-{n})\\
 				      =&a_1\dfrac{1}{\sqrt{n+1}+\sqrt{n}}+\cdots+a_p+\dfrac{p}{\sqrt{n+p}+\sqrt{n}}\\
-				      \to&0 \ (n\to\infty).
+				      \to&0 \ (n\to\infty). \qedhere
 			      \end{split}
 		      \]
 	      \end{proof}
 
 	\item 证明: 当~$0<k<1$~时, $\lim\limits_{n\to\infty} [(1+n)^k-n^k]=0$.
+	      \begin{proof}
+		      \[
+			      0\leqslant(1+n)^k-n^k\leqslant n^k\left[\left(1+\dfrac{1}{n}\right)^k-1\right]\leqslant n^k\left[\left(1+\dfrac{1}{n}\right)-1\right]=\dfrac{1}{n^{1-k}}\to 0. \qedhere
+		      \]
+	      \end{proof}
 
 	\item
 	      \begin{enumerate}[(1)]
 		      \item 设~$\{x_n\}$~收敛. 令~$y_n=n(x_n-x_{n-1}), n\in\mathbf{N}_{+}$, 问~$\{y_n\}$~是否收敛?
 		      \item 在上一小题中, 若~$\{y_n\}$~也收敛, 证明: $\{y_n\}$~收敛于零.
 	      \end{enumerate}
+	      \begin{proof}
+		      \begin{enumerate}[(1)]
+			      \item $\{y_n\}$~不一定收敛, 举一反例: 令~$x_n=1-\dfrac{1}{2}+\cdots+(-1)^{n+1}\dfrac{1}{n}$. 首先证明其收敛:\footnote{这里所用的方法事实上就是交错级数的~Leibniz~判别法.} 注意
+			            \[
+				            \begin{split}
+					            x_{2n}=&\left(1-\dfrac{1}{2}\right)+\cdots+\left(\dfrac{1}{2n-1}-\dfrac{1}{2n}\right)=x_{2(n-1)}+\left(\dfrac{1}{2n-1}-\dfrac{1}{2n}\right)\geqslant x_{2(n-1)};\\
+					            x_{2n}=&1-\left(\dfrac{1}{2}-\dfrac{1}{3}\right)-\cdots-\left(\dfrac{1}{2n-2}-\dfrac{1}{2n-1}\right)-\dfrac{1}{2n}\leqslant 1.
+				            \end{split}
+			            \]
+			            故~$\{x_{2n}\}$~收敛, 记其极限为~$A$, 则由于~$x_{2n}=x_{2n-1}-\dfrac{1}{2n}$, 在等号两边令~$n\to\infty$, 有~$\{x_{2n-1}\}$~也收敛于~$A$. 故~$\{x_n\}$~收敛, 且~$\lim\limits_{n\to\infty} x_n=A$.
 
+			            而~$y_n=n(x_n-x_{n-1})=n\cdot(-1)^{n+1}\dfrac{1}{n}=(-1)^{n+1}$~显然发散.
+
+			      \item 若~$\{y_n\}$~收敛, 设其极限为~$B$, 则由~Stolz~定理, 有
+			            \[
+				            \lim\limits_{n\to\infty} \dfrac{x_n}{1+\dfrac{1}{2}+\cdots+\dfrac{1}{n}}=\lim\limits_{n\to\infty} \dfrac{x_n-x_{n-1}}{\dfrac{1}{n}}=\lim\limits_{n\to\infty} y_n=B.
+			            \]
+			            注意~$\{x_n\}$~收敛因而有界, $1+\dfrac{1}{2}+\cdots+\dfrac{1}{n}$~是无穷大量, 故~$B=\lim\limits_{n\to\infty} \dfrac{x_n}{1+\dfrac{1}{2}+\cdots+\dfrac{1}{n}}=0$, 即~$\lim\limits_{n\to\infty} y_n=0$. \qedhere
+		      \end{enumerate}
+	      \end{proof}
 	\item
 	      \begin{enumerate}[(1)]
 		      \item 设正数列~$\{a_n\}$~满足条件~$\lim\limits_{n\to\infty} \dfrac{a_n}{a_{n+1}}=0$, 证明: $\{a_n\}$~是无穷大量.
 		      \item 设正数列~$\{a_n\}$~满足条件~$\lim\limits_{n\to\infty} \dfrac{a_n}{a_{n+1}+a_{n+2}}=0$, 证明: $\{a_n\}$~无界.
 	      \end{enumerate}
+	      \begin{proof}
+		      \begin{enumerate}[(1)]
+			      \item 注意~$\{a_n\}$~是正数列, 故只需证明~$\left\{\dfrac{1}{a_n}\right\}$~是无穷小量. 记~$b_n=\dfrac{1}{a_n}$, 由~$\lim\limits_{n\to\infty} \dfrac{a_n}{a_{n+1}}=0$~可知~$\lim\limits_{n\to\infty} \dfrac{b_{n+1}}{b_n}=0$. 故对于~$\forall 0<\varepsilon<1$, 存在~$N\in\mathbf{N}_{+}$~使当~$n>N$~时, $\left|\dfrac{b_{n+1}}{b_{n}}\right|<\varepsilon$. 则
+			            \[
+				            |b_n|=\left|b_{N+1}\dfrac{b_{N+2}}{b_{N+1}}\cdots\dfrac{b_n}{b_{n-1}}\right|\leqslant|b_{N+1}|\varepsilon^{n-N-1}\to 0.
+			            \]
+			      \item 反证法. 若~$\{a_n\}$~有界. 由~$\lim\limits_{n\to\infty} \dfrac{a_n}{a_{n+1}+a_{n+2}}=0$, 则对于~$\varepsilon=\dfrac{1}{2}$, 存在~$N\in\mathbf{N}_{+}$, 当~$n>N$~时有~$\dfrac{a_n}{a_{n+1}+a_{n+2}}<\dfrac{1}{2}$, 即当~$n>N$~时有~$2a_n<a_{n+1}+a_{n+2}$. 断言~$n>N$~时有~$a_n<a_{n+1}$~或~$a_n<a_{n+2}$: 否则存在~$n_0>N$, $a_{n_0}\geqslant a_{n_0+1}, a_{n_0}\geqslant a_{n_0+2}$, 即~$2a_{n_0}\geqslant a_{n_0+1}+a_{n_0+2}$, 矛盾.
+			            \begin{enumerate}[(a)]
+				            \item 若~$a_n<a_{n+1}, \forall n>N$. 则~$\{a_n\}$~收敛, 设其极限为~$\alpha$, 则显然~$\alpha>0$. 故~$\lim\limits_{n\to\infty} \dfrac{a_n}{a_{n+1}+a_{n+2}}=\dfrac{\alpha}{\alpha+\alpha}=\dfrac{1}{2}>0$;
+				            \item 若~$a_n<a_{n+2}, \forall n>N$. 则~$\{a_{2n-1}\}, \{a_{2n}\}$~收敛, 设其极限分别为~$\alpha,\beta$, 则显然~$\alpha,\beta>0$. 故~$\lim\limits_{n\to\infty} \dfrac{a_n}{a_{n+1}+a_{n+2}}=\lim\limits_{n\to\infty} \dfrac{a_{2n}}{a_{2n+1}+a_{2n+2}}=\dfrac{\beta}{\alpha+\beta}>0$.
+			            \end{enumerate}
+			            均与~$\lim\limits_{n\to\infty} \dfrac{a_n}{a_{n+1}+a_{n+2}}=0$~矛盾. \qedhere
+		      \end{enumerate}
+	      \end{proof}
 
 	\item 证明: $\left(\dfrac{n}{3}\right)^n<n!<\left(\dfrac{n}{2}\right)^n$, 其中右边的不等式当~$n\geqslant 6$~时成立.
+	      \begin{proof}
+		      数学归纳法.
+
+		      左边.
+		      \begin{enumerate}[(a)]
+			      \item $n=1$~时, $\dfrac{1}{3}<1$;
+			      \item 假设~$\left(\dfrac{n}{3}\right)^n<n!$, 则
+			            \[
+				            (n+1)!=n!(n+1)>\left(\dfrac{n}{3}\right)^n(n+1)>\left(\dfrac{n\cdot\dfrac{n}{3}+(n+1)}{n+1}\right)^{n+1}=\left(\dfrac{n^2+3n+3}{3(n+1)}\right)^{n+1}>\left(\dfrac{n+1}{3}\right)^{n+1}.
+			            \]
+		      \end{enumerate}
+
+		      右边.
+		      \begin{enumerate}[(a)]
+			      \item $n=6$~时, $6!=720<729=3^6$;
+			      \item 假设~$n!<\left(\dfrac{n}{2}\right)^n$, 则
+			            \[
+				            (n+1)!=n!(n+1)<\left(\dfrac{n}{2}\right)^n(n+1)<\left(\dfrac{n+1}{2}\right)^n,
+			            \]
+			            其中最后一个不等号成立当且仅当~$\left(1+\dfrac{1}{n}\right)^n>2$, 而由于~$\left\{\left(1+\dfrac{1}{n}\right)^n\right\}$~严格单调递增, 故
+			            \[
+				            \left(1+\dfrac{1}{n}\right)^n>1+\dfrac{1}{1}=2.\qedhere
+			            \]
+		      \end{enumerate}
+	      \end{proof}
 
 	\item 证明: $\left(\dfrac{n}{\e}\right)^n<n!<\e\left(\dfrac{n}{2}\right)^n$.
+	      \begin{proof}
+		      数学归纳法.
+
+		      左边.
+		      \begin{enumerate}[(a)]
+			      \item $n=1$~时, $\dfrac{1}{\e}<1$;
+			      \item 假设~$\left(\dfrac{n}{\e}\right)^n<n!$, 则
+			            \[
+				            (n+1)!=n!(n+1)>\left(\dfrac{n}{\e}\right)^n(n+1)>\left(\dfrac{n^2+(n+1)\e}{\e(n+1)}\right)^{n+1}>\left(\dfrac{n^2+2n+1}{\e(n+1)}\right)^{n+1}=\left(\dfrac{n+1}{\e}\right)^{n+1}.
+			            \]
+		      \end{enumerate}
+
+		      右边.
+		      \begin{enumerate}[(a)]
+			      \item $n=1$~时, $1<\dfrac{\e}{2}$;
+			      \item 假设~$n!<\e\left(\dfrac{n}{2}\right)^n$, 则
+			            \[
+				            (n+1)!=n!(n+1)<\e\left(\dfrac{n}{2}\right)^n(n+1)<\e\left(\dfrac{n+1}{2}\right)^{n+1}.
+			            \]
+			            其中最后一个不等式成立当且仅当~$\left(1+\dfrac{1}{n}\right)^n>2$, 而由于~$\left\{\left(1+\dfrac{1}{n}\right)^n\right\}$~严格单调递增, 故
+			            \[
+				            \left(1+\dfrac{1}{n}\right)^n>1+\dfrac{1}{1}=2.\qedhere
+			            \]
+		      \end{enumerate}
+	      \end{proof}
 
 	\item (对于命题~2.5.4~的改进) 证明:
 	      \begin{enumerate}[(1)]
@@ -892,34 +980,199 @@
 		      \item $\e=3-\lim\limits_{n\to\infty} \displaystyle\sum_{k=0}^n\dfrac{1}{(k+2)!(k+1)(k+2)}$;
 		      \item 用~$\displaystyle \sum\limits_{k=0}^n\dfrac{1}{k!}+\dfrac{1}{n!n}$~计算~$\e$~要比不加上最后一项好得多.
 	      \end{enumerate}
+	      \begin{proof}
+		      \begin{enumerate}[(1)]
+			      \item 数学归纳法. 记等式左边为~$a_n$, 则
+			            \[
+				            a_{n+1}-a_n=\dfrac{1}{(n+1)!}+\dfrac{1}{(n+1)!(n+1)}-\dfrac{1}{n!n}=-\dfrac{1}{n!(n+1)n}+\dfrac{1}{(n+1)!(n+1)}=-\dfrac{1}{(n+1)!(n+1)n}.
+			            \]
+			            注意~$n=2$~时
+			            \[
+				            a_2=1+1+\dfrac{1}{2!}+\dfrac{1}{2!2}=\dfrac{11}{4}=3-\dfrac{1}{2!\cdot 1\cdot 2},
+			            \]
+			            等式成立. 假设
+			            \[
+				            a_n=1+1+\dfrac{1}{2!}+\cdots+\dfrac{1}{n!}+\dfrac{1}{n!n}=3-\dfrac{1}{2!1\cdot 2}-cdots-\dfrac{1}{n!(n-1)n},
+			            \]
+			            则
+			            \[
+				            a_{n+1}=a_n+(a_{n+1}-a_n)=3-\dfrac{1}{2!1\cdot 2}-cdots-\dfrac{1}{n!(n-1)n}-\dfrac{1}{(n+1)!(n+1)n}.
+			            \]
+			      \item
+		      \end{enumerate}
+	      \end{proof}
 
 	\item 设~$a_n=1+\dfrac{1}{\sqrt{2}}+\cdots+\dfrac{1}{\sqrt{n}}-2\sqrt{n}, n\in\mathbf{N}_{+}$, 证明: $\{a_n\}$~收敛.
-
+	      \begin{proof}
+		      \[
+			      a_{n+1}-a_n=\dfrac{1}{\sqrt{n+1}}-2\sqrt{n+1}+2\sqrt{n}=\dfrac{1}{\sqrt{n+1}}-\dfrac{2}{\sqrt{n+1}+\sqrt{n}}<0.
+		      \]
+		      注意~$\dfrac{1}{\sqrt{n}}>\dfrac{2}{\sqrt{n}+\sqrt{n+1}}=2(\sqrt{n+1}-\sqrt{n})$,
+		      \[
+			      \begin{split}
+				      a_n=&1+\dfrac{1}{\sqrt{2}}+\cdots+\dfrac{1}{\sqrt{n}}-2\sqrt{n}\\
+				      >&2(\sqrt{2}-\sqrt{1})+\cdots+2(\sqrt{n+1}-\sqrt{n})-2\sqrt{n}\\
+				      =&2\sqrt{n+1}-2\sqrt{n}-2\\
+				      >&-2. \qedhere
+			      \end{split}
+		      \]
+	      \end{proof}
 	\item 设已知存在极限~$\lim\limits_{n\to\infty} \dfrac{a_1+a_2+\cdots+a_n}{n}$, 证明: $\lim\limits_{n\to\infty} \dfrac{a_n}{n}=0$.
+	      \begin{proof}
+		      不妨设~$\lim\limits_{n\to\infty} \dfrac{a_1+a_2+\cdots+a_n}{n}=A$, 则当~$n\to\infty$~时,
+		      \[
+			      \dfrac{a_n}{n}=\dfrac{a_1+a_2+\cdots+a_n}{n}-\dfrac{a_1+a_2+\cdots+a_{n-1}}{n-1}\cdot\dfrac{n-1}{n}\to A-A=0. \qedhere
+		      \]
+	      \end{proof}
 
 	\item 证明: $\lim\limits_{n\to\infty} (n!)^{1/n^2}=1$.
+	      \begin{proof}
+		      由~pp. 56. 11.~知, 当~$n$~充分大时, 有~$\left(\dfrac{n}{3}\right)^n<n!<\left(\dfrac{n}{2}\right)^n$. 于是
+		      \[
+			      \left(\dfrac{n}{3}\right)^{1/n}=\left(\dfrac{n}{3}\right)^{n\cdot 1/n^2}<(n!)^{1/n^2}<\left(\dfrac{n}{2}\right)^{n\cdot 1/n^2}=\left(\dfrac{n}{2}\right)^{1/n}.
+		      \]
+		      注意
+		      \[
+			      \begin{split}
+				      \left(\dfrac{n}{2}\right)^{1/n}=&\sqrt[n]{\dfrac{1}{2}}\cdot\sqrt[n]{n}\to 1;\\
+				      \left(\dfrac{n}{3}\right)^{1/n}=&\sqrt[n]{\dfrac{1}{3}}\cdot\sqrt[n]{n}\to 1, \ (n\to\infty). \qedhere
+			      \end{split}
+		      \]
+	      \end{proof}
 
 	\item 设对每个~$n$~有~$x_n<1$~和~$(1-x_n)x_{n+1}\geqslant \dfrac{1}{4}$, 证明~$\{x_n\}$~收敛, 并求其极限.
+	      \begin{proof}
+		      由~$(1-x_n)x_{n+1}\geqslant \dfrac{1}{4}$~和~$x_n<1$, 可知~$0<x_n<1, \forall n\in\mathbf{N}_{+}$. 由基本不等式,
+		      \[
+			      \dfrac{1}{4}\leqslant (1-x_n)x_{n+1}<\left(\dfrac{(1-x_n+x_{n+1})}{2}\right)^2=\dfrac{[(1-x_n)+x_{n+1}]^2}{4}.
+		      \]
+		      即~$[(1-x_n)+x_{n+1}]^2>1$, 由于~$(1-x_n)$~和~$x_{n+1}$~均为正数, 故~$(1-x_n)+x_{n+1}>1$, 即~$x_{n+1}-x_n>0$. 于是~$\{x_n\}$~单调增加有上界, 故~$\{x_n\}$~收敛. 令~$\lim\limits_{n\to\infty} x_n=\xi$. 在不等式~$\dfrac{1}{4}\leqslant(1-x_n)x_{n-1}$~两边令~$n\to\infty$,
+		      \[
+			      \dfrac{1}{4}\leqslant (1-\xi)\xi \leqslant\dfrac{[(1-\xi)+\xi]^2}{4}=\dfrac{1}{4}.
+		      \]
+		      故~$\xi=\dfrac{1}{2}$. \qedhere
+	      \end{proof}
 
 	\item 设~$a_1=b, a_2=c$, 在~$n\geqslant 3$~时~$a_n$~由~$a_n=\dfrac{a_{n-1}+a_{n-2}}{2}$~定义. 求~$\lim\limits_{n\to\infty} a_n$.
+	      \begin{proof}
+		      不妨令~$b\leqslant c$. 则
+		      \[
+			      \begin{split}
+				      a_3=&\dfrac{a_1+a_2}{2}\in[a_1,a_2]\\
+				      a_4=&\dfrac{a_2+a_3}\in[a_3, a_2]\\
+				      &\cdots,
+			      \end{split}
+		      \]
+		      由数学归纳法易知对于~$\forall n\in\mathbf{N}_{+}$, 有
+		      \[
+			      a_1\leqslant a_3\leqslant\cdots\leqslant a_{2n-1}\leqslant a_{2n}\leqslant\cdots\leqslant a_4\leqslant a_2.
+		      \]
+		      故~$\{a_{2n-1}\}$~单调增加有上界, $\{a_{2n}\}$~单调递减有下界. 分别令~$\lim\limits_{n\to\infty} a_{2n-1}=\xi, \lim\limits_{n\to\infty} a_{2n}=\eta$, 则在递推式~$a_n=\dfrac{a_{n-1}+a_{n-2}}{2}$~两边令~$n\to\infty$, 易知~$\xi=\eta$. 故由~pp. 25. 1.~可知~$\{x_n\}$~收敛. 注意
+		      \[
+			      a_n+\dfrac{a_{n-1}}{2}=\dfrac{a_{n-1}+a_{n-2}}{2}+\dfrac{a_{n-1}}{2}=a_{n-1}+\dfrac{a_{n-1}}{2},
+		      \]
+		      反复使用就有
+		      \[
+			      a_n+\dfrac{a_{n+1}}{2}=a_{n-1}+\dfrac{a_{n-1}}{2}=\cdots=a_2+\dfrac{a_1}{2}=\dfrac{2c+b}{2}.
+		      \]
+		      令~$n\to\infty$, 有~$\dfrac{3\xi}{2}=\dfrac{2c+b}{2}$, 即~$\lim\limits_{n\to\infty} x_n=\xi=\dfrac{2c+b}{3}$. \qedhere
+	      \end{proof}
 
 	\item 设~$a,b,c$~是三个给定的实数. 令~$a_1=a, b_1=b, c_1=c$, 并以递推公式定义
 	      \[
 		      a_{n+1}=\dfrac{b_n+c_n}{2}, b_{n+1}=\dfrac{c_n+a_n}{2}, c_n=\dfrac{a_n+b_n}{2}, n\in\mathbf{N}_{+}.
 	      \]
 	      求这三个数列的极限.
-
+	      \begin{proof}
+		      注意对于~$\forall n\in\mathbf{N}_{+}$,
+		      \[
+			      a_{n+2}=\dfrac{b_{n+1}+c_{n+1}}{2}=\dfrac{c_n+a_n}{4}+\dfrac{a_n+b_n}{4}=\dfrac{a_n}{2}+\dfrac{b_n+c_n}{4}=\dfrac{a_{n+1}+a_{n}}{2}.
+		      \]
+		      同理有~$b_{n+2}=\dfrac{b_{n+1}+b_n}{2}$, $c_{n+2}=\dfrac{c_{n+1}+c_n}{2}, \forall n\in\mathbf{N}_{+}$. 由~p. 56. 18.~知~$\{a_n\}, \{b_n\}, \{c_n\}$~均收敛, 且
+		      \[
+			      \begin{split}
+				      \lim\limits_{n\to\infty} a_n=&\dfrac{a_1+2a_2}{3}=\dfrac{a_1}{3}+\dfrac{b_1+c_1}{3}=\dfrac{a+b+c}{3};\\
+				      \lim\limits_{n\to\infty} b_n=&\dfrac{b_1+2b_2}{3}=\dfrac{b_1}{3}+\dfrac{c_1+a_1}{3}=\dfrac{a+b+c}{3};\\
+				      \lim\limits_{n\to\infty} c_n=&\dfrac{c_1+2c_2}{3}=\dfrac{c_1}{3}+\dfrac{a_1+b_1}{3}=\dfrac{a+b+c}{3}. \qedhere
+			      \end{split}
+		      \]
+	      \end{proof}
 	\item
 	      \begin{enumerate}[(1)]
 		      \item 设~$a_1>b_1>0, a_{n+1}=\dfrac{2a_nb_n}{a_n+b_n}, b_{n+1}=\sqrt{a_{n+1}b_n}, n\in\mathbf{N}_{+}$, 证明: $\{a_n\}$~和~$\{b_n\}$~收敛于同一极限.
 		      \item 在~$a_1=2\sqrt{3}, b_1=3$~时, 证明上述极限等于单位圆的半周长~$\pi$. (这里可以利用极限~$\lim\limits_{n\to\infty} n\sin{\dfrac{\pi}{n}}=\pi$.)
 	      \end{enumerate}
+	      (注意本题与例题~2.3.5~完全不同. 实际上这就是计算圆周率的~Archimedes-刘徽~方法的迭代形式. 在~(2)~中的两个数列就是~$\{a_n\}$~和~$\{b_n\}$~就是单位圆的外切和内接正多边形的半周长(请求出边数与~$n$~的关系).)
+	      \begin{proof}
+		      \begin{enumerate}[(1)]
+			      \item 注意~$b_1<a_2<a_1$, $b_1<b_2<a_2<a_1$. 利用数学归纳法可以证明, 对于~$\forall n\in\mathbf{N}_{+}$, 有
+			            \[
+				            b_1<b_2<\cdots<b_n<a_n<\cdots<a_2<a_1.
+			            \]
+			            故~$\{a_n\}, \{b_n\}$~均收敛. 令其极限分别为~$\alpha, \beta$. 由基本不等式, 显然又有
+			            \[
+				            \sqrt{a_{n+1}b_n}=b_{n+1}<a_{n+1}=\dfrac{2a_nb_n}{a_n+b_n}<\sqrt{a_nb_n}.
+			            \]
+			            令~$n\to\infty$, 就有~$\alpha=\beta=\sqrt{\alpha\beta}$.
+			      \item 容易知道, 单位圆的外切~$n$~边形的半周长为~$n\tan{\dfrac{\pi}{n}}$, 内接~$n$~边形的半周长为~$n\sin{\dfrac{\pi}{n}}$. 并且, 若记~$\alpha_n=n\tan{\dfrac{\pi}{n}}, \beta_n=n\sin{\dfrac{\pi}{n}}$, 则
+			            \[
+				            \dfrac{2\alpha_n\beta_n}{\alpha_n+\beta_n}=\dfrac{2\left(n\tan{\dfrac{\pi}{n}}\right)\left(n\sin{\dfrac{\pi}{n}}\right)}{\left(n\tan{\dfrac{\pi}{n}}\right)\left(n\sin{\dfrac{\pi}{n}}\right)}=2n\dfrac{\sin{\dfrac{\pi}{n}}}{1+\cos{\dfrac{\pi}{n}}}=2n\tan{\dfrac{\pi}{2n}}=\alpha_{2n};
+			            \]
+			            \[
+				            \sqrt{\alpha_{2n}\beta_n}=\sqrt{\left(2n\tan{\dfrac{\pi}{2n}}\right)\left(n\sin{\dfrac{\pi}{n}}\right)}=\sqrt{\left(2n\sin{\dfrac{\pi}{2n}}\cos{\dfrac{\pi}{2n}}\tan{\dfrac{\pi}{2n}}\right)^2}=2n\sin{\dfrac{\pi}{n}}=\beta_{2n}.
+			            \]
+			            并且~$a_1=2\sqrt{3}=6\tan{\dfrac{\pi}{6}}=\alpha_6$, $b_1=3=6\sin{\dfrac{\pi}{6}}=\beta_6$, 故用数学归纳法容易证明,
+			            \[
+				            a_n=\alpha_{6n}, b_n=\beta_{6n}.
+			            \]
+			            又由于当~$0<x<\dfrac{\pi}{2}$~时, 有~$\sin{x}<x<\tan{x}$ (pp. 7. 命题~1.3.6), 故
+			            \[
+				            \pi=n\cdot\dfrac{\pi}{n}>n\sin{\dfrac{\pi}{n}}>\pi\cos{\dfrac{\pi}{n}}\to\pi.
+			            \]
+			            即~$\lim\limits_{n\to\infty} n\sin{\dfrac{\pi}{n}}=\pi$. 于是~$\lim\limits_{n\to\infty} a_n=\lim\limits_{n\to\infty} b_n=\lim\limits_{n\to\infty} \alpha_{6n}=\lim\limits_{n\to\infty} (6n)\sin{\dfrac{\pi}{6n}}=\pi$. \qedhere
+		      \end{enumerate}
+	      \end{proof}
 \end{enumerate}
+
 \subsection{第二组参考题}
 \begin{enumerate}
 	\item 设~$a_n=\sqrt{1+\sqrt{2+\cdots+\sqrt{n}}}, n\in\mathbf{N}_{+}$, 证明: $\{a_n\}$~收敛.
 
 	\item 证明: 对于每个自然数~$n$~成立不等式~$\left(1+\dfrac{1}{n}\right)^n>\sum\limits_{k=0}^n\dfrac{1}{k!}-\dfrac{\e}{2n}$.
+
+	\item 求极限~$\lim\limits_{n\to\infty} n\sin{2\pi n!\e}$.
+
+	\item 记~$S_n=1+\dfrac{1}{2}+\cdots+\dfrac{1}{n}, n\in\mathbf{N}_{+}$. 用~$K_n$~表示使~$S_k\geqslant n$~的最小下标, 求极限~$\lim\limits_{n\to\infty} \dfrac{K_{n+1}}{K_n}$.
+
+	\item 设~$x_n=\dfrac{1}{n^2}\displaystyle\sum\limits_{k=0}^n\binom{n}{k}, n\in\mathbf{N}_{+}$, 求~$\lim\limits_{n\to\infty} x_n$.
+
+	\item 将二项式系数~$\displaystyle\binom{n}{0}, \binom{n}{1}, \cdots, \binom{n}{n}$~的算术平均值和几何平均值分别记为~$A_n$~和~$G_n$. 证明: (1) $\lim\limits_{n\to\infty} \sqrt[n]{A_n}=2$; (2) $\lim\limits_{n\to\infty} \sqrt[n]{G_n}=\sqrt{\e}$.
+
+	\item 设~$A_n=\displaystyle\sum\limits_{k=1}^n a_k, n\in\mathbf{N}_{+}$, 数列~$\{a_n\}$~收敛. 又有一个单调增加的正数数列~$\{p_n\}$, 且为无穷大量. 证明: $\lim\limits_{n\to\infty} \dfrac{p_1a_1+p_2a_2+\cdots+p_na_n}{p_n}=0$.
+
+	\item 设~$\{a_n\}$~满足~$\lim\limits_{n\to\infty} (a_n\displaystyle\sum_{i=1}^n a_i^2)=1$, 证明: $\lim\limits_{n\to\infty} \sqrt[3]{3n} a_n=1$.
+
+	\item 设数列~$\{u_n\}_{n\geqslant 0}$~对每个非负整数~$n$~满足条件
+	      \[
+		      u_n=\lim\limits_{m\to\infty} (u_{n+1}^2+u_{n+2}^2+\cdots+u_{n+m}^2),
+	      \]
+	      证明: 若存在有限极限~$\lim\limits_{n\to\infty} (u_1+u_2+\cdots+u_n)$, 则只能是每个~$u_n=0$.
+
+	\item (Teoplitz~定理) 设对~$n,k\in\mathbf{N}_{+}$~有~$t_{nk}\geqslant 0$. 又有~$\displaystyle\sum\limits_{k=1}^n t_{nk}=1, \lim\limits_{\to\infty} t_{nk}=0$. 若已知~$\lim\limits_{n\to\infty} a_n=a$, 定义~$x_n=\displaystyle\sum\limits_{k=1}^nt_{nk}a_k$. 证明: $\lim\limits_{n\to\infty} x_n=a$.\\
+	      (几种变形: (1) 将条件~$\displaystyle\sum\limits_{k=1}^n t_{nk}=1$~改为~$\lim\limits_{n\to\infty} \displaystyle\sum\limits_{k=1}^n t_{nk}=1$; (2) 不要求~$t_{nk}$~非负, 将~(1)~中条件~$\displaystyle\sum\limits_{k=1}^n t_{nk}=1$~改为存在~$M>0$, 使得对每个~$n$, 成立不等式~$\displaystyle\sum\limits_{k=1}^n|t_{nk}|\leqslant M$. 则结论对于~$a=0$~仍成立.)
+
+	\item 用~Teoplitz~定理导出~Stolz~定理.
+
+	\item 设~$0<\lambda<1$, $\{a_n\}$~收敛于~$a$. 证明:
+	      \[
+		      \lim\limits_{n\to\infty} (a_n+\lambda a_{n-1}+\lambda^2 a_{n-2}+\cdots+\lambda^n a_0)=\dfrac{a}{1-\lambda}.
+	      \]
+
+	\item 设~$\lim\limits_{n\to\infty} x_n=0$, 并且存在常数~$K$~使得~$|y_1|+|y_2|+\cdots+|y_n|\leqslant K$~对每个~$n$~成立. 令~$z_n=x_1y_n+x_2y_{n-1}+\cdots+x_ny_1, n\in\mathbf{N}_{+}$, 证明: $\lim\limits_{n\to\infty} z_n=0$.\\
+	      (从本体的条件已可推出~$\lim\limits_{n\to\infty} y_n=0$. 但是可以举出例子说明仅有条件~$\lim\limits_{n\to\infty} x_n=\lim\limits_{n\to\infty} y_n=0$~不能得到
+	      \[
+		      \lim\limits_{n\to\infty} x_1y_n+x_2y_{n-1}+\cdots+x_ny_1=0.\text{)}
+	      \]
 \end{enumerate}
 
 \chapter{实数系的基本定理}
@@ -964,7 +1217,18 @@
 \end{enumerate}
 
 \section{闭区间套定理}
+\subsection{练习题 pp. 72.}
+\begin{enumerate}
+	\item 如果数列是~$\{(-1)^n\}$, 开始的区间是~$[-1,1]$. 试用例题~3.2.2~中的方法具体找出一个闭区间套和相应的收敛子列. 又问: 你能否用这样的方法在这个例子中找出~$3$~个收敛子列?
 
+	\item 如果区间套定理中的闭区间套改为开区间套~$\{(a_n,b_n)\}$, 其他条件不变, 则可以举出例子说明结论不成立.
+
+	\item 如~$\{(a_n,b_n)\}$~为开区间套, 数列~$\{a_n\}$~严格单调增加, 数列~$\{b_n\}$~严格单调减少, 又满足条件~$a_n<b_n, n\in\mathbf{N}_{+}$, 证明: $\bigcap_{n=1}^{\infty}(a_n,b_n)\neq\varnothing$.
+
+	\item 用闭区间套定理证明确界存在定理.
+
+	\item 用闭区间套定理证明单调有界数列的收敛定理.
+\end{enumerate}
 \section{凝聚定理}
 
 \section{Cauchy~收敛准则}
