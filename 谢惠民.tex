@@ -21,6 +21,7 @@
 \DeclareMathOperator{\csch}{csch}
 \DeclareMathOperator{\arsinh}{arsinh}
 \DeclareMathOperator{\arcosh}{arcosh}
+\DeclareMathOperator{\sgn}{sgn}
 \pagestyle{empty}
 \begin{document}
 \setlength\abovedisplayskip{3pt}
@@ -36,7 +37,7 @@
 	\end{center}
 
 \end{titlepage}
-\renewcommand{\proofname}{\bf 证明}
+\renewcommand{\proofname}{证明}
 
 \setcounter{chapter}{1}
 \chapter{数列极限}
@@ -71,7 +72,7 @@
 			      |a_{n+1}-a_n|\leqslant|a_{n+1}-a|+|a_n-a|<\varepsilon/2+\varepsilon/2=\varepsilon.
 		      \]
 
-		      $\lim\limits_{n\to\infty} a_{n+1}/a_n=1$. 举一反例~$\{(-1)^n 1/n\}$, 显然~$\lim\limits_{n\to\infty} (-1)^n1/n=0$, 但
+		      $\lim\limits_{n\to\infty} a_{n+1}/a_n=1$. 举一反例~$\{(-1)^n 1/n\}$, 显然~$\lim\limits_{n\to\infty} (-1)^n 1/n=0$, 但
 		      \[
 			      \lim\limits_{n\to\infty}\dfrac{(-1)^{n+1} 1/(n+1)}{(-1)^n 1/n}=\lim\limits_{n\to\infty} -1\cdot\dfrac{n}{n+1}=-1.\qedhere
 		      \]
@@ -169,7 +170,7 @@
 		      \]
 		      即~$\lim\limits_{n\to\infty} b_n=A-a$, 与~$\{b_n\}$~发散矛盾.
 
-		      $\{a_nb_n\}$~可能发散也可能收敛. 如取~$a_n=1/n, b_n=n\sin{n}$, 则~$a_nb_n=\sin{n}$, $\{a_nb_n\}$~发散; 取~$a_n=1/n, b_n=(-1)^n$, 则~$a_nb_n=(-1)^n1/n$, $\{a_nb_n\}$~收敛.\qedhere
+		      $\{a_nb_n\}$~可能发散也可能收敛. 如取~$a_n=1/n, b_n=n\sin{n}$, 则~$a_nb_n=\sin{n}$, $\{a_nb_n\}$~发散; 取~$a_n=1/n, b_n=(-1)^n$, 则~$a_nb_n=(-1)^n 1/n$, $\{a_nb_n\}$~收敛.\qedhere
 	      \end{proof}
 	\item 设~$\{a_n\}$~和~$\{b_n\}$~都发散, 问: $\{a_n+b_n\}$~和~$\{a_nb_n\}$~的敛散性如何?
 	      \begin{proof}
@@ -1229,14 +1230,650 @@
 
 	\item 用闭区间套定理证明单调有界数列的收敛定理.
 \end{enumerate}
+
 \section{凝聚定理}
+\subsection{练习题 pp. 74.}
+\begin{enumerate}
+	\item 对于给定的数列~$\{x_n\}$~和数~$a$, 证明: 在~$a$~的每个邻域中有数列~$\{x_n\}$~的无穷多项的充分必要条件是, $a$~是数列~$\{x_n\}$~的某个子列的极限.
+	      \begin{proof}
+		      充分性. 若~$a$~是数列~$\{x_n\}$~的某个子数列~$\{x_{n_k}\}$~的极限, 即对于任意~$\varepsilon>0$, 存在~$K\in\mathbf{N}_{+}$, 当~$k>K$~时, 有
+		      \[
+			      |x_{n_k}-a|<\varepsilon.
+		      \]
+		      即当~$k>K$~时, $x_{n_k}\in B(a,\varepsilon)$.
+
+		      必要性. 按照下列方式去寻找一个收敛于~$a$~的子列.
+		      \begin{enumerate}[(1)]
+			      \item 取~$\varepsilon_1=1$, $B(a,\varepsilon_1)$~含有~$\{x_n\}$~的无穷多项, 任取其一记为~$x_{n_1}$;
+			      \item 取~$\varepsilon_2=\dfrac{1}{2}$, $B(a,\varepsilon_2)$~含有~$\{x_n\}$~的无穷多项因而也含有~$\{x_n\}_{n>n_1}$~的无穷多项, 任取其一记为~$x_{n_2}$;
+			      \item 若~$x_{n_k}$~已经取定, 取~$\varepsilon_{k+1}=\dfrac{1}{k+1}$, $B(a,\varepsilon_{k+1})$~含有~$\{x_n\}$~的无穷多项因而也含有~$\{x_n\}_{n>n_k}$~的无穷多项, 任取其一记为~$x_{n+1}$.
+		      \end{enumerate}
+		      由数学归纳法, 找出了一个子列~$\{x_{n_k}\}$, 满足~$x_{n_k}\in B(a,1/k)$. 对于任意给定的~$\varepsilon>0$, 存在~$K\in\mathbf{N}_{+}$~使得~$\dfrac{1}{K}<\varepsilon\leqslant\dfrac{1}{K-1}$, 从而当~$k>K$~时,
+		      \[
+			      |x_{n_k}-a|=\dfrac{1}{k}<\dfrac{1}{K}<\varepsilon. \qedhere
+		      \]
+	      \end{proof}
+
+	\item 证明: 有界数列发散的充分必要条件是存在两个收敛于不同极限的子列.
+	      \begin{proof}
+		      充分性. 若~$\{x_{n_l}\}$~和~$\{x_{n_m}\}$~是有界数列~$\{x_n\}$~的两个收敛子列, 并且~$\lim\limits_{l\to\infty} x_{n_l}=A$, $\lim\limits_{m\to\infty} x_{n_m}=B$, $A\neq B$. 若~$\{x_n\}$~收敛, 不妨设其极限为~$\xi$. 则对于任意给定的~$\varepsilon>0$, 存在~$N\in\mathbf{N}_{+}$, 当~$n>N$~时~$|x_n-\xi|<\varepsilon$. 注意对于任意~$n$, 均有~$l_n\geqslant n, m_n\geqslant n$, 因此当~$l>N$~时有
+		      \[
+			      |x_{n_l}-\xi|<\varepsilon.
+		      \]
+		      由极限的唯一性可知~$\xi=A$; 同理可以证明~$\xi=B$. 与~$A\neq B$~矛盾.
+
+		      必要性. 若有界数列~$\{x_n\}$~发散. 由~Weierstrass~定理, 存在一个收敛子列~$\{x_{n_l}\}$, 记其极限为~$A$. 由于~$\{x_n\}$~不收敛于~$A$, 故存在~$\varepsilon_0>0$, 对于任意~$N>0$, 存在~$n>N$~使得~$|x_n-A|\geqslant\varepsilon$.
+
+		      对于~$N_1=1$, 存在~$k_1>N_1$~使得~$|x_{k_1}-A|\geqslant\varepsilon_0$;
+
+		      对于~$N_2=k_1$, 存在~$k_2>N_2$~使得~$|x_{k_2}-A|\geqslant\varepsilon_0$;
+
+		      若~$x_{k_n}$~已经取定, 对于~$N_{n+1}=k_n$, 存在~$k_{n+1}>N_{k+1}$~使得~$|x_{k_{n+1}}-A|\geqslant\varepsilon_0$.
+
+		      由数学归纳法, 找出了一个有界数列~$\{x_n\}$~的子列~$\{x_{k_n}\}$, 因而仍是有界数列, 由~Weierstrass~定理, 存在一个收敛子列, 记为~$\{x_{n_m}\}$. 注意对于~$\forall m\in\mathbf{N}_{+}$, $|x_{n_m}-A|\geqslant\varepsilon_0$, 故~$\lim\limits_{m\to\infty} x_{n_m}\neq A$. 从而~$\{x_{n_l}\}$~和~$\{x_{n_m}\}$~是~$\{x_n\}$~的收敛于不同极限的两个子列. \qedhere
+	      \end{proof}
+
+	\item 证明: 若~$\{x_n\}$~无界, 但不是无穷大量, 则存在两个子列, 其中一个子列收敛, 另一个子列是无穷大量.
+	      \begin{proof}
+		      不妨设~$\{x_n\}$~无上界. 由~pp. 73.~例题~3.3.2~可知存在一个~$\{x_n\}$~的收敛子列.
+		      由于~$\{x_n\}$~无上界, 知对于任意给定的~$M>0$, 存在~$n$~使得~$x_n>M$. 按照下列方式去寻找一个无穷大量子列.
+		      \begin{enumerate}[(1)]
+			      \item 取~$M_1=1$, 存在~$n_1$~使得~$x_{n_1}>M_1$.
+			      \item 断言~$\{x_n\}_{n>n_1}$~仍无上界, 否则~$\{x_n\}$~有上界~$M+\sum\limits_{k=1}^{n_1} |x_k|$. 取~$M_2=2$, 存在~$n_2$~使得~$n_2>n_1, x_{n_2}>M_2$.
+			      \item 若~$x_{n_k}$~已经取定, 同理~$\{x_n\}_{n>n_k}$~无上界. 取~$M_{k+1}=k+1$, 存在~$n_{k+1}$~使得~$n_{k+1}>n_k, x_{n_k}>M_k$.
+		      \end{enumerate}
+		      由数学归纳法, 找出了一个子列~$\{x_{n_k}\}$~使得~$x_{n_k}>k$. 对于任意~$M>0$, 存在~$K\in\mathbf{N}_{+}$, 使得~$K-1\leqslant M<K$. 于是当~$k>K$~时, $x_{n_k}>k>M$, 即~$\{x_{n_k}\}$~是无穷大量. \qedhere
+	      \end{proof}
+
+	\item 用凝聚定理证明单调有界数列的收敛定理.
+\end{enumerate}
 
 \section{Cauchy~收敛准则}
+\subsection{练习题 pp. 79.}
+\begin{enumerate}
+	\item 满足以下条件的数列~$\{x_n\}$~是否一定是基本数列? 若回答是, 请作出证明; 若回答不一定是, 请举出反例:
+	      \begin{enumerate}[(1)]
+		      \item 对每个~$\varepsilon>0$, 存在~$N$, 当~$n>N$~时, 成立~$|x_n-x_N|<\varepsilon$;
+		      \item 对所有~$n,p\in\mathbf{N}_{+}$~成立不等式~$|x_{n+p}-x_n|\leqslant\dfrac{p}{n}$;
+		      \item 对所有~$n,p\in\mathbf{N}_{+}$~成立不等式~$|x_{n+p}-x_n|\leqslant\dfrac{p}{n^2}$;
+		      \item 对每个自然数~$p$~成立~$\lim\limits_{n\to\infty} (x_n-x_{n+p})=0$.
+	      \end{enumerate}
+
+	\item 用对偶法则于数列收敛的~Cauchy~收敛准则, 以正面方式写出数列发散的充分必要条件.
+
+	\item 证明以下数列为基本数列, 因此都是收敛数列.
+	      \begin{enumerate}[(1)]
+		      \item $a_n=1+\dfrac{1}{2!}+\dfrac{1}{3!}+\cdots+\dfrac{1}{n!}, n\in\mathbf{N}_{+}$;
+		      \item $b_n=1-\dfrac{1}{2}+\dfrac{1}{3}+\cdots+(-1)^{n-1}\dfrac{1}{n}, n\in\mathbf{N}_{+}$;
+		      \item $a_n=\dfrac{\sin{2x}}{2(2+\sin{2x})}+\dfrac{\sin{3x}}{3(3+\sin{3x})}+\cdots+\dfrac{\sin{nx}}{n(n+\sin{nx})}, n\in\mathbf{N}_{+}$.
+	      \end{enumerate}
+
+	\item 设~$a_n=\sin{1}+\dfrac{\sin{2}}{2!}+\cdots+\dfrac{\sin{n}}{n!}, n\in\mathbf{N}_{+}$, 证明: (1) 数列~$\{a_n\}$~有界, 但不单调; (2) $\{a_n\}$~收敛.
+
+	\item 设从某个数列~$\{a_n\}$~定义~$x_n=\sum\limits_{k=1}^n a_k, y_n=\sum\limits_{k=1}^n |a_k|, n\in\mathbf{N}_{+}$, 若数列~$\{y_n\}$~收敛, 证明~$\{x_n\}$~也收敛.\\
+	      (本题可以看成是上一题和例题~3.4.1~的推广.)
+
+	\item 设~$S_n=1+\dfrac{1}{2^p}+\dfrac{1}{3^p}+\cdots+\dfrac{1}{n^p}, n\in\mathbf{N}_{+}$, 其中~$p\leqslant 1$, 证明~$\{S_n\}$~发散.
+
+	\item 天文学中的~Kepler~方程~$x-q\sin{x}=a (0<q<1)$~是一个超越方程, 没有求根公式. 求近似解的一个方法是通过迭代. 取定~$x_1$, 然后用递推公式~$x_{n+1}=q\sin{x_n}+a, n\in\mathbf{N}_{+}$. 证明这个方法的正确性.
+\end{enumerate}
 
 \section{覆盖定理}
+\subsection{练习题 pp. 83.}
+\begin{enumerate}
+	\item 对开区间~$(0,1)$~构造一个开覆盖, 使得它的每一个有限子集都不能覆盖~$(0,1)$.
+
+	\item 用闭区间套定理证明覆盖定理.
+
+	\item 用覆盖定理证明闭区间套定理.
+
+	\item 用覆盖定理证明凝聚定理.
+
+	\item 试对于例题~3.5.2~的证明举出两个具体例子, 即~(1)~数集~$A$~无上界; (2)~$A$~有上界, 且有~$b<\xi=\sup{A}$~和~$\xi\notin A$.
+\end{enumerate}
 
 \section{数列的上极限和下极限}
 
 \section{对于教学的建议}
+\subsection{第一组参考题}
+\begin{enumerate}
+	\item 证明: 数列有界的充分必要条件是它的每个子列有收敛子列.
 
+	\item 证明: 数列收敛的充分必要条件是存在一个数~$a$, 使数列的每个子列有收敛到~$a$~的子列.
+
+	\item 证明: 在有界闭区间上的无界函数一定在这个区间的某一点的每一个领域中无界. 又问: 在开区间上的无界函数是否有与此类似的性质?
+
+	\item 设函数~$f$~在区间~$(a,b)$~上定义, 对区间~$(a,b)$~的每一个点~$\xi$, 存在~$\xi>0$, 当~$x\in(\xi-\delta,\xi+\delta)\cap(a,b)$~时, 如~$x<\xi$, 则~$f(x)<\xi$, 如~$x>\xi$, 则~$f(x)>f(\xi)$. 证明: 函数~$f$~在~$(a,b)$~上严格单调增加.
+
+	\item 试用上下极限的工具证明~Stolz~定理.
+
+	\item 设~$\{x_n\}, \{y_n\}$~时正数列. 在以下乘积均有意义时证明:
+	      \[
+		      \varliminf_{n\to\infty} x_n \varliminf_{n\to\infty} y_n\leqslant \varliminf_{n\to\infty} (x_ny_n)\leqslant \varliminf_{n\to\infty} x_n \varlimsup_{n\to\infty} y_n \leqslant \varlimsup_{n\to\infty} (x_ny_n) \leqslant \varlimsup_{n\to\infty} x_n \varlimsup_{n\to\infty} y_n.
+	      \]
+
+	\item 设~$\{x_n\}$~为正数列. 用上下极限证明: 若~$\lim\limits_{n\to\infty} \dfrac{x_{n+1}}{x_n}=l$, 则~$\lim\limits_{n\to\infty} \sqrt[n]{x_n}=l$.
+
+	\item 若对于数列~$\{x_n\}$~的每个子列~$\{a_{n_k}\}$~都有~$\lim\limits_{k\to\infty} \dfrac{a_{n_1}+a_{n_2}+\cdots+a_{n_k}}{k}=a$, 证明: $\lim\limits_{n\to\infty} a_n=a$.
+
+	\item 设~$\{x_n\}$~为正数列, 证明: $\varlimsup\limits_{n\to\infty} n\left(\dfrac{1+x_{n+1}}{x_n}-1\right)\geqslant 1$.
+
+	\item 设~$\{x_n\}$~为正数列, 证明: $\varlimsup\limits_{n\to\infty} \left(\dfrac{x_1+x_{n+1}}{x_n}\right)^n\geqslant \e$.
+\end{enumerate}
+
+\subsection{第二组参考题}
+\begin{enumerate}
+	\item 证明: 对于~$\mathbf{R}$~中的任何两个正数~$a,b$, 如有~$0<a<b$, 则存在一个自然数~$n$~使得~$na>b$. (这个结论称为~Archimedes~原理或公理.)
+
+	\item 设有两个非空实数~$A$~和~$B$, 满足条件: (1) $\mathbf{R}=A\cup B$; (2) 在~$A$~的每一个数都小于~$B$~中的每一个数. 证明: 或者~$A$~有最大数而~$B$~无最小数, 或者~$B$~有最小数而~$A$~无最大数.\\
+	      (这就是~Dedekind~的连续性定理或公理, 它与实数系的每一个基本定理等价.)
+
+	\item 证明: 将实数~$\mathbf{R}$~分成两个非空集合~$A$~和~$B$, 则或者~$A$~中有数列收敛于~$B$~中的点, 或者~$B$~中有数列收敛于~$A$~中的点.\\
+	      (这个结论称为实数的连通性, 它与实数系的每一个基本定理等价.)
+
+	\item 试用压缩映射原理证明数列
+	      \[
+		      \sqrt{7}, \sqrt{7-\sqrt{7}}, \sqrt{7-\sqrt{7+\sqrt{7}}}, \sqrt{7-\sqrt{7+\sqrt{7-\sqrt{7}}}}, \cdots
+	      \]
+	      收敛, 并计算其极限.
+
+	\item 若对于每个数列~$\{y_n\}$~成立~$\varlimsup\limits_{n\to\infty}(x_n+y_n)=\varlimsup\limits_{n\to\infty} x_n+\varlimsup\limits_{n\to\infty} y_n$, 证明数列~$\{x_n\}$~收敛.
+
+	\item
+	      \begin{enumerate}[(1)]
+		      \item 设~$\{x_n\}$~为正数列, 且~$\varliminf\limits_{n\to\infty} x_n=0$. 证明: 存在无限多个~$n$, 使成立
+		            \[
+			            x_n<x_k, k=1,2,\cdots,n-1.
+		            \]
+		      \item 设~$\{x_n\}$~为正数列, 且有正下界, 证明: $\varlimsup\limits_{n\to\infty} \dfrac{x_{n+1}}{x_n}\geqslant 1$.
+	      \end{enumerate}
+
+	\item 设~$y_n=px_n+qx_{n+1}, n\in\mathbf{N}_{+}$, 其中~$|p|<|q|$. 证明: 若~$\{y_n\}$~收敛, 则~$\{x_n\}$~也收敛.
+
+	\item 设~$\{x_n\}$~有界, 且~$\lim\limits_{n\to\infty} (x_{2n}+2x_n)=A$. 证明: $\{x_n\}$~收敛, 并求其极限.
+
+	\item 设~$x_n=\sin{n}, n\in\mathbf{N}_{+}$, 证明数列~$\{x_n\}$~的极限点集合为~$[-1,1]$.
+
+	\item 设~$\{x_n\}$~有界, 且~$\lim\limits_{n\to\infty} (x_{n+1}-x_n)=0$. 将~$\{x_n\}$~的下极限和上极限分别记为~$l$~和~$L$. 证明: 在区间~$[l,L]$~中的每一个点都是数列~$\{x_n\}$~的极限点.
+\end{enumerate}
+
+\chapter{函数极限}
+\section{函数极限的定义}
+\subsection{思考题 pp. 98.}
+\begin{enumerate}
+	\item 以下几种叙述能否作为函数极限~$\lim\limits_{x\to a} f(x)=A$~的定义?
+	      \begin{enumerate}[(1)]
+		      \item $\forall\varepsilon>0, \exists \delta>0, \forall x\in O_{\delta}(a)-\{a\}$, 成立~$|f(x)-A|\leqslant\varepsilon$;
+		      \item $\forall\varepsilon>0, \exists \delta>0, \forall x\in O_{\delta}(a)-\{a\}$, 成立~$|f(x)-A|<k\varepsilon$;
+		      \item $\forall n\in\mathbf{N}_{+}, \exists \delta>0, \forall x\in O_{\delta}(a)-\{a\}$, 成立~$|f(x)-A|<\dfrac{1}{n}$;
+		      \item $\forall\varepsilon>0, \exists n, \forall x\in O_{\frac{1}{n}}(a)-{a}$, 成立~$|f(x)-A|<\varepsilon$.
+	      \end{enumerate}
+	      \begin{proof}[解答]
+		      均可以. 只需验证各项均与函数极限的定义等价即可.
+		      \begin{enumerate}[(1)]
+			      \item $\Rightarrow$~$\forall\varepsilon>0, \dfrac{\varepsilon}{2}>0, \exists\delta>0, \forall x\in O_{\delta}(a)-\{a\}$,  成立~$|f(x)-A|\leqslant\dfrac{\varepsilon}{2}<\varepsilon$.
+
+			            $\Leftarrow$~注意~$\varepsilon\leqslant\varepsilon$~即可.
+			      \item 注意对于~$\forall\varepsilon>0$, 有~$k\varepsilon>0, \dfrac{\varepsilon}{k}>0$~即可.
+			      \item $\Rightarrow$~由于~$\lim\limits_{n\to\infty} \dfrac{1}{n}=0$, 故对于~$\forall\varepsilon>0, \exists n_0\in\mathbf{N}_{+}$~使得~$\dfrac{1}{n}<\varepsilon$. 对于~$n_0$, $\exists\delta>0, \forall x\in O_{\delta}(a)-\{a\}$, 成立~$|f(x)-A|<\dfrac{1}{n_0}<\varepsilon$.
+
+			            $\Leftarrow$~取~$\varepsilon=\dfrac{1}{n}$~即可.
+			      \item $\Rightarrow$~取~$\delta=\dfrac{1}{n}$~即可.
+
+			            $\Leftarrow$~由于~$\lim\limits_{n\to\infty} \dfrac{1}{n}=0$, 故对于~$\forall\delta>0, \exists n_0\in\mathbf{N}_{+}$~使得~$\dfrac{1}{n}<\delta$. $\forall\varepsilon>0, \exists\delta>0, \forall x\in O_{\delta}(a)-\{a\}$, 成立~$|f(x)-A|<\varepsilon$. 取合适的~$n_0$~使得~$\dfrac{1}{n_0}<\delta$, 则对于~$\forall x\in O_{\frac{1}{n}}(a)-\{a\}\subset O_{\delta}(a)-\{a\}$, 成立~$|f(x)-A|<\varepsilon$. \qedhere
+		      \end{enumerate}
+	      \end{proof}
+	\item 以下几种叙述能否作为函数极限~$\lim\limits_{x\to a} f(x)=A$~的定义?
+	      \begin{enumerate}[(1)]
+		      \item $\exists\delta>0, \forall\varepsilon>0, \forall x\in O_{\delta}(a)-\{a\}$, 成立~$|f(x)-A|<\varepsilon$;
+		      \item $\forall\delta>0, \exists\varepsilon>0, \forall x\in O_{\delta}(a)-\{a\}$, 成立~$|f(x)-A|<\varepsilon$;
+		      \item 当~$x$~充分靠近~$a$~时, $f(x)$~越来越接近~$A$.
+	      \end{enumerate}
+	      \begin{proof}[解答]
+		      均可举出反例来说明与函数极限的定义不等价.
+		      \begin{enumerate}[(1)]
+			      \item 描述了函数~$f(x)\equiv A, \forall x\in O_{\delta}(a)-\{a\}$;
+			      \item 对于有界函数恒成立;
+			      \item 对于函数~$f(x)=x\sin{x}, A=0$, $f(x)\equiv A, \forall x\in O_{\delta}(a)-\{a\}$~均不成立. \qedhere
+		      \end{enumerate}
+	      \end{proof}
+
+	\item 用对偶法则给出: (1) ``$f(x)$~在点~$a$~不收敛于~$A$''的正面描述; (2) ``$f(x)$~在点~$a$~处没有极限''的正面描述.
+	      \begin{proof}[解答]
+		      \begin{enumerate}[(1)]
+			      \item $\exists\varepsilon>0, \forall \delta>0, \exists x\in O_{\delta}(a)-\{a\}$, 成立~$|f(x)-A|\geqslant\varepsilon$.
+			      \item $\forall A, \exists\varepsilon>0, \forall \delta>0, \exists x\in O_{\delta}(a)-\{a\}$, 成立~$|f(x)-A|\geqslant\varepsilon$.
+		      \end{enumerate}
+	      \end{proof}
+
+	\item 怎样用正面方式叙述以下否等性概念:
+	      \begin{tabenum}[(1)]
+		      \tabenumitem $\lim\limits_{x\to\infty} f(x)\neq A$;
+		      \tabenumitem $\lim\limits_{x\to-\infty} f(x)\neq A$;\\
+		      \tabenumitem $\lim\limits_{x\to a} f(x)\neq\infty$;
+		      \tabenumitem $\lim\limits_{x\to a^{-}} f(x)\neq A$;\\
+		      \tabenumitem $\lim\limits_{x\to a^{+}} f(x)\neq +\infty$.
+	      \end{tabenum}
+	      \begin{proof}[解答]
+		      \begin{enumerate}[(1)]
+			      \item $\exists\varepsilon>0, \forall M>0, \exists |x|>M$, 成立~$|f(x)-A|\geqslant\varepsilon$;
+			      \item $\exists\varepsilon>0, \forall M>0, \exists x<-M$, 成立~$|f(x)-A|\geqslant\varepsilon$;
+			      \item $\exists M>0, \forall\delta>0, \exists x\in O_{\delta}(a)-\{a\}$, 成立~$|f(x)|\leqslant M$;
+			      \item $\exists\varepsilon>0, \forall\delta>0, \exists a-\delta<x<a$, 成立~$|f(x)-A|\geqslant\varepsilon$;
+			      \item $\exists M>0, \forall\delta>0, \exists a<x<a+\delta$, 成立~$f(x)\leqslant M$. \qedhere
+		      \end{enumerate}
+	      \end{proof}
+\end{enumerate}
+
+\subsection{练习题 pp. 102.}
+以下各题要求按照函数极限的定义来做.
+\begin{enumerate}
+	\item 证明: $\lim\limits_{x\to 0} \dfrac{\sqrt{1+x}-\sqrt{1-x}}{x}=1$.
+	      \begin{proof}
+		      注意~$\dfrac{\sqrt{1+x}-\sqrt{1-x}}{x}=\dfrac{2}{\sqrt{1-x}+\sqrt{1+x}}$, 对于~$|x|<\dfrac{1}{4}$,
+		      \[
+			      \begin{split}
+				      \left| \dfrac{\sqrt{1+x}-\sqrt{1-x}}{x}-1\right|=&\left|\dfrac{2}{\sqrt{1-x}+\sqrt{1+x}}-1\right|\\
+				      \leqslant&\dfrac{1}{\sqrt{1+x}+\sqrt{1-x}}\cdot(|1-\sqrt{1+x}|+|1-\sqrt{1-x})\\
+				      =&\dfrac{1}{\sqrt{1+x}+\sqrt{1-x}}\cdot\left(\dfrac{|x|}{1+\sqrt{1+x}}+\dfrac{|x|}{1+\sqrt{1-x}}\right)\\
+				      \leqslant&\dfrac{2|x|}{\sqrt{1+x}+\sqrt{1-x}}\\
+				      <&\dfrac{2\sqrt{3}}{3}|x|.
+			      \end{split}
+		      \]
+		      对于任意给定的~$\varepsilon>0$, 取~$\delta=\min\left\{\dfrac{1}{4}, \dfrac{\sqrt{3}\varepsilon}{2}\varepsilon\right\}$, 则当~$0<|x|<\delta$~时,
+		      \[
+			      \left| \dfrac{\sqrt{1+x}-\sqrt{1-x}}{x}-1\right|<\dfrac{2\sqrt{3}}{3}|x|<\dfrac{2\sqrt{3}}{3}\dfrac{\sqrt{3}}{2}\varepsilon=\varepsilon. \qedhere
+		      \]
+	      \end{proof}
+
+	\item 证明: $\lim\limits_{x\to 1} \dfrac{x^2+x-2}{x(x^2-3x+2)}=-3$.
+	      \begin{proof}
+		      注意当~$x\neq 1$~时, $\dfrac{x^2+x-2}{x(x^2-3x+2)}=\dfrac{(x+2)(x-1)}{x(x-1)(x-2)}=\dfrac{x+2}{x(x-2)}$, 故对于~$0<|x|<\dfrac{1}{2}$,
+		      \[
+			      \begin{split}
+				      \left|\dfrac{x^2+x-2}{x(x^2-3x+2)}+3\right|=&\left|\dfrac{x+2}{x(x-2)}+3\right|\\
+				      =&\left|\dfrac{(3x-2)(x-1)}{x(x-2)}\right|\\
+				      \leqslant& \left|\dfrac{3x-2}{x(x-2)}\right||x-1|\\
+				      <&\dfrac{5}{2}\dfrac{1}{|x(x-2)|}|x-1|\\
+				      <&\dfrac{5}{2}\cdot 2|x-1|\\
+				      =&5|x-1|.
+			      \end{split}
+		      \]
+		      对于任意给定的~$\varepsilon>0$, 取~$\delta=\min\left\{\dfrac{1}{2}, \dfrac{\varepsilon}{5}\right\}$, 则当~$0<|x|<\delta$~时,
+		      \[
+			      \left|\dfrac{x^2+x-2}{x(x^2-3x+2)}+3\right|<5|x-1|<5\cdot\dfrac{\varepsilon}{5}=\varepsilon. \qedhere
+		      \]
+	      \end{proof}
+
+	\item 证明: $\lim\limits_{x\to+\infty} \dfrac{x+1}{x^2-x}=0$.
+	      \begin{proof}
+		      注意当~$x\neq 1$~时, $\dfrac{x+1}{x^2-x}=\dfrac{x+1}{x(x+1)}=\dfrac{1}{x}$. 故对于任意给定的~$\varepsilon>0$, 取~$M=\dfrac{1}{\varepsilon}$, 当~$x>M$~时,
+		      \[
+			      \left|\dfrac{x+1}{x^2-x}\right|=\dfrac{1}{x}<\varepsilon. \qedhere
+		      \]
+	      \end{proof}
+
+	\item 当~$a$~取什么数值时, $\lim\limits_{x\to -1} \dfrac{x^3-ax^2-x+4}{x+1}$~存在? 此时极限为何?
+	      \begin{proof}[解答]
+		      极限存在当且仅当~$x^3-ax^2-x+4$~含有一个~$(x+1)$~的因子, 即~$x=-1$~是~$x^3-ax^2-x+4=0$~的根. 故~$-1-a+1+4=0$, 故~$a=4$.
+		      代入~$a=4$, 有
+		      \[
+			      \lim\limits_{x\to -1} \dfrac{x^3-4x^2-x+4}{x+1}=\lim\limits_{x\to -1} (x-4)(x-1)=10. \qedhere
+		      \]
+	      \end{proof}
+
+	\item 求~$a,b$, 使~$\lim\limits_{x\to 2} \dfrac{x^2+ax+b}{x^2-x-2}=2$.
+	      \begin{proof}[解答]
+		      注意~$x^2-x-2=(x-2)(x+1)$, 故~$\lim\limits_{x\to 2} \dfrac{x^2+ax+b}{x^2-x-2}=2$~当且仅当~$x=-4, x=2$~是~$x^2+ax+b=0$~的两个根, 代入就有
+		      \[
+			      \begin{cases} 16-4a+b=0, \\ 4+2a+b=0. \end{cases} \Rightarrow \begin{cases} a=2,\\ b=-8. \end{cases} \qedhere
+		      \]
+	      \end{proof}
+
+	\item 问: 使得~$\lim\limits_{x\to 0^{+}} \dfrac{a+\sin{\dfrac{1}{x}}}{x}=\pm\infty$~的参数~$a$~是什么?
+	      \begin{proof}[解答]
+		      当~$a\geqslant 1$~时, $\lim\limits_{x\to 0^{+}} \dfrac{a+\sin{\dfrac{1}{x}}}{x}=+\infty$;
+
+		      当~$a\leqslant -1$~时, $\lim\limits_{x\to 0^{+}} \dfrac{a+\sin{\dfrac{1}{x}}}{x}=-\infty$;
+
+		      当~$-1<a<1$~时, $\dfrac{a+\sin{\dfrac{1}{x}}}{x}$~是符号不定的无穷大量. \qedhere
+	      \end{proof}
+
+	\item 证明: $\lim\limits_{x\to a} \ln{x}=\ln{a}$, 其中~$a>0$.
+	      \begin{proof}
+		      对于任意给定的~$\varepsilon>0$,
+		      \[
+			      \begin{split}
+				      |\ln{x}-\ln{a}|<\varepsilon &\Leftrightarrow  \ln{a}-\varepsilon<\ln{x}<\ln{a}+\varepsilon \\
+				      &\Leftrightarrow  a\e^{-\varepsilon}<x<a\e^{\varepsilon}\\
+				      &\Leftrightarrow  a(\e^{-\varepsilon}-1)<x-a<a(\e^{\varepsilon}-1)\\
+				      &\Leftrightarrow -a(1-\e^{-\varepsilon})<x-a<a(\e^{\varepsilon}-1).
+			      \end{split}
+		      \]
+		      注意~$a(1-\e^{-\varepsilon}), a(\e^{\varepsilon}-1)>0$, 故取~$\delta=\min\{a(1-\e^{-\varepsilon}), a(\e^{\varepsilon}-1)\}$, 则当~$0<|x-a|<\delta$~时有~$|\ln{x}-\ln{a}|<\varepsilon$. \qedhere
+	      \end{proof}
+
+	\item 证明: $\lim\limits_{x\to a} \e^{x}=\e^{a}$.
+	      \begin{proof}
+		      对于任意给定的~$\varepsilon>0$,
+		      \[
+			      \begin{split}
+				      |\e^{x}-\e^{a}|<\varepsilon &\Leftrightarrow \e^{a}-\varepsilon<\e^{x}<\e^{a}+\varepsilon\\
+				      &\Leftrightarrow 1-\varepsilon\e^{-a}<\e^{x-a}<1+\varepsilon\e^{-a}\\
+				      &\Leftrightarrow \ln(1-\varepsilon\e^{-a})<x-a<\ln(1+\varepsilon\e^{-a}).
+			      \end{split}
+		      \]
+		      注意~$-\ln(1-\varepsilon\e^{-a}),\ln(1+\varepsilon\e^{-a})>0$, 故取~$\delta=\min\{-\ln(1-\varepsilon\e^{-a}),\ln(1+\varepsilon\e^{-a})\}$, 则当~$0<|x-a|<\delta$~时有~$|\e^{x}-\e^{a}|<\varepsilon$. \qedhere
+	      \end{proof}
+
+	\item 证明~$\lim\limits_{x\to 0} f(x)$~与~$\lim\limits_{x\to 0} f(x^3)$~同时存在或不存在, 而当它们存在时必相等. \footnote{本题事实上就是在证明复合函数的极限定理.}
+	      \begin{proof}
+		      容易证明: $\lim\limits_{x\to 0} \sqrt[3]{x}=\lim\limits_{x\to 0} x^3=0$.
+		      若~$\lim\limits_{x\to 0} f(x)=A$, 则
+		      \begin{enumerate}[(a)]
+			      \item 对于任意给定的~$\varepsilon>0$, 存在~$\delta>0$, 使得当~$0<|x|<\delta$~时, $|f(x)-A|<\varepsilon$;
+			      \item 对于任意给定的~$\delta>0$, 存在~$\eta>0$, 使得当~$0<|x|<\eta$~时, $|x^3|<\varepsilon$.
+		      \end{enumerate}
+		      注意~$x\neq 0$~时, $x^3\neq 0$, 故当~$0<|x|<\eta$~时, $0<|x^3|<\delta$, 从而当~$0<|x|<\eta$~时有
+		      \[
+			      |f(x^3)-A|<\varepsilon.
+		      \]
+
+		      若~$\lim\limits_{x\to 0} f(x^3)=A$, 则
+		      \begin{enumerate}[(a)]
+			      \item 对于任意给定的~$\varepsilon>0$, 存在~$\delta>0$, 使得当~$0<|x|<\delta$~时, $|f(x^3)-A|<\varepsilon$;
+			      \item 对于任意给定的~$\delta>0$, 存在~$\eta>0$, 使得当~$0<|x|<\eta$~时, $|\sqrt[3]{x}|<\delta$.
+		      \end{enumerate}
+		      注意~$x\neq 0$~时, $\sqrt[3]{x}\neq 0$, 故当~$0<|x|<\eta$~时, $0<|\sqrt[3]{x}|<\delta$, 从而当~$0<|x|<\eta$~时有
+		      \[
+			      |f(x)-A|=|f((\sqrt[3]{x})^3)-A|<\varepsilon.
+		      \]
+		      这就证明了~$\lim\limits_{x\to 0} f(x)$~与~$\lim\limits_{x\to 0} f(x^3)$~同时存在或不存在, 而当它们存在时必相等. \qedhere
+	      \end{proof}
+
+	\item 问~$\lim\limits_{x\to 0} f(x)$~与~$\lim\limits_{x\to 0} f(x^2)$~是否一定同时存在或不存在?
+	      \begin{proof}[解答]
+		      不一定. 主要问题在于~$\sqrt{x^2}\not\equiv x$. 如取~$f(x)=\sgn{x}$. \footnote{事实上类似于~9., 可以证明有~$\lim\limits_{x\to 0} f(x^2)\equiv\lim\limits_{x\to 0^{+}} f(x)$.}
+	      \end{proof}
+
+	\item 证明: 如下定义的~Dirichlet~函数
+	      \[
+		      D(x)=\begin{cases} 1, & \text{$x$~是有理数}, \\ 0, & \text{$x$~是无理数}.\end{cases}
+	      \]
+	      在每一点都没有极限.
+	      \begin{proof}[方法一]
+		      $\forall x_0\in(-\infty,+\infty)$, 若极限~$\lim\limits_{x\to x_0} D(x)$~存在, 则只有可能是~$0$~或~$1$(否则对于任意~$A\neq 0,1$~, 显然无论~$\delta$~多么小都存在~$x\in(x_0-\delta,x_0+\delta)-\{x_0\}$~使得~$|D(x)-A|>\dfrac{\min\{|1-A|,|A|\}}{2}$.).
+		      对于任意~$\delta>0$, 存在有理数~$\xi\in(x_0-\delta,x_0+\delta)-\{x_0\}$~使得~$|D(\xi)-0|>\dfrac{1}{2}$; 存在无理数~$\eta\in(x_0-\delta,x_0+\delta)-\{x_0\}$~使得~$|D(\eta)-1|>\dfrac{1}{2}$. 故~$D(x)$~在~$\forall x_0\in(-\infty,+\infty)$~都没有极限. \qedhere
+	      \end{proof}
+
+	      \begin{proof}[方法二]
+		      $\forall x_0\in(-\infty,+\infty)$, 给定~$\varepsilon<1$, 对于任意~$\delta>0$, 存在有理数~$\xi$~和无理数~$\eta\in(x_0-\delta,x_0+\delta)-\{x_0\}$~使得~$|D(\xi)-D(\eta)|=1>\varepsilon$. 由~Cauchy~收敛准则知~$D(x)$~在~$\forall x_0\in(-\infty,+\infty)$~都没有极限. \qedhere\qedhere
+	      \end{proof}
+
+	      \begin{proof}[方法三]
+		      $\forall x_0\in(-\infty,+\infty)$, 由于有理数集~$\mathbf{Q}$~和无理数集~$\mathbf{Q}^{C}$~均在~$\mathbf{R}$~中稠密, 取有理数列~$\{\xi_n\}$~和无理数列~$\{\eta\}$~使得~$\lim\limits_{n\to\infty} \xi_n=\lim\limits_{n\to\infty} \eta_n=x_0$. 但~$\lim\limits_{n\to\infty} D(\xi_n)=1\neq 0=\lim\limits_{n\to\infty} \eta_n$. 由~Heine~定理知~$D(x)$~在~$\forall x_0\in(-\infty,+\infty)$~都没有极限. \qedhere
+	      \end{proof}
+
+	\item 试举出一个在区间~$(-\infty,+\infty)$~上定义的函数, 使得它在点~$x=1$~处有极限, 但在区间的其他点都没有极限. \footnote{同理, 若要求举例仅在~$x=a$~处可微的函数, 就是~$(x-a)^2D(x)$.}
+	      \begin{proof}[解答]
+		      取~$f(x)=(x-1)D(x)$. 对于~$\forall x_0\neq 1$, 易知~$f(x)$~在~$x_0$~处没有极限; 对于~$x_0=1$, $\forall\varepsilon>0$, 取~$\delta=\varepsilon$, 则当~$0<|x-1|<\delta$~时,
+		      \[
+			      |f(x)|=|x-1||D(x)|\leqslant |x-1|<\delta=\varepsilon.
+		      \]
+		      即~$\lim\limits_{x\to 1} f(x)=0$. \qedhere
+	      \end{proof}
+
+	\item 证明: 若~$f$~为周期函数, 且~$\lim\limits_{x\to+\infty} f(x)=0$, 则~$f(x)\equiv 0$.
+	      \begin{proof}
+		      反证法. 若~$f(x)\not\equiv 0$, 即存在~$x_0$~使得~$f(x_0)\neq 0$, 不妨设~$f(x_0)>0$. 假设~$T$~是~$f(x)$~的周期, 即~$f(x+T)\equiv f(x)$. 对于~$\varepsilon=\dfrac{f(x_0)}{2}>0$, $\forall M>0$, 由~Archimedes~公理, 存在~$n\in\mathbf{N}_{+}$~使得~$x_0+nT>M$, 故
+		      \[
+			      |f(x_0+nT)|=f(x_0)>\dfrac{f(x_0)}{2}=\varepsilon.
+		      \]
+		      即~$\lim\limits_{x\to+\infty} f(x)\neq 0$. \qedhere
+	      \end{proof}
+
+	\item 证明: 任何非常值的周期函数不可能是有理分式函数.
+	      \begin{proof}
+		      反证法. 对于周期为~$T$~的有理分式函数~$\dfrac{P(x)}{Q(x)}$~的次数分类讨论:
+		      \begin{enumerate}[(1)]
+			      \item 若~$\partial P(x)<\partial Q(x)$: $\lim\limits_{x\to+\infty} \dfrac{P(x)}{Q(x)}=0$, 由~13.~知~$\dfrac{P(x)}{Q(x)}\equiv 0$;
+			      \item 若~$\partial P(x)=\partial Q(x)$: $\lim\limits_{x\to+\infty} \dfrac{P(x)}{Q(x)}=C$~为一非零常数, 由~13.~知周期函数~$\dfrac{P(x)}{Q(x)}-C\equiv 0$, 即~$\dfrac{P(x)}{Q(x)}\equiv C$;
+			      \item 若~$\partial P(x)>\partial Q(x)$: $\lim\limits_{x\to+\infty} \dfrac{P(x)}{Q(x)}=\pm\infty$~为一确定符号的无穷大量, 不妨设为正无穷大量. 对于~$\forall x_0$, 取单调增加趋于~$+\infty$~的数列~$\{x_0+nT\}$, 显然~$\lim\limits_{n\to\infty} \dfrac{P(x_0+nT)}{Q(x_0+nT)}=\dfrac{P(x_0)}{Q(x_0)}<+\infty$. \qedhere
+		      \end{enumerate}
+	      \end{proof}
+\end{enumerate}
+
+\section{函数极限的基本性质}
+\subsection{思考题 pp. 107.}
+\begin{enumerate}
+	\item 试就~$\lim\limits_{x\to+\infty} f(x)=A$~和~$\lim\limits_{x\to a^{+}} f(x)=A$~两类极限叙述极限的唯一性定理、局部有界性定理、局部保号性定理、比较定理、夹逼定理、Heine~归结原理和~Cauchy~收敛准则.
+
+	\item 回答下述有关四则极限运算法则方面的问题:
+	      \begin{enumerate}[(1)]
+		      \item 若~$\lim\limits_{x\to a} [f(x)+g(x)]$~存在, 则当~$x$~趋于~$a$~时在~$f(x)$~和~$g(x)$~的敛散性之间有何联系?
+		      \item 若~$\lim\limits_{x\to a} f(x)$~存在, $\lim\limits_{x\to a} g(x)$~不存在, 则~$\lim\limits_{x\to a} f(x)g(x)$~是否存在?
+	      \end{enumerate}
+	      \begin{proof}[解答]
+		      \begin{enumerate}[(1)]
+			      \item $f(x)$, $g(x)$~同敛散. 利用四则运算可以证明, 若~$f(x),g(x)$~之一收敛, 则另一也必然收敛.
+			      \item 不一定. 容易举出不存在例, 存在例可取~$f(x)=x-a, g(x)=\dfrac{1}{x-a}$, 则~$f(x)g(x)\equiv 1$. \qedhere
+		      \end{enumerate}
+	      \end{proof}
+
+	\item 找出以下运算中的错误:
+	      \begin{enumerate}[(1)]
+		      \item $\lim\limits_{x\to 2} \dfrac{x-2}{\sin{\dfrac{1}{x-2}}}=\dfrac{\lim\limits_{x\to 2} (x-2)}{\lim\limits_{x\to 2} \sin{\dfrac{1}{x-2}}}=\dfrac{0}{\lim\limits_{x\to 2}\sin{\dfrac{1}{x-2}}}=0$.
+		      \item $\lim\limits_{x\to\infty}\dfrac{\sin{x}}{x}=\lim\limits_{x\to\infty} \dfrac{1}{x}\cdot \lim\limits_{x\to\infty} \sin{x} =0\cdot\lim\limits_{x\to\infty} \sin{x}=0$.
+	      \end{enumerate}
+	      \begin{proof}
+		      均在未验证极限存在就直接使用极限的四则运算: $\lim\limits_{x\to 2}\sin{\dfrac{1}{x-2}}$~和~$\lim\limits_{x\to\infty} \sin{x}$~均不存在. \qedhere
+	      \end{proof}
+
+	\item 对于极限的加法运算法则做出两个证明: (1) 用函数极限定义; (2) 用~Heine~归结原理.
+	      \begin{proof}[证明一]
+		      由~$\lim\limits_{x\to x_0} f(x)=A, \lim\limits_{x\to x_0} g(x)=B$~知对于任意给定的~$\varepsilon>0$, 存在~$\delta_1>0$, 当~$0<|x-x_0|<\delta_1$~时有~$|f(x)-A|<\dfrac{\varepsilon}{2}$; 存在~$\delta_1>0$, 当~$0<|x-x_0|<\delta_2$~时有~$|g(x)-B|<\dfrac{\varepsilon}{2}$. 故当~$0<|x-x_0|<\min\{\delta_1,\delta_2\}$~时,
+		      \[
+			      |(f(x)+g(x))-(A+B)|\leqslant |f(x)-A|+|g(x)-B|<\dfrac{\varepsilon}{2}+\dfrac{\varepsilon}{2}=\varepsilon.
+		      \]
+		      即~$\lim\limits_{x\to x_0} [f(x)+g(x)]=A+B$. \qedhere
+	      \end{proof}
+	      \begin{proof}[证明二]
+		      由~$\lim\limits_{x\to x_0} f(x)=A, \lim\limits_{x\to x_0} g(x)=B$~知对于任意~$\{x_n\}$, 若~$\lim\limits_{n\to\infty} x_n=x_0$, 则~$\lim\limits_{n\to\infty} f(x_n)=A, \lim\limits_{n\to\infty} g(x_n)=B$. 由数列极限的加法运算法则, $\lim\limits_{n\to\infty} f(x_n)+g(x_n)=A+B$, 由~Heine~归结原理知~$\lim\limits_{x\to x_0} f(x)+g(x)=A+B$. \qedhere
+	      \end{proof}
+\end{enumerate}
+
+\subsection{练习题 pp. 109.}
+\begin{enumerate}
+	\item 证明:
+	      \begin{tabenum}[(1)]
+		      \tabenumitem $\lim\limits_{x\to+\infty} \dfrac{x^k}{a^x}=0 \ (a>1,k>0)$;
+		      \tabenumitem $\lim\limits_{x\to+\infty} \dfrac{\ln{x}}{x^k}=0 \ (k>0)$;\\
+		      \tabenumitem $\lim\limits_{x\to\infty} \sqrt[x]{a}=1 \ (a>0)$;
+		      \tabenumitem $\lim\limits_{x\to+\infty} \sqrt[x]{x}=1$.
+	      \end{tabenum}
+	      \begin{proof}
+		      \begin{enumerate}[(1)]
+			      \item 注意~$[x]\leqslant x<[x]+1$, 因此
+			            \[
+				            \dfrac{1}{a}\dfrac{[x]^k}{a^[x]}\leqslant\dfrac{x^k}{a^x}\leqslant a\dfrac{([x]+1)^k}{a^{[x]+1}}.
+			            \]
+			            注意~$\lim\limits_{n\to\infty} \dfrac{n^k}{a^x}=0$, 即对于任意给定的~$\varepsilon>0$, 存在~$N\in\mathbf{N}_{+}$, 当~$n>N$~时有~$\dfrac{n^k}{a^n}<\varepsilon$. 当~$x>N+1$~时, $[x]\geqslant N+1>N$. 故
+			            \[
+				            \dfrac{([x]+1)^k}{a^{[x]+1}}<\varepsilon, \dfrac{[x]^k}{a^{[x]}}<\varepsilon.
+			            \]
+			            从而~$\lim\limits_{x\to+\infty} \dfrac{1}{a}\dfrac{[x]^k}{a^[x]}=\lim\limits_{x\to+\infty} a\dfrac{([x]+1)^k}{a^{[x]+1}}=0$, 故由夹逼准则知~$\lim\limits_{x\to+\infty} \dfrac{x^k}{a^x}=0$.
+
+			      \item 做变量替换~$y=\ln{x}$,
+			            \[
+				            \lim\limits_{x\to+\infty} \dfrac{\ln{x}}{x^k}=\lim\limits_{y\to+\infty} \dfrac{y}{\e^{ky}}=\lim\limits_{y\to+\infty} \dfrac{1}{k}\dfrac{y}{\e^y}=0.
+			            \]
+
+			      \item $\lim\limits_{x\to\infty} \sqrt[x]{a}=\lim\limits_{x\to\infty} \e^{\dfrac{\ln{a}}{x}} =\e^0=1$.
+
+			      \item $\lim\limits_{x\to+\infty} \sqrt[x]{x}=\lim\limits_{x\to+\infty} \e^{\dfrac{\ln{x}}{x}}=\e^0=1$. \qedhere
+		      \end{enumerate}
+	      \end{proof}
+
+	\item 求~$\lim\limits_{y\to+\infty} \dfrac{\sqrt{1+y^3}}{\sqrt{y^2+y^3}+y}$.
+	      \begin{proof}
+		      分子分母同时除以~$y^{\frac{3}{2}}$,
+		      \[
+			      \lim\limits_{y\to+\infty} \dfrac{\sqrt{1+y^3}}{\sqrt{y^2+y^3}+y}=\lim\limits_{y\to+\infty} \dfrac{\sqrt{1+\dfrac{1}{y^3}}}{\sqrt{1+\dfrac{1}{y}}+\dfrac{1}{\sqrt{y}}}=1. \qedhere
+		      \]
+	      \end{proof}
+
+	\item 求~$\lim\limits_{x\to+\infty} \left(\dfrac{x^2-1}{x^2+1}\right)^{\dfrac{x-1}{x+2}}$.
+	      \begin{proof}
+		      \[
+			      \lim\limits_{x\to+\infty} \left(\dfrac{x^2-1}{x^2+1}\right)^{\dfrac{x-1}{x+2}}=\left(\lim\limits_{x\to+\infty} \dfrac{x^2-1}{x^2+1}\right)^{\lim\limits_{x\to+\infty} \dfrac{x-1}{x+2}}=1. \qedhere
+		      \]
+	      \end{proof}
+
+	\item 求~$\lim\limits_{x\to 0} \dfrac{\sqrt[n]{1+x}-1}{x}$, 其中~$n$~为正整数.
+	      \begin{proof}
+		      \[
+			      \lim\limits_{x\to 0} \dfrac{\sqrt[n]{1+x}-1}{x}=\lim\limits_{x\to 0}\dfrac{1}{(\sqrt[n]{1+x})^{n-1}+(\sqrt[n]{1+x})^{n-2}+\cdots+\sqrt[n]{1+x}+1}=\dfrac{1}{n}. \qedhere
+		      \]
+	      \end{proof}
+
+	\item 求~$\lim\limits_{x\to 0} \dfrac{f(x)}{x}=l, b\neq 0$, 求~$\lim\limits_{x\to 0} \dfrac{f(bx)}{x}$.
+	      \begin{proof}
+		      \[
+			      \lim\limits_{x\to 0} \dfrac{f(bx)}{x}=\lim\limits_{x\to 0} b\cdot\dfrac{f(bx)}{bx}\xlongequal{y=bx}\lim\limits_{y\to 0} b\cdot\dfrac{f(y)}{y}=bl. \qedhere
+		      \]
+	      \end{proof}
+
+	\item 证明: $\lim\limits_{x\to 0} \dfrac{\sqrt{1+\sin{x}}-\sqrt{1-\sin{x}}}{\sin{x}}=1$.
+	      \begin{proof}
+		      \[
+			      \lim\limits_{x\to 0} \dfrac{\sqrt{1+\sin{x}}-\sqrt{1-\sin{x}}}{\sin{x}}=\lim\limits_{x\to 0} \dfrac{2\sin{x}}{\sin{x}(\sqrt{1+\sin{x}}+\sqrt{1-\sin{x}})}=1. \qedhere
+		      \]
+	      \end{proof}
+
+	\item 证明: 在区间~$(a,+\infty)$~上单调有界函数~$f$~一定存在极限~$\lim\limits_{x\to+\infty} f(x)$.
+	      \begin{proof}
+		      对于任意单调增加的正无穷大数列~$\{x_n\}\subset(a,+\infty)$, 由~$f$~在~$(a,+\infty)$~上单调有界, 知~$\{f(x_n)\}$~单调有界从而收敛. 由~$\{x_n\}$~的任意性, 从~Heine~归结原理可知极限~$\lim\limits_{x\to+\infty} f(x)$~存在. \qedhere
+	      \end{proof}
+
+	\item 设~$f(x)$~在区间~$(a,b)$~上为单调增加函数, 且存在一个数列~$\{x_n\}\subset(a,b)$, 使得~$\lim\limits_{n\to\infty} x_n=b, \lim\limits_{n\to\infty} f(x_n)=A$. 证明: (1) $f$~在区间~$(a,b)$~上以~$A$~为上界; (2) $\lim\limits_{x\to b}=A$.
+	      \begin{proof}
+		      断言对于~$\forall n\in\mathbf{N}_{+}, f(x_n)\leqslant A$. 否则存在~$n_0\in\mathbf{N}_{+}$~使得~$f(x_{n_0})>A$, 对于~$\forall n>n_0$, $f$~在~$(a,b)$~上单调增加, 故~$f(x_n)-A\geqslant f(x_{n_0})-A$, 与~$\lim\limits_{n\to\infty} f(x_n)=A$~矛盾. 对于~$\forall x\in(a,b)$, $\varepsilon'=b-x>0$, 存在~$N'\in\mathbf{N}_{+}$~使得当~$n>N'$~时有~$|x_n-b|<b-x$, 即~$x_n>x$. 于是~$f(x)\leqslant f(x_n)\leqslant A$, 即~$f$~在区间~$(a,b)$~上以~$A$~为上界.
+
+		      对于任意给定的~$\varepsilon>0$, 由于~$\lim\limits_{n\to\infty} f(x_n)=A$, 存在~$N\in\mathbf{N}_{+}$~使得~$|f(x_n)-A|<\varepsilon$, 即当~$n>N$~时~$f(x_n)>A-\varepsilon$. 固定~$n>N$, 令~$\delta=\dfrac{b-x_n}{2}$, 则当~$b-\delta<x<b$~时, $x>x_n$, 由于~$f$~在~$(a,b)$~上单调增加以~$A$~为上界, 有
+		      \[
+			      A-\varepsilon<f(x_n)\leqslant f(x)<A<A+\varepsilon.
+		      \]
+		      即~$\lim\limits_{x\to b}=A$. \qedhere
+	      \end{proof}
+
+	\item 设~$\lim\limits_{x\to+\infty}f(x)=A>0$. 证明: 对每个~$c\in(0,A)$, 存在~$M>0$, 当~$x>M$~时, 成立~$f(x)>c$. \\
+	      (这是对于极限类型为~$\lim\limits_{x\to+\infty} f(x)$~的保号性定理.)
+	      \begin{proof}
+		      令~$\varepsilon=A-c>0$, 由~$\lim\limits_{x\to+\infty} f(x)=A$, 存在~$M>0$~使得当~$x>M$~时有~$|f(x)-A|<\varepsilon=A-c$, 即当~$x>M$~时~$f(x)>A+(c-A)=c$. \qedhere
+	      \end{proof}
+
+	\item 设~$f(a^{-})<f(a^{+})$. 证明: 存在~$\delta>0$, 当~$x\in(a-\delta,a)$~和~$y\in(a,a+\delta)$~时, 成立~$f(x)<f(y)$.
+	      \begin{proof}
+		      对于~$\varepsilon=\dfrac{f(a^{+})-f(a^{-})}{2}>0$, 存在~$\delta_1>0$, 当~$a-\delta_1<x<a$~时, $|f(x)-f(a^{-})|<\varepsilon$, 即~$f(x)<f(a^{-})+\varepsilon$; 存在~$\delta_2>0$, 当~$a<y<a+\delta_2$~时, $|f(y)-f(a^{+})|<\varepsilon$, 即~$f(y)>f(a^{+})-\varepsilon$. 令~$\delta=\min\{\delta_1,\delta_2\}$~则当~$a-\delta<x<a<y<a+\delta$~时, 有
+		      \[
+			      f(x)<f(a^{-})+\varepsilon=\dfrac{f(a^{-})+f(a^{+})}{2}=f(a^{+})-\varepsilon<f(y). \qedhere
+		      \]
+	      \end{proof}
+
+	\item 试用~Heine~归结原理证明单调函数的单侧极限存在定理. \\
+	      (这里先要将~Heine~归结原理 (命题~4.2.3~) 推广到单侧极限. 注意这时在条件中的数列可限于单侧数列.)
+	      \begin{proof}
+		      首先给出单侧极限时的~Heine~归结原理.
+	      \end{proof}
+\end{enumerate}
+
+\section{两个重要极限}
+\subsection{练习题 pp. 114.}
+\begin{enumerate}
+	\item 计算以下极限:
+	      \begin{tabenum}[(1)]
+		      \tabenumitem $\lim\limits_{x\to+\infty} \left(\dfrac{2}{\pi}\arctan{x}\right)^x$;
+		      \tabenumitem $\lim\limits_{x\to\frac{\pi}{2}^{-}} (\sin{x})^{\tan{x}}$;\\
+		      \tabenumitem $\lim\limits_{x\to\infty} \left(\dfrac{x^2-1}{x^2+1}\right)^{x^2}$;
+		      \tabenumitem $\lim\limits_{x\to\frac{\pi}{2}^{-}} (\cos{x})^{\frac{\pi}{2}-x}$;\\
+		      \tabenumitem $\lim\limits_{x\to 0} \dfrac{\sin{2x}-2\sin{x}}{x^3}$;
+		      \tabenumitem $\lim\limits_{x\to 1} (1-x)\tan\left(\dfrac{\pi}{2}x\right)$.
+	      \end{tabenum}
+
+	      \begin{proof}[解答]
+		      \begin{enumerate}[(1)]
+			      \item $\begin{aligned}[t]
+					            \lim\limits_{x\to+\infty} \left(\dfrac{2}{\pi}\arctan{x}\right)^x & =  \lim\limits_{x\to+\infty} \left[1+\left(\dfrac{2}{\pi}\arctan{x}-1\right)\right]^{\dfrac{x\cdot\left(\dfrac{2}{\pi}\arctan{x}-1\right)}{\dfrac{2}{\pi}\arctan{x}-1} \\
+					                                                                              & =                                                                   {\rm exp}\left[\lim\limits_{x\to+\infty} x\left(\dfrac{2}{\pi}\arctan{x}-1\right)\right]           \\
+					                                                                              & =                                                                   \e^{-2/\pi}.
+				            \end{aligned}$
+
+			      \item $\begin{aligned}[t]
+					            \lim\limits_{x\to\frac{\pi}{2}^{-}} (\sin{x})^{\tan{x}} & =\lim\limits_{x\to\frac{\pi}{2}^{-}} [1+(\sin{x}-1)]^{\dfrac{\tan{x}(\sin{x}-1)}{\sin{x}-1}} \\
+					                                                                    & = {\rm exp}[\lim\limits_{x\to\frac{\pi}{2}^{-}} \tan{x}(\sin{x}-1)]                          \\
+					                                                                    & = \e^0=1.
+				            \end{aligned}$
+
+			      \item $\begin{aligned}[t]
+					            \lim\limits_{x\to\infty} \left(\dfrac{x^2-1}{x^2+1}\right)^{x^2} & = \lim\limits_{x\to\infty} \left(1-\dfrac{2}{x^2+1}\right)^{-\dfrac{x^2+1}{2}\dfrac{-2x^2}{x^2+1}} \\
+					                                                                             & ={\rm exp}\left[\lim\limits_{x\to\infty} -\dfrac{2x^2}{x^2+1}\right]                               \\
+					                                                                             & =\e^{-2}.
+				            \end{aligned}$
+
+			      \item $\begin{aligned}[t]
+					            \lim\limits_{x\to\frac{\pi}{2}^{-}} (\cos{x})^{\frac{\pi}{2}-x} & = \lim\limits_{x\to\frac{\pi}{2}^{-}} [1+(\cos{x}-1)]^{\dfrac{(\cos{x}-1)(\frac{\pi}{2}-x)}{\cos{x}-1}} \\
+					                                                                            & = {\rm exp}[(\cos{x}-1)(\frac{\pi}{2}-x)]                                                               \\
+					                                                                            & = \e^0=1.
+				            \end{aligned}$
+
+			      \item $\lim\limits_{x\to 0} \dfrac{\sin{2x}-2\sin{x}}{x^3} = \lim\limits_{x\to 0}\dfrac{2\sin{x}}{x}\cdot\dfrac{\cos{x}-1}{x^2}=2\cdot -\dfrac{1}{2}=-1$.
+
+			      \item $\begin{aligned}[t]
+					            \lim\limits_{x\to 1} (1-x)\tan\left(\dfrac{\pi}{2}x\right) & \xlongequal{y=x-1} \lim\limits_{y\to 0} -y\tan\left(\dfrac{\pi}{2}(y+1)\right)             \\
+					                                                                       & = \lim\limits_{y\to 0} y\cot\left(\dfrac{\pi}{2}x\right)                                   \\
+					                                                                       & \xlongequal{z=\frac{\pi}{2}y} \lim\limits_{z\to 0} \dfrac{2}{\pi}\dfrac{z}{\sin{z}}\cos{z} \\
+					                                                                       & =\dfrac{\pi}{2}\cdot 1\cdot 1= \dfrac{\pi}{2}.
+				            \end{aligned}$
+		      \end{enumerate}
+	      \end{proof}
+
+	\item 注意以下两个``不等式''并求出正确值:
+	      \begin{tabenum}[(1)]
+		      \tabenumitem $\lim\limits_{x\to+\infty} \dfrac{\sin{x}}{x}\neq 1$;
+		      \tabenumitem $\lim\limits_{x\to+\infty} (1+x)^{\frac{1}{x}}\neq \e$.
+	      \end{tabenum}
+	      \begin{proof}[解答]
+		      \begin{enumerate}[(1)]
+			      \item $\lim\limits_{x\to+\infty} \dfrac{\sin{x}}{x}=0$;
+			      \item $\lim\limits_{x\to+\infty} (1+x)^{\frac{1}{x}}=\lim\limits_{x\to+\infty} (1+x)^{\frac{1}{x+1}\cdot\frac{x+1}{x}}=1^1=1$. \qedhere
+		      \end{enumerate}
+	      \end{proof}
+
+	\item 设~$a>0, b>0$, 求极限~$\lim\limits_{n\to\infty} \left(\dfrac{\sqrt[n]{a}+\sqrt[n]{b}}{2}\right)^n$. \\
+	      (本题是数列极限问题, 但现在可以用函数极限知识来解决.)
+	      \begin{proof}
+			转化为函数极限~$\lim\limits_{x\to 0} \left(\dfrac{a^x+b^x}{2}\right)^{\frac{1}{x}}$.
+			\[
+				\begin{split}
+					\lim\limits_{x\to 0} \left(\dfrac{a^x+b^x}{2}\right)^{\frac{1}{x}}&=\lim\limits_{x\to 0} \left(1+\dfrac{a^x+b^x-2}{2}\right)^{\frac{2}{a^x+b^x-2}\cdot\frac{a^x+b^x-2}{2x}}\\
+					&={\rm exp}\left(\lim\limits_{x\to 0}\dfrac{a^x+b^x-2}{2x}\right)\\
+					&={\rm exp}\left(\dfrac{\ln{a}+\ln{b}}{2}\right)\\
+					&=\sqrt{ab}. \qedhere
+				\end{split}
+			\]
+	      \end{proof}
+	\item 设~$a_1, a_2, \cdots, a_n$~为正数, $n\geqslant 2$, $f(x)=\left[\dfrac{a_1^x+a_2^x+\cdots+a_n^x}{n}\right]^{\frac{1}{x}}$, 求~$\lim\limits_{x\to 0} f(x)$.
+		\begin{proof}
+			\[
+				\begin{split}
+					\lim\limits_{x\to 0} \left[\dfrac{a_1^x+a_2^x+\cdots+a_n^x}{n}\right]^{\frac{1}{x}}
+				\end{split}
+			\]
+		\end{proof}
+	\item 计算极限~$\lim\limits_{n\to\infty} \displaystyle\prod\limits_{k=1}^n \cos{\dfrac{x}{2^k}}$, 并证明~Vi\`ete~公式
+	      \[
+		      \dfrac{\pi}{2}=\dfrac{1}{ \sqrt{\dfrac{1}{2}} \cdot \sqrt{\dfrac{1}{2}+\dfrac{1}{2}\sqrt{\dfrac{1}{2}}} \cdot \sqrt{\dfrac{1}{2}+\dfrac{1}{2}\sqrt{\dfrac{1}{2}+\dfrac{1}{2}\sqrt{\dfrac{1}{2}}}}\cdots}.
+	      \]
+	      (这是数学家~Vi\`ete~在~1593~年发表的. 它是数学史上第一次用无穷乘积来表示一个数, 同时也是对于圆周率~$\pi$~的认识上的重大突破.)
+\end{enumerate}
 \end{document}

@@ -1,0 +1,64 @@
+% !Mode:: "TeX:UTF-8:Hard"
+\documentclass[a4paper]{article}
+
+\usepackage[a4paper,hmargin=1.25in,vmargin=1in]{geometry}  % 用Microsoft Office 中Word 的默认页边距
+
+% ===========================数学符号===============================================
+\usepackage{amsmath,amssymb,amsthm,amsfonts}
+\usepackage{bm} % $\bm{letter}$ 数学式中粗斜体字母的最佳方案
+
+% ===========================XeLatex相关宏包与选项========================================
+\usepackage[driverfallback=dvipdfm,colorlinks=true,linkcolor=black]{hyperref}  % 选项防与amssymb冲突，防目录、注释红框。
+\usepackage{xltxtra}% 提供了针对XeTeX的改进并且加入了XeTeX的LOGO，自动调用xunicode宏包（提供Unicode字符宏）
+
+% ===========================中文字体==========================================
+\usepackage[hyperref,nopunct]{ctex}
+\usepackage{fontspec}
+
+% ==========================图形表格
+\usepackage{caption}
+\captionsetup{font={scriptsize}}
+
+
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{tabularx}  
+
+\usepackage{rotating}   % 图片旋转
+\usepackage{graphicx}   % 插图必用宏包
+\usepackage{wrapfig}
+
+% ==========================定理环境
+\newcommand{\ud}[1]{\mathrm{d}#1}
+\newcommand{\e}{\mathrm e}
+\DeclareMathOperator{\arccot}{arccot}
+\DeclareMathOperator{\arcsec}{arcsec}
+\DeclareMathOperator{\arccsc}{arccsc}
+\DeclareMathOperator{\sech}{sech}
+\DeclareMathOperator{\csch}{csch}
+\DeclareMathOperator{\arsinh}{arsinh}
+\DeclareMathOperator{\arcosh}{arcosh}
+\DeclareMathOperator{\sgn}{sgn}
+\pagestyle{empty}
+\newtheorem{theorem}{定理}[section]
+\newtheorem{definition}[theorem]{定义}
+\newtheorem{propositoon}[theorem]{推论}
+\newtheorem{example}{例}[section]
+\newtheorem{lemma}[theorem]{引理}
+
+% ===========Opening===============
+\begin{document}
+
+%\tableofcontents  % 目录
+
+\clearpage
+\section{经典变分学}
+\subsection{变分问题和例子}
+\begin{definition}[泛函]
+    通常称非空集合$M$到实数域$\mathbb{R}$或复数域$\mathbb{C}$的映射为泛函.
+
+    变分学中, 
+\end{definiton}
+
+\end{document}
