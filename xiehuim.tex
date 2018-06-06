@@ -1,0 +1,49 @@
+% Latex utf-8
+\documentclass[a4paper,11pt,twoside]{ctexbook}
+\usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
+\usepackage{tablists}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{bm}
+\usepackage{extarrows}
+\usepackage{enumerate}
+\usepackage{titlesec}
+\usepackage{graphicx}
+\newcommand{\ud}[1]{\mathrm{d}#1}
+\newcommand{\e}{\mathrm e}
+\DeclareMathOperator{\arccot}{arccot}
+\DeclareMathOperator{\arcsec}{arcsec}
+\DeclareMathOperator{\arccsc}{arccsc}
+\DeclareMathOperator{\sech}{sech}
+\DeclareMathOperator{\csch}{csch}
+\DeclareMathOperator{\arsinh}{arsinh}
+\DeclareMathOperator{\arcosh}{arcosh}
+\DeclareMathOperator{\sgn}{sgn}
+\pagestyle{empty}
+\setlength\abovedisplayskip{3pt}
+\setlength\belowdisplayskip{3pt}
+\renewcommand{\proofname}{证明}
+\begin{document}
+\def\all{all}
+\begin{titlepage}
+	\begin{center}
+		\vfill
+		% Upper part of the page
+		{\Huge \bfseries 数学分析题习课讲义}\\[1.5cm]
+		% Title
+		{\LARGE \bfseries 参考答案}\\[3cm]
+		\vfill
+	\end{center}
+
+\end{titlepage}
+
+\include{Chapter_1}
+
+\include{Chapter_2}
+
+\include{Chapter_3}
+
+
+\end{document}

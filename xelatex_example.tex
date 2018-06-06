@@ -1,0 +1,40 @@
+%!TEX program = xelatex
+ % 使用 ctexart 文类，UTF-8 编码
+\documentclass[UTF8]{ctexbook}
+\title{测试}
+\author{ddswhu}
+\date{\today}
+
+\usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
+\usepackage{tablists}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{bm}
+\usepackage{extarrows}
+\usepackage{enumerate}
+\usepackage{titlesec}
+\usepackage{graphicx}
+\newcommand{\ud}[1]{\mathrm{d}#1}
+\newcommand{\e}{\mathrm e}
+\DeclareMathOperator{\arccot}{arccot}
+\DeclareMathOperator{\arcsec}{arcsec}
+\DeclareMathOperator{\arccsc}{arccsc}
+\DeclareMathOperator{\sech}{sech}
+\DeclareMathOperator{\csch}{csch}
+\DeclareMathOperator{\arsinh}{arsinh}
+\DeclareMathOperator{\arcosh}{arcosh}
+\DeclareMathOperator{\sgn}{sgn}
+\pagestyle{empty}
+\setlength\abovedisplayskip{3pt}
+\setlength\belowdisplayskip{3pt}
+\renewcommand{\proofname}{证明}
+\begin{document}
+\maketitle
+{\kaishu 你好}
+This is the context of the article.
+\input{Chapter_1}
+这就是文章的所有内容。
+ 
+\end{document}

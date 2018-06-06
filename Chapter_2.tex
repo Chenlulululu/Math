@@ -1,0 +1,254 @@
+\ifx\all\undefined
+\documentclass[a4paper,11pt,twoside]{ctexbook}
+\usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
+\usepackage{tablists}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{bm}
+\usepackage{extarrows}
+\usepackage{enumerate}
+\usepackage{titlesec}
+\usepackage{graphicx}
+\newcommand{\ud}[1]{\mathrm{d}#1}
+\newcommand{\e}{\mathrm e}
+\DeclareMathOperator{\arccot}{arccot}
+\DeclareMathOperator{\arcsec}{arcsec}
+\DeclareMathOperator{\arccsc}{arccsc}
+\DeclareMathOperator{\sech}{sech}
+\DeclareMathOperator{\csch}{csch}
+\DeclareMathOperator{\arsinh}{arsinh}
+\DeclareMathOperator{\arcosh}{arcosh}
+\DeclareMathOperator{\sgn}{sgn}
+\pagestyle{empty}
+\setlength\abovedisplayskip{3pt}
+\setlength\belowdisplayskip{3pt}
+\renewcommand{\proofname}{证明}
+\begin{document}
+\fi
+\setcounter{chapter}{2}
+\chapter{实数系的基本定理}
+\section{确界的概念和确界存在定理}
+\subsection{练习题 pp.69.}
+\begin{enumerate}
+	\item 试证明确界的唯一性.
+
+	\item 设对每个$x\in A$成立$x<a$. 问: 在$\sup{A}<a$和$\sup{A}\leqslant a$中哪个是对的?
+
+	\item 设数集$A$以$\beta$为上界, 又有数列$\{x_n\}\subset A$和$\lim\limits_{n\to\infty} x_n=\beta$. 证明: $\beta=\sup{A}$.
+
+	\item 求下列数集的上确界和下确界:
+	      \begin{tabenum}[(1)]
+		      \tabenumitem $\{x\in\mathbf{Q}|x>0\}$;
+		      \tabenumitem $\{y|y=x^2,x\in(-\dfrac{1}{2},1)\}$;\\
+		      \tabenumitem $\left\{\left(1+\dfrac{1}{n}\right)^n | n\in\mathbf{N}_{+}\right\}$;
+		      \tabenumitem $\{n\e^{-n}|n\in\mathbf{N}_{+}\}$;\\
+		      \tabenumitem $\{\arctan{x}|x\in(-\infty,\infty)\}$;
+		      \tabenumitem $\{(-1)^n+\dfrac{1}{n}(-1)^{n+1}|n\in\mathbf{N}_{+}\}$;\\
+		      \tabenumitem $\{1+n\sin{\dfrac{n\pi}{2}}|n\in\mathbf{N}_{+}\}$.
+	      \end{tabenum}
+
+	\item 证明:
+	      \begin{enumerate}[(1)]
+		      \item $\sup\{x_n+y_n\}\leqslant\sup\{x_n\}+\sup\{y_n\}$;
+		      \item $\inf\{x_n+y_n\}\geqslant\inf\{x_n\}+\inf\{x_n\}$.
+	      \end{enumerate}
+
+	\item 设有两个数集$A$和$B$, 且对数集$A$中的任何一个数$x$和数集中的任何一个数$y$成立不等式$x\leqslant y$. 证明: $\sup{A}\leqslant\inf{B}$.
+
+	\item 设数集$A$有上界, 数集$B=\{x+c|x\in A\}$, 其中$c$是一个常数. 证明:
+	      \[
+		      \sup{B}=\sup{A}+c, \inf{B}=\inf{A}+c.
+	      \]
+
+	\item 设$A,B$是两个有上界的数集, 又有数集$C\subset\{x+y|x\in A, y\in B\}$, 则$\sup{C}\leqslant\sup{A}+\sup{B}$. 举出严格成立不等号的例子.
+
+	\item 设$A,B$是两个有上界的数集, 又有数集$C\supset\{x+y|x\in A, y\in B\}$, 则$\sup{C}\geqslant\sup{A}+\sup{B}$. 举出严格成立不等号的例子.\\
+
+	      (合并以上两题可见, 当且仅当$C=\{x+y|x\in A, y\in B\}$时成立$\sup{C}=\sup{A}+\sup{B}$.)
+\end{enumerate}
+
+\section{闭区间套定理}
+\subsection{练习题 pp. 72.}
+\begin{enumerate}
+	\item 如果数列是$\{(-1)^n\}$, 开始的区间是$[-1,1]$. 试用例题3.2.2中的方法具体找出一个闭区间套和相应的收敛子列. 又问: 你能否用这样的方法在这个例子中找出$3$个收敛子列?
+
+	\item 如果区间套定理中的闭区间套改为开区间套$\{(a_n,b_n)\}$, 其他条件不变, 则可以举出例子说明结论不成立.
+
+	\item 如$\{(a_n,b_n)\}$为开区间套, 数列$\{a_n\}$严格单调增加, 数列$\{b_n\}$严格单调减少, 又满足条件$a_n<b_n, n\in\mathbf{N}_{+}$, 证明: $\bigcap_{n=1}^{\infty}(a_n,b_n)\neq\varnothing$.
+
+	\item 用闭区间套定理证明确界存在定理.
+
+	\item 用闭区间套定理证明单调有界数列的收敛定理.
+\end{enumerate}
+
+\section{凝聚定理}
+\subsection{练习题 pp. 74.}
+\begin{enumerate}
+	\item 对于给定的数列$\{x_n\}$和数$a$, 证明: 在$a$的每个邻域中有数列$\{x_n\}$的无穷多项的充分必要条件是, $a$是数列$\{x_n\}$的某个子列的极限.
+	      \begin{proof}
+		      充分性. 若$a$是数列$\{x_n\}$的某个子数列$\{x_{n_k}\}$的极限, 即对于任意$\varepsilon>0$, 存在$K\in\mathbf{N}_{+}$, 当$k>K$时, 有
+		      \[
+			      |x_{n_k}-a|<\varepsilon.
+		      \]
+		      即当$k>K$时, $x_{n_k}\in B(a,\varepsilon)$.
+
+		      必要性. 按照下列方式去寻找一个收敛于$a$的子列.
+		      \begin{enumerate}[(1)]
+			      \item 取$\varepsilon_1=1$, $B(a,\varepsilon_1)$含有$\{x_n\}$的无穷多项, 任取其一记为$x_{n_1}$;
+			      \item 取$\varepsilon_2=\dfrac{1}{2}$, $B(a,\varepsilon_2)$含有$\{x_n\}$的无穷多项因而也含有$\{x_n\}_{n>n_1}$的无穷多项, 任取其一记为$x_{n_2}$;
+			      \item 若$x_{n_k}$已经取定, 取$\varepsilon_{k+1}=\dfrac{1}{k+1}$, $B(a,\varepsilon_{k+1})$含有$\{x_n\}$的无穷多项因而也含有$\{x_n\}_{n>n_k}$的无穷多项, 任取其一记为$x_{n+1}$.
+		      \end{enumerate}
+		      由数学归纳法, 找出了一个子列$\{x_{n_k}\}$, 满足$x_{n_k}\in B(a,1/k)$. 对于任意给定的$\varepsilon>0$, 存在$K\in\mathbf{N}_{+}$使得$\dfrac{1}{K}<\varepsilon\leqslant\dfrac{1}{K-1}$, 从而当$k>K$时,
+		      \[
+			      |x_{n_k}-a|=\dfrac{1}{k}<\dfrac{1}{K}<\varepsilon. \qedhere
+		      \]
+	      \end{proof}
+
+	\item 证明: 有界数列发散的充分必要条件是存在两个收敛于不同极限的子列.
+	      \begin{proof}
+		      充分性. 若$\{x_{n_l}\}$和$\{x_{n_m}\}$是有界数列$\{x_n\}$的两个收敛子列, 并且$\lim\limits_{l\to\infty} x_{n_l}=A$, $\lim\limits_{m\to\infty} x_{n_m}=B$, $A\neq B$. 若$\{x_n\}$收敛, 不妨设其极限为$\xi$. 则对于任意给定的$\varepsilon>0$, 存在$N\in\mathbf{N}_{+}$, 当$n>N$时$|x_n-\xi|<\varepsilon$. 注意对于任意$n$, 均有$l_n\geqslant n, m_n\geqslant n$, 因此当$l>N$时有
+		      \[
+			      |x_{n_l}-\xi|<\varepsilon.
+		      \]
+		      由极限的唯一性可知$\xi=A$; 同理可以证明$\xi=B$. 与$A\neq B$矛盾.
+
+		      必要性. 若有界数列$\{x_n\}$发散. 由Weierstrass定理, 存在一个收敛子列$\{x_{n_l}\}$, 记其极限为$A$. 由于$\{x_n\}$不收敛于$A$, 故存在$\varepsilon_0>0$, 对于任意$N>0$, 存在$n>N$使得$|x_n-A|\geqslant\varepsilon$.
+
+		      对于$N_1=1$, 存在$k_1>N_1$使得$|x_{k_1}-A|\geqslant\varepsilon_0$;
+
+		      对于$N_2=k_1$, 存在$k_2>N_2$使得$|x_{k_2}-A|\geqslant\varepsilon_0$;
+
+		      若$x_{k_n}$已经取定, 对于$N_{n+1}=k_n$, 存在$k_{n+1}>N_{k+1}$使得$|x_{k_{n+1}}-A|\geqslant\varepsilon_0$.
+
+		      由数学归纳法, 找出了一个有界数列$\{x_n\}$的子列$\{x_{k_n}\}$, 因而仍是有界数列, 由Weierstrass定理, 存在一个收敛子列, 记为$\{x_{n_m}\}$. 注意对于$\forall m\in\mathbf{N}_{+}$, $|x_{n_m}-A|\geqslant\varepsilon_0$, 故$\lim\limits_{m\to\infty} x_{n_m}\neq A$. 从而$\{x_{n_l}\}$和$\{x_{n_m}\}$是$\{x_n\}$的收敛于不同极限的两个子列. \qedhere
+	      \end{proof}
+
+	\item 证明: 若$\{x_n\}$无界, 但不是无穷大量, 则存在两个子列, 其中一个子列收敛, 另一个子列是无穷大量.
+	      \begin{proof}
+		      不妨设$\{x_n\}$无上界. 由pp. 73.例题3.3.2可知存在一个$\{x_n\}$的收敛子列.
+		      由于$\{x_n\}$无上界, 知对于任意给定的$M>0$, 存在$n$使得$x_n>M$. 按照下列方式去寻找一个无穷大量子列.
+		      \begin{enumerate}[(1)]
+			      \item 取$M_1=1$, 存在$n_1$使得$x_{n_1}>M_1$.
+			      \item 断言$\{x_n\}_{n>n_1}$仍无上界, 否则$\{x_n\}$有上界$M+\sum\limits_{k=1}^{n_1} |x_k|$. 取$M_2=2$, 存在$n_2$使得$n_2>n_1, x_{n_2}>M_2$.
+			      \item 若$x_{n_k}$已经取定, 同理$\{x_n\}_{n>n_k}$无上界. 取$M_{k+1}=k+1$, 存在$n_{k+1}$使得$n_{k+1}>n_k, x_{n_k}>M_k$.
+		      \end{enumerate}
+		      由数学归纳法, 找出了一个子列$\{x_{n_k}\}$使得$x_{n_k}>k$. 对于任意$M>0$, 存在$K\in\mathbf{N}_{+}$, 使得$K-1\leqslant M<K$. 于是当$k>K$时, $x_{n_k}>k>M$, 即$\{x_{n_k}\}$是无穷大量. \qedhere
+	      \end{proof}
+
+	\item 用凝聚定理证明单调有界数列的收敛定理.
+\end{enumerate}
+
+\section{Cauchy收敛准则}
+\subsection{练习题 pp. 79.}
+\begin{enumerate}
+	\item 满足以下条件的数列$\{x_n\}$是否一定是基本数列? 若回答是, 请作出证明; 若回答不一定是, 请举出反例:
+	      \begin{enumerate}[(1)]
+		      \item 对每个$\varepsilon>0$, 存在$N$, 当$n>N$时, 成立$|x_n-x_N|<\varepsilon$;
+		      \item 对所有$n,p\in\mathbf{N}_{+}$成立不等式$|x_{n+p}-x_n|\leqslant\dfrac{p}{n}$;
+		      \item 对所有$n,p\in\mathbf{N}_{+}$成立不等式$|x_{n+p}-x_n|\leqslant\dfrac{p}{n^2}$;
+		      \item 对每个自然数$p$成立$\lim\limits_{n\to\infty} (x_n-x_{n+p})=0$.
+	      \end{enumerate}
+
+	\item 用对偶法则于数列收敛的Cauchy收敛准则, 以正面方式写出数列发散的充分必要条件.
+
+	\item 证明以下数列为基本数列, 因此都是收敛数列.
+	      \begin{enumerate}[(1)]
+		      \item $a_n=1+\dfrac{1}{2!}+\dfrac{1}{3!}+\cdots+\dfrac{1}{n!}, n\in\mathbf{N}_{+}$;
+		      \item $b_n=1-\dfrac{1}{2}+\dfrac{1}{3}+\cdots+(-1)^{n-1}\dfrac{1}{n}, n\in\mathbf{N}_{+}$;
+		      \item $a_n=\dfrac{\sin{2x}}{2(2+\sin{2x})}+\dfrac{\sin{3x}}{3(3+\sin{3x})}+\cdots+\dfrac{\sin{nx}}{n(n+\sin{nx})}, n\in\mathbf{N}_{+}$.
+	      \end{enumerate}
+
+	\item 设$a_n=\sin{1}+\dfrac{\sin{2}}{2!}+\cdots+\dfrac{\sin{n}}{n!}, n\in\mathbf{N}_{+}$, 证明: (1) 数列$\{a_n\}$有界, 但不单调; (2) $\{a_n\}$收敛.
+
+	\item 设从某个数列$\{a_n\}$定义$x_n=\sum\limits_{k=1}^n a_k, y_n=\sum\limits_{k=1}^n |a_k|, n\in\mathbf{N}_{+}$, 若数列$\{y_n\}$收敛, 证明$\{x_n\}$也收敛.\\
+	      (本题可以看成是上一题和例题3.4.1的推广.)
+
+	\item 设$S_n=1+\dfrac{1}{2^p}+\dfrac{1}{3^p}+\cdots+\dfrac{1}{n^p}, n\in\mathbf{N}_{+}$, 其中$p\leqslant 1$, 证明$\{S_n\}$发散.
+
+	\item 天文学中的Kepler方程$x-q\sin{x}=a (0<q<1)$是一个超越方程, 没有求根公式. 求近似解的一个方法是通过迭代. 取定$x_1$, 然后用递推公式$x_{n+1}=q\sin{x_n}+a, n\in\mathbf{N}_{+}$. 证明这个方法的正确性.
+\end{enumerate}
+
+\section{覆盖定理}
+\subsection{练习题 pp. 83.}
+\begin{enumerate}
+	\item 对开区间$(0,1)$构造一个开覆盖, 使得它的每一个有限子集都不能覆盖$(0,1)$.
+
+	\item 用闭区间套定理证明覆盖定理.
+
+	\item 用覆盖定理证明闭区间套定理.
+
+	\item 用覆盖定理证明凝聚定理.
+
+	\item 试对于例题3.5.2的证明举出两个具体例子, 即(1)数集$A$无上界; (2)$A$有上界, 且有$b<\xi=\sup{A}$和$\xi\notin A$.
+\end{enumerate}
+
+\section{数列的上极限和下极限}
+
+\section{对于教学的建议}
+\subsection{第一组参考题}
+\begin{enumerate}
+	\item 证明: 数列有界的充分必要条件是它的每个子列有收敛子列.
+
+	\item 证明: 数列收敛的充分必要条件是存在一个数$a$, 使数列的每个子列有收敛到$a$的子列.
+
+	\item 证明: 在有界闭区间上的无界函数一定在这个区间的某一点的每一个领域中无界. 又问: 在开区间上的无界函数是否有与此类似的性质?
+
+	\item 设函数$f$在区间$(a,b)$上定义, 对区间$(a,b)$的每一个点$\xi$, 存在$\xi>0$, 当$x\in(\xi-\delta,\xi+\delta)\cap(a,b)$时, 如$x<\xi$, 则$f(x)<\xi$, 如$x>\xi$, 则$f(x)>f(\xi)$. 证明: 函数$f$在$(a,b)$上严格单调增加.
+
+	\item 试用上下极限的工具证明Stolz定理.
+
+	\item 设$\{x_n\}, \{y_n\}$时正数列. 在以下乘积均有意义时证明:
+	      \[
+		      \varliminf_{n\to\infty} x_n \varliminf_{n\to\infty} y_n\leqslant \varliminf_{n\to\infty} (x_ny_n)\leqslant \varliminf_{n\to\infty} x_n \varlimsup_{n\to\infty} y_n \leqslant \varlimsup_{n\to\infty} (x_ny_n) \leqslant \varlimsup_{n\to\infty} x_n \varlimsup_{n\to\infty} y_n.
+	      \]
+
+	\item 设$\{x_n\}$为正数列. 用上下极限证明: 若$\lim\limits_{n\to\infty} \dfrac{x_{n+1}}{x_n}=l$, 则$\lim\limits_{n\to\infty} \sqrt[n]{x_n}=l$.
+
+	\item 若对于数列$\{x_n\}$的每个子列$\{a_{n_k}\}$都有$\lim\limits_{k\to\infty} \dfrac{a_{n_1}+a_{n_2}+\cdots+a_{n_k}}{k}=a$, 证明: $\lim\limits_{n\to\infty} a_n=a$.
+
+	\item 设$\{x_n\}$为正数列, 证明: $\varlimsup\limits_{n\to\infty} n\left(\dfrac{1+x_{n+1}}{x_n}-1\right)\geqslant 1$.
+
+	\item 设$\{x_n\}$为正数列, 证明: $\varlimsup\limits_{n\to\infty} \left(\dfrac{x_1+x_{n+1}}{x_n}\right)^n\geqslant \e$.
+\end{enumerate}
+
+\subsection{第二组参考题}
+\begin{enumerate}
+	\item 证明: 对于$\mathbf{R}$中的任何两个正数$a,b$, 如有$0<a<b$, 则存在一个自然数$n$使得$na>b$. (这个结论称为Archimedes原理或公理.)
+
+	\item 设有两个非空实数$A$和$B$, 满足条件: (1) $\mathbf{R}=A\cup B$; (2) 在$A$的每一个数都小于$B$中的每一个数. 证明: 或者$A$有最大数而$B$无最小数, 或者$B$有最小数而$A$无最大数.\\
+	      (这就是Dedekind的连续性定理或公理, 它与实数系的每一个基本定理等价.)
+
+	\item 证明: 将实数$\mathbf{R}$分成两个非空集合$A$和$B$, 则或者$A$中有数列收敛于$B$中的点, 或者$B$中有数列收敛于$A$中的点.\\
+	      (这个结论称为实数的连通性, 它与实数系的每一个基本定理等价.)
+
+	\item 试用压缩映射原理证明数列
+	      \[
+		      \sqrt{7}, \sqrt{7-\sqrt{7}}, \sqrt{7-\sqrt{7+\sqrt{7}}}, \sqrt{7-\sqrt{7+\sqrt{7-\sqrt{7}}}}, \cdots
+	      \]
+	      收敛, 并计算其极限.
+
+	\item 若对于每个数列$\{y_n\}$成立$\varlimsup\limits_{n\to\infty}(x_n+y_n)=\varlimsup\limits_{n\to\infty} x_n+\varlimsup\limits_{n\to\infty} y_n$, 证明数列$\{x_n\}$收敛.
+
+	\item
+	      \begin{enumerate}[(1)]
+		      \item 设$\{x_n\}$为正数列, 且$\varliminf\limits_{n\to\infty} x_n=0$. 证明: 存在无限多个$n$, 使成立
+		            \[
+			            x_n<x_k, k=1,2,\cdots,n-1.
+		            \]
+		      \item 设$\{x_n\}$为正数列, 且有正下界, 证明: $\varlimsup\limits_{n\to\infty} \dfrac{x_{n+1}}{x_n}\geqslant 1$.
+	      \end{enumerate}
+
+	\item 设$y_n=px_n+qx_{n+1}, n\in\mathbf{N}_{+}$, 其中$|p|<|q|$. 证明: 若$\{y_n\}$收敛, 则$\{x_n\}$也收敛.
+
+	\item 设$\{x_n\}$有界, 且$\lim\limits_{n\to\infty} (x_{2n}+2x_n)=A$. 证明: $\{x_n\}$收敛, 并求其极限.
+
+	\item 设$x_n=\sin{n}, n\in\mathbf{N}_{+}$, 证明数列$\{x_n\}$的极限点集合为$[-1,1]$.
+
+	\item 设$\{x_n\}$有界, 且$\lim\limits_{n\to\infty} (x_{n+1}-x_n)=0$. 将$\{x_n\}$的下极限和上极限分别记为$l$和$L$. 证明: 在区间$[l,L]$中的每一个点都是数列$\{x_n\}$的极限点.
+\end{enumerate}
+
+\ifx\all\undefined
+\end{document}
+\fi

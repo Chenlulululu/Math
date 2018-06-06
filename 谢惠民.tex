@@ -23,9 +23,12 @@
 \DeclareMathOperator{\arcosh}{arcosh}
 \DeclareMathOperator{\sgn}{sgn}
 \pagestyle{empty}
-\begin{document}
 \setlength\abovedisplayskip{3pt}
 \setlength\belowdisplayskip{3pt}
+\renewcommand{\proofname}{证明}
+\begin{document}
+\def\all_in_one{all_in_one}
+
 \begin{titlepage}
 	\begin{center}
 		\vfill
@@ -37,7 +40,7 @@
 	\end{center}
 
 \end{titlepage}
-\renewcommand{\proofname}{证明}
+
 
 \setcounter{chapter}{1}
 \chapter{数列极限}
@@ -1803,7 +1806,7 @@
 	      \begin{proof}[解答]
 		      \begin{enumerate}[(1)]
 			      \item $\begin{aligned}[t]
-					            \lim\limits_{x\to+\infty} \left(\dfrac{2}{\pi}\arctan{x}\right)^x & =  \lim\limits_{x\to+\infty} \left[1+\left(\dfrac{2}{\pi}\arctan{x}-1\right)\right]^{\dfrac{x\cdot\left(\dfrac{2}{\pi}\arctan{x}-1\right)}{\dfrac{2}{\pi}\arctan{x}-1} \\
+					            \lim\limits_{x\to+\infty} \left(\dfrac{2}{\pi}\arctan{x}\right)^x & =  \lim\limits_{x\to+\infty} \left[1+\left(\dfrac{2}{\pi}\arctan{x}-1\right)\right]^{\dfrac{x\cdot\left(\dfrac{2}{\pi}\arctan{x}-1\right)}{\dfrac{2}{\pi}\arctan{x}-1}} \\
 					                                                                              & =                                                                   {\rm exp}\left[\lim\limits_{x\to+\infty} x\left(\dfrac{2}{\pi}\arctan{x}-1\right)\right]           \\
 					                                                                              & =                                                                   \e^{-2/\pi}.
 				            \end{aligned}$
@@ -1866,14 +1869,26 @@
 		\begin{proof}
 			\[
 				\begin{split}
-					\lim\limits_{x\to 0} \left[\dfrac{a_1^x+a_2^x+\cdots+a_n^x}{n}\right]^{\frac{1}{x}}
+					& \lim\limits_{x\to 0} \left[\dfrac{a_1^x+a_2^x+\cdots+a_n^x}{n}\right]^{\frac{1}{x}}\\
+					=& \lim\limits_{x\to 0} \left(1+\dfrac{a_1^x+a_2^x+\cdots+a_n^x-n}{n}\right)^{\frac{n}{a_1^x+a_2^x+\cdots+a_n^x-n}\cdot\frac{a_1^x+a_2^x+\cdots+a_n^x-n}{2x}}\\
+					=& {\rm exp}\left(\lim\limits_{x\to 0} \dfrac{a_1^x+a_2^x+\cdots+a_n^x-n}{2x}\right)\\
+					=& {\rm exp}\left(\dfrac{\ln{a_1}+\ln{a_2}+\cdots+\ln{a_n}}{2}\right)\\
+					=& \sqrt{a_1a_2\cdots a_n}.
 				\end{split}
 			\]
 		\end{proof}
+		
 	\item 计算极限~$\lim\limits_{n\to\infty} \displaystyle\prod\limits_{k=1}^n \cos{\dfrac{x}{2^k}}$, 并证明~Vi\`ete~公式
 	      \[
 		      \dfrac{\pi}{2}=\dfrac{1}{ \sqrt{\dfrac{1}{2}} \cdot \sqrt{\dfrac{1}{2}+\dfrac{1}{2}\sqrt{\dfrac{1}{2}}} \cdot \sqrt{\dfrac{1}{2}+\dfrac{1}{2}\sqrt{\dfrac{1}{2}+\dfrac{1}{2}\sqrt{\dfrac{1}{2}}}}\cdots}.
 	      \]
-	      (这是数学家~Vi\`ete~在~1593~年发表的. 它是数学史上第一次用无穷乘积来表示一个数, 同时也是对于圆周率~$\pi$~的认识上的重大突破.)
+		(这是数学家~Vi\`ete~在~1593~年发表的. 它是数学史上第一次用无穷乘积来表示一个数, 同时也是对于圆周率~$\pi$~的认识上的重大突破.)
+		\begin{proof}
+			\[
+				\begin{split}
+				\prod\limits_{k=1}^n \cos{\dfrac{x}{2^k}}=
+				\end{split}
+			\]
+		\end{proof}
 \end{enumerate}
 \end{document}
